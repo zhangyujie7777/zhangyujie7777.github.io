@@ -14,13 +14,15 @@
     <main class="portfolio-home">
       <header class="hero-header" aria-label="首页导航">
         <div class="brand-banner" aria-label="Welcome">
-          <img src="./assets/home/brand-welcome-blank.png" alt="" />
-          <span class="welcome-type" data-typewriter="WELCOME">WELCOME</span>
+          <div class="brand-stage">
+            <img src="./assets/home/brand-welcome-blank.png" alt="" />
+            <span class="welcome-type" data-typewriter="WELCOME">WELCOME</span>
+          </div>
         </div>
 
         <div class="toolbar">
           <div class="location-chip" aria-label="目标区域">
-            <img src="./assets/home/location-icon.png" alt="" />
+            <img src="./assets/home/location-temple.png" alt="" />
             <span>Target Location: Beijing</span>
           </div>
 
@@ -58,9 +60,9 @@
       </header>
 
       <section class="main-grid" aria-label="作品集首页内容">
-        <aside class="profile-panel" aria-label="个人信息">
+        <aside class="profile-panel" id="profile" aria-label="个人信息">
           <div class="section-title">
-            <img class="title-icon" src="./assets/home/title-question.svg" alt="" />
+            <img class="title-icon" src="./assets/home/title-question.png" alt="" />
             <h1>Profile</h1>
           </div>
 
@@ -96,26 +98,26 @@
             </div>
           </div>
 
-          <button class="contact-trigger" type="button" data-action="contact">
+          <button class="contact-trigger" id="contact" type="button" data-action="contact">
             <img src="./assets/home/contact-button.png" alt="Contact Me" />
           </button>
         </aside>
 
-        <section class="works-panel" aria-label="设计作品">
+        <section class="works-panel" id="works" aria-label="设计作品">
           <div class="section-title">
-            <img class="title-icon" src="./assets/home/title-question.svg" alt="" />
+            <img class="title-icon" src="./assets/home/title-question.png" alt="" />
             <h2>Design Works</h2>
           </div>
 
           <div class="vinyl-grid">
             <a class="vinyl-card" href="./projects/work-jd.html">
               <img class="vinyl-image" src="./assets/home/vinyl-01.png" alt="" />
-              <strong>在京东设计作品</strong>
+              <strong>京东首页15.0项目</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
-            <a class="vinyl-card" href="./projects/work-bytedance.html">
+            <a class="vinyl-card" href="./projects/work-myjd.html">
               <img class="vinyl-image" src="./assets/home/vinyl-02.png" alt="" />
-              <strong>在字节幸福里作品</strong>
+              <strong>我的京东项目</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
             <a class="vinyl-card" href="./projects/work-selfmedia.html">
@@ -143,32 +145,26 @@
 
         <section class="more-panel" aria-label="更多作品">
           <div class="section-title">
-            <img class="title-icon" src="./assets/home/title-question.svg" alt="" />
-            <h2>More</h2>
+            <img class="title-icon" src="./assets/home/title-question.png" alt="" />
+            <h2>More Works</h2>
           </div>
 
           <div class="more-grid">
             <a class="more-card feature" href="./projects/more-2020-bill.html">
-              <img src="./assets/home/more-01.png" alt="2020 京东年度账单" />
+              <img src="./assets/home/more-new-01.png" alt="2020 京东年度账单" />
             </a>
             <a class="more-card" href="./projects/more-app-13.html">
-              <img src="./assets/home/more-02.png" alt="APP 13.0" />
+              <img src="./assets/home/more-new-02.png" alt="APP 13.0" />
             </a>
             <a class="more-card" href="./projects/more-3d-library.html">
-              <img src="./assets/home/more-03.png" alt="3D 组件库" />
+              <img src="./assets/home/more-new-03.png" alt="3D 组件库" />
             </a>
             <a class="more-card" href="./projects/more-widgets.html">
-              <img src="./assets/home/more-04.png" alt="Widgets" />
+              <img src="./assets/home/more-new-04.png" alt="Widgets" />
             </a>
-            <a class="more-card" href="./projects/more-plus-card.html">
-              <img src="./assets/home/more-05.png" alt="PLUS卡片改版研究" />
-            </a>
-            <a class="more-card" href="./projects/more-resource-upgrade.html">
-              <img src="./assets/home/more-06.png" alt="15.0资源位升级" />
-            </a>
-            <a class="more-card" href="./projects/more-transaction.html">
-              <img src="./assets/home/more-07.png" alt="交易链路" />
-            </a>
+            <span class="more-card more-card-empty" aria-hidden="true"></span>
+            <span class="more-card more-card-empty" aria-hidden="true"></span>
+            <span class="more-card more-card-empty" aria-hidden="true"></span>
           </div>
         </section>
       </section>
@@ -184,10 +180,17 @@
     <div class="modal" aria-hidden="true">
       <div class="modal-backdrop" data-action="close-modal"></div>
       <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+        <div class="modal-title-row">
+          <span class="modal-avatar" aria-hidden="true"></span>
+          <h2 id="contact-title">CONTACT ME</h2>
+        </div>
+        <p class="modal-subtitle">扫码加微信联系我</p>
+        <img class="modal-qr" src="./assets/home/contact-qr.svg" alt="微信二维码" />
+        <div class="modal-contact-info">
+          <p>Email: 915079987@qq.com</p>
+          <p>Phone: 185 7867 7301</p>
+        </div>
         <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">×</button>
-        <p class="modal-kicker">CONTACT</p>
-        <h2 id="contact-title">Contact Me</h2>
-        <p>联系弹窗内容先占位，后续可以放邮箱、微信二维码、简历下载或表单入口。</p>
       </section>
     </div>
 
