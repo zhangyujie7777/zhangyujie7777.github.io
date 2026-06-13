@@ -1,12 +1,33 @@
 const toast = document.querySelector(".toast");
 const modal = document.querySelector(".modal");
-const typewriter = document.querySelector("[data-typewriter]");
+let typewriter = document.querySelector("[data-typewriter]");
 let toastTimer;
+let toastAnchor;
+
+function updateLikeIcon(button) {
+  if (!button) return;
+  const icon = button.querySelector("img");
+  if (!icon) return;
+
+  const defaultSrc = icon.dataset.iconDefault || icon.getAttribute("src");
+  const likedSrc = icon.dataset.iconLiked || defaultSrc;
+  const isLiked = button.classList.contains("is-liked");
+  icon.setAttribute("src", isLiked ? likedSrc : defaultSrc);
+  button.setAttribute("aria-pressed", String(isLiked));
+}
 
 function showToast(message, anchor) {
   if (!toast) return;
   window.clearTimeout(toastTimer);
   toast.textContent = message;
+  document.body.classList.add("is-toast-showing");
+
+  if (toastAnchor) {
+    toastAnchor.classList.remove("is-toast-suppressed");
+  }
+
+  toastAnchor = anchor || null;
+  toastAnchor?.classList.add("is-toast-suppressed");
 
   if (anchor) {
     const rect = anchor.getBoundingClientRect();
@@ -22,6 +43,9 @@ function showToast(message, anchor) {
   toast.classList.add("is-visible");
   toastTimer = window.setTimeout(() => {
     toast.classList.remove("is-visible");
+    document.body.classList.remove("is-toast-showing");
+    toastAnchor?.classList.remove("is-toast-suppressed");
+    toastAnchor = null;
   }, 2200);
 }
 
@@ -30,7 +54,7 @@ async function copyCurrentUrl(anchor) {
 
   try {
     await navigator.clipboard.writeText(shareUrl);
-    showToast("链接已经复制成功，可以分享给其他人", anchor);
+    showToast("网站链接已复制", anchor);
   } catch (error) {
     const input = document.createElement("input");
     input.value = shareUrl;
@@ -38,7 +62,7 @@ async function copyCurrentUrl(anchor) {
     input.select();
     document.execCommand("copy");
     input.remove();
-    showToast("链接已经复制成功，可以分享给其他人", anchor);
+    showToast("网站链接已复制", anchor);
   }
 }
 
@@ -52,6 +76,66 @@ function closeModal() {
   if (!modal) return;
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
+}
+
+function initChromeBackground() {
+  const scrollContainer = document.querySelector(".detail-scroll");
+
+  function updateChromeBackground() {
+    const pageScrollTop = window.scrollY || document.documentElement.scrollTop;
+    const containerScrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
+    const scrollTop = Math.max(pageScrollTop, containerScrollTop);
+    document.body.classList.toggle("is-chrome-solid", scrollTop > 4);
+  }
+
+  updateChromeBackground();
+  window.addEventListener("scroll", updateChromeBackground, { passive: true });
+
+  if (scrollContainer) {
+    scrollContainer.addEventListener("scroll", updateChromeBackground, {
+      passive: true,
+    });
+  }
+}
+
+function injectDetailChrome() {
+  const main = document.querySelector("main.detail-page");
+  if (!main) return;
+
+  const existingHeader = document.querySelector(".case-header");
+  const existingNav = document.querySelector(".detail-nav");
+  if (existingHeader || existingNav) return;
+
+  document.body.classList.add("detail-shell");
+  main.querySelector(":scope > .back-link")?.remove();
+
+  const header = document.createElement("header");
+  header.className = "case-header case-header-home";
+  header.setAttribute("aria-label", "顶部品牌栏");
+  header.innerHTML = `
+    <div class="brand-banner" aria-label="Welcome">
+      <div class="brand-stage">
+        <img src="../assets/home/brand-welcome-blank.png" alt="" />
+        <span class="welcome-type" data-typewriter="WELCOME">WELCOME</span>
+      </div>
+    </div>
+  `;
+
+  const nav = document.createElement("nav");
+  nav.className = "detail-nav detail-nav-single";
+  nav.setAttribute("aria-label", "返回导航");
+  nav.innerHTML = `
+    <a class="case-back" href="../index.html" aria-label="返回首页">
+      <span class="case-back-icon">
+        <img src="../assets/jd-case/back.png" alt="" />
+      </span>
+      <span>BACK</span>
+    </a>
+  `;
+
+  document.body.insertBefore(header, main);
+  document.body.insertBefore(nav, main);
+  typewriter = document.querySelector("[data-typewriter]");
 }
 
 document.addEventListener("click", (event) => {
@@ -72,7 +156,8 @@ document.addEventListener("click", (event) => {
 
   if (action === "like") {
     actionElement.classList.toggle("is-liked");
-    showToast("你的点赞设计师收到啦，非常感谢", actionElement);
+    updateLikeIcon(actionElement);
+    showToast("收到你的点赞啦~", actionElement);
   }
 
   if (action === "contact") {
@@ -89,6 +174,8 @@ document.addEventListener("keydown", (event) => {
     closeModal();
   }
 });
+
+document.querySelectorAll('.icon-button[data-action="like"]').forEach(updateLikeIcon);
 
 function initCaseTabs() {
   const scrollContainer = document.querySelector(".detail-scroll");
@@ -172,6 +259,9 @@ function initCaseTabs() {
     moveIndicator(tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0]);
   });
 }
+
+injectDetailChrome();
+initChromeBackground();
 
 function runTypewriter() {
   if (!typewriter) return;

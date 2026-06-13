@@ -31,7 +31,7 @@
               class="icon-button"
               href="./assets/resume.pdf"
               download
-              data-toast="PDF简历开始下载"
+              data-toast="PDF下载"
               data-tooltip="下载PDF简历"
               aria-label="下载PDF简历"
             >
@@ -53,7 +53,12 @@
               data-tooltip="为设计师点赞"
               aria-label="为设计师点赞"
             >
-              <img src="./assets/home/icon-like.png" alt="" />
+              <img
+                src="./assets/home/icon-like.png"
+                data-icon-default="./assets/home/icon-like.png"
+                data-icon-liked="./assets/home/icon-like-liked.png"
+                alt=""
+              />
             </button>
           </nav>
         </div>
@@ -112,22 +117,22 @@
           <div class="vinyl-grid">
             <a class="vinyl-card" href="./projects/work-jd.html">
               <img class="vinyl-image" src="./assets/home/vinyl-01.png" alt="" />
-              <strong>京东首页15.0项目</strong>
+              <strong>在京东-首页作品</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
             <a class="vinyl-card" href="./projects/work-myjd.html">
               <img class="vinyl-image" src="./assets/home/vinyl-02.png" alt="" />
-              <strong>我的京东项目</strong>
+              <strong>在京东-我京作品</strong>
+              <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
+            </a>
+            <a class="vinyl-card" href="./projects/work-bytedance.html">
+              <img class="vinyl-image" src="./assets/home/vinyl-03.png" alt="" />
+              <strong>在字节-幸福里作品</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
             <a class="vinyl-card" href="./projects/work-selfmedia.html">
-              <img class="vinyl-image" src="./assets/home/vinyl-03.png" alt="" />
-              <strong>自媒体探索</strong>
-              <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
-            </a>
-            <a class="vinyl-card" href="./projects/work-c4d.html">
               <img class="vinyl-image" src="./assets/home/vinyl-04.png" alt="" />
-              <strong>C4d作品</strong>
+              <strong>自媒体探索</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
             <a class="vinyl-card" href="./projects/work-vibecoding.html">
@@ -179,18 +184,11 @@
 
     <div class="modal" aria-hidden="true">
       <div class="modal-backdrop" data-action="close-modal"></div>
-      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-        <div class="modal-title-row">
-          <span class="modal-avatar" aria-hidden="true"></span>
-          <h2 id="contact-title">CONTACT ME</h2>
-        </div>
-        <p class="modal-subtitle">扫码加微信联系我</p>
-        <img class="modal-qr" src="./assets/home/contact-qr.svg" alt="微信二维码" />
-        <div class="modal-contact-info">
-          <p>Email: 915079987@qq.com</p>
-          <p>Phone: 185 7867 7301</p>
-        </div>
-        <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">×</button>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-label="Contact Me">
+        <img class="modal-sheet" src="./assets/home/contact-modal.png" alt="Contact Me 弹窗内容" />
+        <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">
+          <img src="./assets/home/modal-close.png" alt="" />
+        </button>
       </section>
     </div>
 
