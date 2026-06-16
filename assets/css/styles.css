@@ -18,9 +18,10 @@
   --yellow: #ffe5a4;
   --page-max: 1200px;
   --page-pad: 32px;
+  --page-shell: min(100%, var(--page-max));
   --content-width: min(
-    calc(100vw - var(--page-pad) - var(--page-pad)),
-    calc(var(--page-max) - var(--page-pad) - var(--page-pad))
+    calc(100vw - (var(--page-pad) * 2)),
+    calc(var(--page-max) - (var(--page-pad) * 2))
   );
   --content-edge: max(var(--page-pad), calc((100vw - var(--content-width)) / 2));
   --grid-gap: 32px;
@@ -65,7 +66,8 @@ button {
 }
 
 .portfolio-home {
-  width: min(var(--page-max), 100%);
+  width: 100%;
+  max-width: var(--page-shell);
   min-height: 100vh;
   margin: 0 auto;
   padding: 100px var(--page-pad) 132px;
@@ -581,8 +583,8 @@ body.is-toast-showing .icon-button::after,
   display: grid;
   align-content: center;
   min-height: 100vh;
-  max-width: var(--page-max);
   width: 100%;
+  max-width: var(--page-shell);
   margin: 0 auto;
   padding: 80px var(--page-pad);
 }
@@ -633,7 +635,8 @@ body.is-toast-showing .icon-button::after,
 
 .detail-shell .detail-page {
   align-content: start;
-  width: min(var(--page-max), 100%);
+  width: 100%;
+  max-width: var(--page-shell);
   padding-top: calc(var(--case-header-height) + var(--case-nav-height) + 64px);
 }
 
@@ -682,7 +685,8 @@ body.is-toast-showing .icon-button::after,
 .jd-case-page {
   --case-header-height: 138px;
   --case-nav-height: 80px;
-  width: min(var(--page-max), 100%);
+  width: 100%;
+  max-width: var(--page-shell);
   min-height: 100vh;
   margin: 0 auto;
   padding: 120px var(--page-pad) 132px;
@@ -1715,7 +1719,8 @@ body.is-toast-showing .icon-button::after,
 }
 
 .jd-case-page {
-  width: min(var(--page-max), 100%);
+  width: 100%;
+  max-width: var(--page-shell);
   margin: 0 auto;
   padding: 100px var(--page-pad) 132px;
 }
@@ -1926,6 +1931,217 @@ body.is-toast-showing .icon-button::after,
   max-width: 892px;
 }
 
+.annual-bill-section {
+  padding-top: 20px;
+}
+
+.annual-bill-page-title {
+  width: 100%;
+  margin: 0 0 72px;
+  color: #1a1a1a;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: 0;
+}
+
+.annual-bill-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  width: 100%;
+}
+
+.annual-bill-block {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+}
+
+.annual-bill-text-row {
+  display: grid;
+  grid-template-columns: 276px minmax(0, 892px);
+  gap: 32px;
+  width: 100%;
+  min-height: 167px;
+  align-items: start;
+}
+
+.annual-bill-text-row-compact {
+  min-height: 174px;
+}
+
+.annual-bill-text-row-rich {
+  min-height: 230px;
+}
+
+.annual-bill-text-row-result {
+  min-height: 136px;
+}
+
+.annual-bill-index {
+  width: 100%;
+  margin: 0;
+  color: #000;
+  font-family: var(--pixel-font);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 42px;
+  text-transform: uppercase;
+}
+
+.annual-bill-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 892px;
+  max-width: 100%;
+}
+
+.annual-bill-copy h2 {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.annual-bill-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 430px));
+  gap: 32px;
+  width: 100%;
+  align-items: start;
+}
+
+.annual-bill-copy-col,
+.annual-bill-richtext {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.annual-bill-copy-col p,
+.annual-bill-richtext p {
+  margin: 0 0 8px;
+}
+
+.annual-bill-copy-col p:last-child,
+.annual-bill-richtext p:last-child {
+  margin-bottom: 0;
+}
+
+.annual-bill-copy-col span,
+.annual-bill-richtext span {
+  font-weight: 500;
+}
+
+.annual-bill-figure {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.annual-bill-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  background: #fff;
+}
+
+.annual-bill-figure-hero,
+.annual-bill-figure-screens {
+  aspect-ratio: 1200 / 675;
+}
+
+.annual-bill-figure-strategy {
+  aspect-ratio: 1200 / 398;
+}
+
+.annual-bill-figure-result {
+  aspect-ratio: 1200 / 628;
+}
+
+.annual-bill-figure-hero img,
+.annual-bill-figure-screens img,
+.annual-bill-figure-strategy img,
+.annual-bill-figure-result img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app13-section {
+  padding-top: 20px;
+}
+
+.app13-stack {
+  gap: 72px;
+}
+
+.app13-text-block {
+  gap: 0;
+}
+
+.app13-work-block {
+  gap: 48px;
+}
+
+.app13-figure {
+  aspect-ratio: 1200 / 675;
+}
+
+.app13-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app13-figure-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.library3d-section {
+  padding-top: 20px;
+}
+
+.library3d-stack {
+  gap: 72px;
+}
+
+.library3d-text-block {
+  gap: 0;
+}
+
+.library3d-figure {
+  background: #fff;
+}
+
+.library3d-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.library3d-figure-overview {
+  aspect-ratio: 1200 / 624;
+}
+
+.library3d-figure-assets {
+  aspect-ratio: 1200 / 588;
+}
+
+.library3d-figure-usage {
+  aspect-ratio: 1200 / 735;
+}
+
 .myjd-section {
   padding-top: 50px;
 }
@@ -1972,6 +2188,18 @@ body.is-toast-showing .icon-button::after,
     top: var(--case-header-height);
   }
 
+  .annual-bill-text-row {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .annual-bill-copy {
+    width: 100%;
+  }
+
+  .annual-bill-two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .home-project-row {
     grid-template-columns: 220px minmax(0, 1fr);
   }
@@ -1994,6 +2222,24 @@ body.is-toast-showing .icon-button::after,
 
   .jd-case-page .detail-nav {
     top: var(--case-header-height);
+  }
+
+  .annual-bill-page-title {
+    font-size: 32px;
+    line-height: 34px;
+  }
+
+  .annual-bill-stack {
+    gap: 56px;
+  }
+
+  .annual-bill-text-row {
+    grid-template-columns: 150px minmax(0, 1fr);
+  }
+
+  .annual-bill-index {
+    font-size: 30px;
+    line-height: 30px;
   }
 
   .home-project-title {
@@ -2030,6 +2276,70 @@ body.is-toast-showing .icon-button::after,
 
   .jd-case-page .detail-nav {
     top: var(--case-header-height);
+  }
+
+  .annual-bill-section {
+    padding-top: 36px;
+  }
+
+  .annual-bill-page-title {
+    margin-bottom: 48px;
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .annual-bill-stack {
+    gap: 48px;
+  }
+
+  .annual-bill-block {
+    gap: 32px;
+  }
+
+  .annual-bill-text-row,
+  .annual-bill-text-row-compact,
+  .annual-bill-text-row-rich,
+  .annual-bill-text-row-result {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: 0;
+  }
+
+  .annual-bill-index {
+    font-size: 26px;
+    line-height: 28px;
+  }
+
+  .annual-bill-copy {
+    gap: 24px;
+  }
+
+  .annual-bill-copy h2 {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .annual-bill-two-col {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .annual-bill-copy-col,
+  .annual-bill-richtext {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .app13-work-block {
+    gap: 32px;
+  }
+
+  .app13-figure-stack {
+    gap: 16px;
+  }
+
+  .library3d-section {
+    padding-top: 36px;
   }
 
   .home-project-stack {
@@ -2088,13 +2398,13 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
-/* Unified fixed chrome: homepage and every detail page share the same top frame. */
+/* Unified fixed chrome: homepage keeps brand plus nav, detail pages keep nav only. */
 :root {
   --chrome-top: 80px;
   --chrome-brand-height: 138px;
   --chrome-nav-height: 80px;
   --chrome-content-gap: 48px;
-  --chrome-shell-width: min(100%, var(--page-max));
+  --chrome-shell-width: var(--page-shell);
   --chrome-mask-height: calc(
     var(--chrome-top) + var(--chrome-brand-height) +
       var(--chrome-nav-height)
@@ -2102,6 +2412,14 @@ body.is-toast-showing .icon-button::after,
   --chrome-content-offset: calc(
     var(--chrome-top) + var(--chrome-brand-height) +
       var(--chrome-nav-height) + var(--chrome-content-gap)
+  );
+}
+
+body.case-body,
+body.detail-shell {
+  --chrome-mask-height: calc(var(--chrome-top) + var(--chrome-nav-height));
+  --chrome-content-offset: calc(
+    var(--chrome-top) + var(--chrome-nav-height) + var(--chrome-content-gap)
   );
 }
 
@@ -2185,31 +2503,22 @@ body.is-chrome-solid::before {
   height: var(--chrome-nav-height);
 }
 
+body.case-body,
 .detail-shell,
 .jd-case-page {
-  --case-header-height: var(--chrome-brand-height);
+  --case-header-height: 0px;
   --case-nav-height: var(--chrome-nav-height);
 }
 
 .detail-shell .case-header,
 .jd-case-page .case-header {
-  position: fixed;
-  top: var(--chrome-top);
-  right: auto;
-  left: 50%;
-  z-index: 150;
-  display: grid;
-  width: var(--chrome-shell-width);
-  height: var(--chrome-brand-height);
-  padding: 0 var(--page-pad);
-  place-items: center;
-  transform: translateX(-50%);
+  display: none;
 }
 
 .detail-shell .detail-nav,
 .jd-case-page .detail-nav {
   position: fixed;
-  top: calc(var(--chrome-top) + var(--chrome-brand-height));
+  top: var(--chrome-top);
   right: auto;
   left: 50%;
   z-index: 150;
@@ -2242,6 +2551,14 @@ body.is-chrome-solid::before {
   .brand-stage {
     --brand-scale: 0.797;
   }
+
+  body.case-body,
+  body.detail-shell {
+    --chrome-mask-height: calc(var(--chrome-top) + var(--chrome-nav-height));
+    --chrome-content-offset: calc(
+      var(--chrome-top) + var(--chrome-nav-height) + var(--chrome-content-gap)
+    );
+  }
 }
 
 @media (max-width: 1023px) {
@@ -2250,6 +2567,14 @@ body.is-chrome-solid::before {
     --chrome-brand-height: 110px;
     --chrome-nav-height: 76px;
     --chrome-content-gap: 40px;
+  }
+
+  body.case-body,
+  body.detail-shell {
+    --chrome-mask-height: calc(var(--chrome-top) + var(--chrome-nav-height));
+    --chrome-content-offset: calc(
+      var(--chrome-top) + var(--chrome-nav-height) + var(--chrome-content-gap)
+    );
   }
 }
 
@@ -2265,6 +2590,14 @@ body.is-chrome-solid::before {
     --brand-scale: 0.623;
   }
 
+  body.case-body,
+  body.detail-shell {
+    --chrome-mask-height: calc(var(--chrome-top) + var(--chrome-nav-height));
+    --chrome-content-offset: calc(
+      var(--chrome-top) + var(--chrome-nav-height) + var(--chrome-content-gap)
+    );
+  }
+
   .hero-header,
   .detail-shell .case-header,
   .detail-shell .detail-nav,
@@ -2273,4 +2606,39 @@ body.is-chrome-solid::before {
     left: 50%;
     width: var(--chrome-shell-width);
   }
+}
+
+/* Final shell guard: the visible page frame must never exceed 1200px. */
+:root {
+  --page-shell: min(100%, var(--page-max));
+  --content-width: min(
+    calc(100vw - (var(--page-pad) * 2)),
+    calc(var(--page-max) - (var(--page-pad) * 2))
+  );
+  --content-edge: max(var(--page-pad), calc((100vw - var(--content-width)) / 2));
+  --chrome-shell-width: var(--page-shell);
+}
+
+.portfolio-home,
+.detail-page,
+.detail-shell .detail-page,
+.jd-case-page {
+  width: 100%;
+  max-width: var(--page-shell);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.hero-header,
+.detail-shell .detail-nav,
+.jd-case-page .detail-nav {
+  width: var(--chrome-shell-width);
+  max-width: var(--chrome-shell-width);
+  padding-right: var(--page-pad);
+  padding-left: var(--page-pad);
+}
+
+.jd-case-page .case-section {
+  width: 100%;
+  max-width: 100%;
 }

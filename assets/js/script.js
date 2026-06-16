@@ -102,24 +102,11 @@ function injectDetailChrome() {
   const main = document.querySelector("main.detail-page");
   if (!main) return;
 
-  const existingHeader = document.querySelector(".case-header");
   const existingNav = document.querySelector(".detail-nav");
-  if (existingHeader || existingNav) return;
+  if (existingNav) return;
 
   document.body.classList.add("detail-shell");
   main.querySelector(":scope > .back-link")?.remove();
-
-  const header = document.createElement("header");
-  header.className = "case-header case-header-home";
-  header.setAttribute("aria-label", "顶部品牌栏");
-  header.innerHTML = `
-    <div class="brand-banner" aria-label="Welcome">
-      <div class="brand-stage">
-        <img src="../assets/home/brand-welcome-blank.png" alt="" />
-        <span class="welcome-type" data-typewriter="WELCOME">WELCOME</span>
-      </div>
-    </div>
-  `;
 
   const nav = document.createElement("nav");
   nav.className = "detail-nav detail-nav-single";
@@ -133,9 +120,7 @@ function injectDetailChrome() {
     </a>
   `;
 
-  document.body.insertBefore(header, main);
   document.body.insertBefore(nav, main);
-  typewriter = document.querySelector("[data-typewriter]");
 }
 
 document.addEventListener("click", (event) => {
