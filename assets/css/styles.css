@@ -16,11 +16,11 @@
   --pink: #ffe6f6;
   --rose: #ffe1e1;
   --yellow: #ffe5a4;
-  --page-max: 960px;
+  --page-max: 1200px;
   --detail-page-max: 1200px;
   --chrome-visual-max: 1200px;
   --page-pad: 32px;
-  --page-inner: min(100%, var(--page-max));
+  --page-inner: var(--page-max);
   --grid-gap: 32px;
   --column-size: 276px;
   --vinyl-size: 250px;
@@ -57,15 +57,26 @@ body {
 
 body.home-body {
   --paper: #f9f9f9;
-  --page-max: 960px;
+  --page-max: 1200px;
   --body-font:
     "PingFang SC", "Microsoft YaHei", Inter, "Helvetica Neue", Arial,
     sans-serif;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   body.home-body {
     --page-pad: 0px;
+  }
+}
+
+@media (min-width: 600px) {
+  html {
+    overflow-x: auto;
+  }
+
+  body {
+    min-width: 1200px;
+    overflow-x: visible;
   }
 }
 
@@ -879,7 +890,7 @@ body.is-toast-showing .icon-button::after,
   width: 100%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .case-rebuild-stack {
     gap: 72px;
   }
@@ -1253,7 +1264,7 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 600px) {
   :root {
     --grid-gap: 24px;
     --column-size: 220px;
@@ -1303,7 +1314,7 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 600px) {
   :root {
     --vinyl-size: 240px;
   }
@@ -1389,7 +1400,7 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   :root {
     --page-pad: 24px;
     --dot: rgba(0, 0, 0, 0.035);
@@ -1730,7 +1741,7 @@ body.is-toast-showing .icon-button::after,
   white-space: nowrap;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   .project-bottom-nav {
     width: 100%;
     margin-top: 72px;
@@ -2338,7 +2349,7 @@ body.is-toast-showing .icon-button::after,
   white-space: nowrap;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 600px) {
   .myjd-case-page {
     padding-top: 44px;
     padding-bottom: 88px;
@@ -2361,7 +2372,7 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 600px) {
   .myjd-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -2387,7 +2398,7 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   .myjd-case-page {
     padding-inline: 16px;
     padding-top: 32px;
@@ -2492,7 +2503,7 @@ body.is-toast-showing .icon-button::after,
   height: auto;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 600px) {
   .home-project-row {
     grid-template-columns: 220px minmax(0, 1fr);
   }
@@ -2505,7 +2516,7 @@ body.is-toast-showing .icon-button::after,
 
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 600px) {
   .home-project-title {
     font-size: 32px;
     line-height: 34px;
@@ -2529,7 +2540,7 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   .app13-work-block {
     gap: 32px;
   }
@@ -2608,7 +2619,7 @@ body.home-body .hero-header .toolbar {
   min-height: 56px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 600px) {
   body.home-body {
     --grid-gap: 40px;
     --vinyl-size: 208px;
@@ -2718,7 +2729,7 @@ body.home-body .hero-header .toolbar {
 }
 
 .page-container {
-  width: 100%;
+  width: var(--page-max);
   max-width: var(--page-max);
   margin-right: auto;
   margin-left: auto;
@@ -2729,22 +2740,23 @@ body.home-body .hero-header .toolbar {
 .jd-case-page,
 .detail-page,
 .widgets-inner {
-  width: 100%;
+  width: var(--detail-page-max);
   max-width: var(--detail-page-max);
   margin-right: auto;
   margin-left: auto;
-  padding-right: 24px;
-  padding-left: 24px;
+  padding-right: 0;
+  padding-left: 0;
   box-sizing: border-box;
 }
 
 .portfolio-home {
+  width: var(--page-max);
   max-width: var(--page-max);
 }
 
 .hero-header,
 body.home-body .hero-header {
-  width: 100%;
+  width: var(--page-max);
   max-width: var(--page-max);
   box-sizing: border-box;
 }
@@ -2784,25 +2796,34 @@ body.home-body .hero-header {
   height: auto;
 }
 
-@media (min-width: 768px) {
-  .page-section,
-  .portfolio-home,
-  .jd-case-page,
-  .detail-page,
-  .widgets-page .case-rebuild-page {
-    padding-right: 40px;
-    padding-left: 40px;
+@media (max-width: 600px) {
+  :root {
+    --page-inner: 100%;
   }
-}
 
-@media (min-width: 1440px) {
-  .page-section,
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  .page-container,
   .portfolio-home,
   .jd-case-page,
   .detail-page,
+  .widgets-inner,
+  .hero-header,
+  body.home-body .hero-header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .portfolio-home,
+  .jd-case-page,
+  .detail-page,
+  .widgets-inner,
   .widgets-page .case-rebuild-page {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 }
 
@@ -3239,7 +3260,7 @@ body.myjd-case-body .transaction-detail-nav-button:disabled:focus-visible {
   filter: none;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 600px) {
   body.myjd-case-body .myjd-case-page {
     padding-top: 44px;
     padding-bottom: 88px;
@@ -3262,7 +3283,7 @@ body.myjd-case-body .transaction-detail-nav-button:disabled:focus-visible {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 600px) {
   body.myjd-case-body .myjd-case-page {
     padding-inline: 24px;
   }
@@ -3283,7 +3304,7 @@ body.myjd-case-body .transaction-detail-nav-button:disabled:focus-visible {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   body.myjd-case-body .myjd-case-page {
     padding-inline: 16px;
     padding-top: 32px;
@@ -3390,7 +3411,7 @@ body.myjd-case-body .myjd-project-badge {
   height: 42px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   body.myjd-case-body .jd-case-page.myjd-case-page {
     width: 1080px;
     max-width: 1080px;
@@ -3423,7 +3444,7 @@ body.myjd-case-body .myjd-project-badge {
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 600px) {
   body.myjd-case-body .jd-case-page.myjd-case-page {
     width: 100%;
     max-width: 1080px;
@@ -3432,14 +3453,14 @@ body.myjd-case-body .myjd-project-badge {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 600px) {
   body.myjd-case-body .jd-case-page.myjd-case-page {
     padding-right: 24px;
     padding-left: 24px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   body.myjd-case-body .jd-case-page.myjd-case-page {
     padding-right: 16px;
     padding-left: 16px;
