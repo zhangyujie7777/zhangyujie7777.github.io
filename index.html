@@ -8,9 +8,10 @@
       name="description"
       content="张玉杰个人设计作品集，包含个人信息、设计作品、更多项目入口与联系入口。"
     />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260616-1200" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260619-home-header-fix-6" />
   </head>
-  <body>
+  <body class="home-body">
     <main class="portfolio-home">
       <header class="hero-header" aria-label="首页导航">
         <div class="brand-banner" aria-label="Welcome">
@@ -23,7 +24,7 @@
         <div class="toolbar">
           <div class="location-chip" aria-label="目标区域">
             <img src="./assets/home/location-temple.png" alt="" />
-            <span>Target Location: Beijing</span>
+            <span>Base Beijing</span>
           </div>
 
           <nav class="action-nav" aria-label="快捷操作">
@@ -75,7 +76,7 @@
 
           <div class="profile-copy">
             <h2>张玉杰</h2>
-            <p class="role">UI Designer / Product Designer</p>
+            <p class="role">UI+视觉设计师</p>
             <p>注重产品体验，视觉表达与复杂业务场景的设计落地。</p>
             <div class="tag-row">
               <span>UI</span>
@@ -84,7 +85,7 @@
             </div>
           </div>
 
-          <div class="profile-block">
+          <div class="profile-block education-block">
             <h3>Education</h3>
             <p>2017年毕业于海南大学<br />广告学专业，统招本科。</p>
             <div class="tag-row soft">
@@ -93,18 +94,18 @@
             </div>
           </div>
 
-          <div class="profile-block">
+          <div class="profile-block experience-block">
             <h3>Experience</h3>
-            <p>京东零售 / 字节跳动 / 百度（广州）</p>
+            <p>京东零售/字节跳动/百度（广州）</p>
             <div class="tag-row warm">
               <span>互联网</span>
               <span>UED</span>
-              <span>C端APP</span>
+              <span>c端APP</span>
             </div>
           </div>
 
           <button class="contact-trigger" id="contact" type="button" data-action="contact">
-            <img src="./assets/home/contact-button.png" alt="Contact Me" />
+            <img src="./assets/home/contact-button.png?v=20260618-2" alt="WeChat" />
           </button>
         </aside>
 
@@ -115,47 +116,47 @@
           </div>
 
           <div class="vinyl-grid">
-            <a class="vinyl-card" href="./projects/work-jd.html">
-              <img class="vinyl-image" src="./assets/home/vinyl-01.png" alt="" />
-              <strong>在京东-首页作品</strong>
-              <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
-            </a>
             <a class="vinyl-card" href="./projects/work-myjd.html">
-              <img class="vinyl-image" src="./assets/home/vinyl-02.png" alt="" />
+              <img class="vinyl-image" src="./assets/home/vinyl-01.png" alt="" />
               <strong>在京东-我京作品</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
-            <a class="vinyl-card" href="./projects/work-bytedance.html">
+            <a class="vinyl-card" href="./projects/work-transaction.html">
+              <img class="vinyl-image" src="./assets/home/vinyl-02.png" alt="" />
+              <strong>在京东-交易链路</strong>
+              <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
+            </a>
+            <a class="vinyl-card" href="./projects/work-jd.html">
               <img class="vinyl-image" src="./assets/home/vinyl-03.png" alt="" />
+              <strong>在京东-首页作品</strong>
+              <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
+            </a>
+            <a class="vinyl-card" href="./projects/work-bytedance.html">
+              <img class="vinyl-image" src="./assets/home/vinyl-04.png" alt="" />
               <strong>在字节-幸福里作品</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
             <a class="vinyl-card" href="./projects/work-selfmedia.html">
-              <img class="vinyl-image" src="./assets/home/vinyl-04.png" alt="" />
+              <img class="vinyl-image" src="./assets/home/vinyl-05.png" alt="" />
               <strong>自媒体探索</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
-            <a class="vinyl-card" href="./projects/work-vibecoding.html">
-              <img class="vinyl-image" src="./assets/home/vinyl-05.png" alt="" />
-              <strong>Vibecoding 探索</strong>
-              <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
-            </a>
-            <a class="vinyl-card" href="./projects/work-widgets.html">
+            <a class="vinyl-card" href="./projects/work-ai-tools.html">
               <img class="vinyl-image" src="./assets/home/vinyl-06.png" alt="" />
-              <strong>小组件设计</strong>
+              <strong>AI工具使用</strong>
               <img class="card-arrow" src="./assets/home/arrow-dot.png" alt="" />
             </a>
           </div>
         </section>
 
-        <section class="more-panel" aria-label="更多作品">
+        <section class="more-panel" id="more-works" aria-label="更多作品">
           <div class="section-title">
             <img class="title-icon" src="./assets/home/title-question.png" alt="" />
-            <h2>More Works</h2>
+            <h2><span class="more-title-emphasis">More</span> Works</h2>
           </div>
 
           <div class="more-grid">
-            <a class="more-card feature" href="./projects/more-2020-bill.html">
+            <a class="more-card" href="./projects/more-2020-bill.html">
               <img src="./assets/home/more-new-01.png" alt="2020 京东年度账单" />
             </a>
             <a class="more-card" href="./projects/more-app-13.html">
@@ -167,16 +168,13 @@
             <a class="more-card" href="./projects/more-widgets.html">
               <img src="./assets/home/more-new-04.png" alt="Widgets" />
             </a>
-            <span class="more-card more-card-empty" aria-hidden="true"></span>
-            <span class="more-card more-card-empty" aria-hidden="true"></span>
-            <span class="more-card more-card-empty" aria-hidden="true"></span>
           </div>
         </section>
       </section>
 
       <footer class="site-footer" aria-label="底部信息">
-        <img src="./assets/home/footer-left.png" alt="Design By Yujie Zhang" />
-        <img src="./assets/home/footer-right.png" alt="Designed In Figma Built With Codex" />
+        <img src="./assets/home/footer-left.png?v=20260618-2" alt="Design By Yujie Zhang" />
+        <img src="./assets/home/footer-right.png?v=20260618-2" alt="Designed In Figma Built With Codex" />
       </footer>
     </main>
 
@@ -192,6 +190,6 @@
       </section>
     </div>
 
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js?v=20260619-home-restore"></script>
   </body>
 </html>
