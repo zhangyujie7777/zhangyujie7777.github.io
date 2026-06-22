@@ -3471,3 +3471,289 @@ body.myjd-case-body .myjd-project-badge {
     height: 30px;
   }
 }
+
+body.myjd-case-body .myjd-redo-page {
+  max-width: 1080px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+body.myjd-case-body .myjd-redo-page .myjd-page-header {
+  margin-bottom: 72px;
+}
+
+body.myjd-case-body .myjd-redo-section {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+body.myjd-case-body .myjd-redo-project {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+body.myjd-case-body .myjd-redo-project-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body.myjd-case-body .myjd-redo-project-badge {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  background: url("../detail-cases/title-question-icon.png") center / contain no-repeat;
+  image-rendering: pixelated;
+}
+
+body.myjd-case-body .myjd-redo-project-title {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+body.myjd-case-body .myjd-redo-row {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+body.myjd-case-body .myjd-redo-row-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body.myjd-case-body .myjd-redo-row-index {
+  color: #1a1a1a;
+  font-family: var(--pixel-font);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+body.myjd-case-body .myjd-redo-row-title {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+body.myjd-case-body .myjd-redo-card-grid {
+  display: grid;
+  gap: 36px;
+}
+
+body.myjd-case-body .myjd-redo-card-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.myjd-case-body .myjd-redo-card-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.myjd-case-body .myjd-redo-card-grid--work {
+  grid-template-columns: 336px 708px;
+}
+
+body.myjd-case-body .myjd-redo-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 24px;
+  padding: 36px;
+  border-radius: 24px;
+  background: #ffffff;
+}
+
+body.myjd-case-body .myjd-redo-card--overview {
+  min-height: 251px;
+}
+
+body.myjd-case-body .myjd-redo-card--tint-yellow {
+  min-height: 295px;
+  background: #fff6d2;
+}
+
+body.myjd-case-body .myjd-redo-card--tint-green {
+  min-height: 295px;
+  background: #e7f8e1;
+}
+
+body.myjd-case-body .myjd-redo-card--work-left {
+  min-height: 354px;
+}
+
+body.myjd-case-body .myjd-redo-card--work-right {
+  min-height: 354px;
+}
+
+body.myjd-case-body .myjd-redo-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body.myjd-case-body .myjd-redo-card-title-wrap img {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+}
+
+body.myjd-case-body .myjd-redo-card-title {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+body.myjd-case-body .myjd-redo-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+body.myjd-case-body .myjd-redo-copy--meta {
+  gap: 8px;
+}
+
+body.myjd-case-body .myjd-redo-copy p {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+body.myjd-case-body .myjd-redo-copy strong {
+  font-weight: 500;
+}
+
+body.myjd-case-body .myjd-redo-figure-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+body.myjd-case-body .myjd-redo-figure {
+  margin: 0;
+}
+
+body.myjd-case-body .myjd-redo-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body.myjd-case-body .myjd-redo-bottom-nav {
+  margin-top: 0;
+}
+
+@media (max-width: 960px) {
+  body.myjd-case-body .myjd-redo-page {
+    padding-top: 72px;
+    padding-bottom: 88px;
+  }
+
+  body.myjd-case-body .myjd-redo-section {
+    gap: 96px;
+  }
+
+  body.myjd-case-body .myjd-redo-project {
+    gap: 56px;
+  }
+
+  body.myjd-case-body .myjd-redo-card-grid--three,
+  body.myjd-case-body .myjd-redo-card-grid--two,
+  body.myjd-case-body .myjd-redo-card-grid--work {
+    grid-template-columns: 1fr;
+  }
+
+  body.myjd-case-body .myjd-redo-card--overview,
+  body.myjd-case-body .myjd-redo-card--tint-yellow,
+  body.myjd-case-body .myjd-redo-card--tint-green,
+  body.myjd-case-body .myjd-redo-card--work-left,
+  body.myjd-case-body .myjd-redo-card--work-right {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  body.myjd-case-body .myjd-redo-page {
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+
+  body.myjd-case-body .myjd-redo-page .myjd-page-header {
+    margin-bottom: 48px;
+  }
+
+  body.myjd-case-body .myjd-redo-section {
+    gap: 72px;
+  }
+
+  body.myjd-case-body .myjd-redo-project {
+    gap: 48px;
+  }
+
+  body.myjd-case-body .myjd-redo-row {
+    gap: 24px;
+  }
+
+  body.myjd-case-body .myjd-redo-row-head {
+    gap: 12px;
+  }
+
+  body.myjd-case-body .myjd-redo-project-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  body.myjd-case-body .myjd-redo-row-index {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  body.myjd-case-body .myjd-redo-row-title {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  body.myjd-case-body .myjd-redo-card-grid,
+  body.myjd-case-body .myjd-redo-figure-stack {
+    gap: 20px;
+  }
+
+  body.myjd-case-body .myjd-redo-card {
+    padding: 24px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+
+  body.myjd-case-body .myjd-redo-card-title-wrap img {
+    width: 28px;
+    height: 28px;
+  }
+
+  body.myjd-case-body .myjd-redo-card-title {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  body.myjd-case-body .myjd-redo-copy {
+    gap: 6px;
+  }
+
+  body.myjd-case-body .myjd-redo-copy p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
