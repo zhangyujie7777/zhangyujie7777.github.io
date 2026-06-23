@@ -226,30 +226,22 @@ function initProjectNavigation() {
   const currentFile = window.location.pathname.split("/").pop();
   const projectNavigation = {
     "work-myjd.html": {
-      next: { file: "work-transaction.html", title: "在京东-交易链路" },
-    },
-    "work-transaction.html": {
-      previous: { file: "work-myjd.html", title: "我京详情页" },
-      next: { file: "work-jd.html", title: "在京东-首页节点" },
+      next: { file: "work-jd.html", title: "在京东-首页作品" },
     },
     "work-jd.html": {
-      previous: { file: "work-transaction.html", title: "在京东-交易链路" },
+      previous: { file: "work-myjd.html", title: "在京东-我京作品" },
       next: { file: "work-bytedance.html", title: "在字节-幸福里作品" },
     },
     "work-bytedance.html": {
-      previous: { file: "work-jd.html", title: "在京东-首页节点" },
+      previous: { file: "work-jd.html", title: "在京东-首页作品" },
       next: { file: "work-selfmedia.html", title: "自媒体探索" },
     },
     "work-selfmedia.html": {
       previous: { file: "work-bytedance.html", title: "在字节-幸福里作品" },
-      next: { file: "work-ai-tools.html", title: "AI能力系统提升" },
-    },
-    "work-ai-tools.html": {
-      previous: { file: "work-selfmedia.html", title: "自媒体探索" },
       next: { file: "../index.html#more-works", title: "去看看 More Works", hidePrefix: true },
     },
     "work-vibecoding.html": {
-      previous: { file: "work-ai-tools.html", title: "AI能力系统提升" },
+      previous: { file: "work-selfmedia.html", title: "自媒体探索" },
       next: { file: "work-widgets.html", title: "轻量桌面组件" },
     },
     "work-widgets.html": {
@@ -261,31 +253,19 @@ function initProjectNavigation() {
       next: { file: "../index.html#more-works", title: "去看看 More Works" },
     },
     "more-2020-bill.html": {
-      next: { file: "more-app-13.html", title: "京东APP13.0" },
-    },
-    "more-app-13.html": {
-      previous: { file: "more-2020-bill.html", title: "年度账单" },
       next: { file: "more-3d-library.html", title: "3D素材库" },
     },
     "more-3d-library.html": {
-      previous: { file: "more-app-13.html", title: "京东APP13.0" },
+      previous: { file: "more-2020-bill.html", title: "年度账单" },
+      next: { file: "more-app-13.html", title: "京东APP13.0" },
+    },
+    "more-app-13.html": {
+      previous: { file: "more-3d-library.html", title: "3D素材库" },
       next: { file: "more-widgets.html", title: "小组件/表盘设计" },
     },
     "more-widgets.html": {
-      previous: { file: "more-3d-library.html", title: "3D素材库" },
-      next: { title: "No More Projects", disabled: true },
-    },
-    "more-resource-upgrade.html": {
-      previous: { file: "more-widgets.html", title: "小组件/表盘设计" },
-      next: { file: "more-plus-card.html", title: "PLUS卡片改版研究" },
-    },
-    "more-plus-card.html": {
-      previous: { file: "more-resource-upgrade.html", title: "15.0资源位升级" },
-      next: { file: "more-transaction.html", title: "交易链路" },
-    },
-    "more-transaction.html": {
-      previous: { file: "more-plus-card.html", title: "PLUS卡片改版研究" },
-      next: { file: "../index.html#more-works", title: "回到 More Works" },
+      previous: { file: "more-app-13.html", title: "京东APP13.0" },
+      next: { file: "../index.html#more-works", title: "回到 More Works", hidePrefix: true },
     },
     "project-01.html": {
       next: { file: "project-02.html", title: "设计系统搭建" },

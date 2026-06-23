@@ -58,7 +58,6 @@ projects/more-3d-library.html
 projects/more-app-13.html
 projects/more-plus-card.html
 projects/more-resource-upgrade.html
-projects/more-transaction.html
 projects/more-widgets.html
 projects/project-01.html
 projects/project-02.html
