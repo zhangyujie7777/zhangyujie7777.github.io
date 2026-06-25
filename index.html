@@ -9,189 +9,237 @@
       content="张玉杰个人设计作品集首页，展示个人介绍、精选作品与更多项目入口。"
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260623-home-redesign" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260625-banner-80" />
   </head>
   <body class="home-body">
+    <header class="home-banner" aria-label="Welcome">
+      <div class="home-banner__brand">
+        <img src="./assets/home-figma/品牌栏.png" alt="WELCOME" />
+      </div>
+    </header>
+
+    <div class="home-stripe" aria-hidden="true"></div>
+
     <main class="home-page">
-      <header class="home-banner" aria-label="Welcome">
-        <img src="./assets/new-raw/新切图/品牌标题栏.png" alt="WELCOME" />
-      </header>
+      <div class="home-page__dots" aria-hidden="true"></div>
+      <div class="home-stage">
+        <div class="home-stage__primary">
+          <section class="home-hero" aria-label="首页头图">
+            <div class="home-badge-row" aria-label="Design By Yujie">
+              <span class="home-badge home-badge--rect">design</span>
+              <span class="home-badge home-badge--circle">By</span>
+              <span class="home-badge home-badge--pill">yujie</span>
+            </div>
 
-      <section class="home-hero" aria-label="个人介绍">
-        <div class="home-band" aria-hidden="true">
-          <div class="home-band-track">
-            <span>Design</span><span>Design</span><span>Design</span><span>Design</span>
-            <span>Design</span><span>Design</span><span>Design</span><span>Design</span>
-            <span>Design</span><span>Design</span><span>Design</span><span>Design</span>
-            <span>Design</span><span>Design</span><span>Design</span><span>Design</span>
-            <span>Design</span><span>Design</span><span>Design</span><span>Design</span>
-          </div>
-        </div>
+            <aside class="home-about-card" aria-label="About Me">
+              <div class="home-about-card__title">
+                <h2>about<br />me</h2>
+                <img src="./assets/home-figma/蘑菇.png" alt="" aria-hidden="true" />
+              </div>
 
-        <div class="home-left-copy">
-          <div class="badge-row" aria-label="Design By Yujie Zhang">
-            <span class="badge badge--blue">Design</span>
-            <span class="badge badge--pink">By</span>
-            <span class="badge badge--lilac">Yujie Zhang</span>
-          </div>
+              <p class="home-about-card__ghost">UI&amp;visula<br />Designer</p>
 
-          <p class="lede">
-            I have a straightforward personality, work efficiently, and can move forward on
-            projects.
-          </p>
-          <p class="lede">
-            Focus on product experience, visual expression and design implementation of complex
-            business scenarios.
-          </p>
-        </div>
+              <div class="home-about-card__avatar">
+                <img src="./assets/home-figma/头像.png" alt="张玉杰头像" />
+              </div>
 
-        <div class="home-disc-stack" aria-label="About Me">
-          <img
-            class="home-disc-shadow"
-            src="./assets/home-v2/hero-disc-shadow.png"
-            alt=""
-            aria-hidden="true"
-          />
-          <img
-            class="home-disc-backplate"
-            src="./assets/home-v2/hero-disc-backplate.png"
-            alt=""
-            aria-hidden="true"
-          />
-          <img
-            class="home-disc-art"
-            src="./assets/home-v2/hero-disc-art.png"
-            alt="关于我光盘图"
-          />
-          <img
-            class="home-disc-center"
-            src="./assets/home-v2/hero-disc-center.png"
-            alt=""
-            aria-hidden="true"
-          />
+              <div class="home-about-card__meta">
+                <div class="home-about-card__item">
+                  <span aria-hidden="true"></span>
+                  <strong>name</strong>
+                  <p>张玉杰</p>
+                </div>
+                <div class="home-about-card__item">
+                  <span aria-hidden="true"></span>
+                  <strong>UI Design</strong>
+                  <p>ui视觉设计师</p>
+                </div>
+                <div class="home-about-card__item">
+                  <span aria-hidden="true"></span>
+                  <strong>experience</strong>
+                  <p>京东/字节</p>
+                </div>
+                <button
+                  class="home-about-card__contact"
+                  type="button"
+                  data-action="contact"
+                  aria-label="联系我"
+                >
+                  <img src="./assets/home-figma/contact-icon.svg" alt="" aria-hidden="true" />
+                  <span>contact</span>
+                </button>
+              </div>
+            </aside>
 
-          <div class="home-disc-copy">
-            <h2>ABOUT ME</h2>
-            <p>has and is good at visual design and UI design</p>
-          </div>
+            <div class="home-disc-stage" aria-label="主视觉">
+              <img
+                class="home-disc-stage__base"
+                src="./assets/home-figma/disc-base.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <img
+                class="home-disc-stage__art"
+                src="./assets/home-figma/光盘 (1).png"
+                alt="首页主视觉光盘"
+              />
+            </div>
 
-          <img class="home-hand" src="./assets/home-v2/hero-hand-pointer.png" alt="" aria-hidden="true" />
-        </div>
+            <div class="home-profile-copy">
+              <h1>
+                <span>Design</span>
+                <span>Profile</span>
+              </h1>
+              <p>
+                Focus on product<br />
+                experience,visual<br />
+                expression<br />
+                design<br />
+                implementation of<br />
+                complex business<br />
+                scenarios.
+              </p>
+            </div>
 
-        <div class="home-right-meta">
-          <section class="meta-column" aria-labelledby="education-title">
-            <h3 id="education-title">EDUCATION</h3>
-            <div class="meta-item">
-              <span class="meta-square" aria-hidden="true"></span>
-              <div>
-                <small>SCHOOL</small>
-                <strong>海南大学</strong>
+            <div class="home-click" aria-hidden="true">
+              <div class="home-click__art">
+                <img src="./assets/home-figma/点击.png" alt="" />
               </div>
             </div>
-            <div class="meta-item">
-              <span class="meta-square" aria-hidden="true"></span>
-              <div>
-                <small>LEVEL</small>
-                <strong>211/双一流</strong>
-              </div>
-            </div>
-            <div class="meta-item">
-              <span class="meta-square" aria-hidden="true"></span>
-              <div>
-                <small>YEAR</small>
-                <strong>2017</strong>
-              </div>
-            </div>
-          </section>
 
-          <section class="meta-column" aria-labelledby="experience-title">
-            <h3 id="experience-title">EXPERIENCE</h3>
-            <div class="meta-item">
-              <span class="meta-square" aria-hidden="true"></span>
-              <div>
-                <small>JINGDONG</small>
-                <strong>京东</strong>
-              </div>
-            </div>
-            <div class="meta-item">
-              <span class="meta-square" aria-hidden="true"></span>
-              <div>
-                <small>BYTEDANCE</small>
-                <strong>字节</strong>
-              </div>
-            </div>
-            <div class="meta-item">
-              <span class="meta-square" aria-hidden="true"></span>
-              <div>
-                <small>BAIDU-GZ</small>
-                <strong>百度-广州</strong>
+            <div class="home-status" aria-hidden="true">
+              <a class="home-status__folder" href="./projects/work-vibecoding.html" aria-label="查看 AI 能力详情页">
+                <img src="./assets/home-figma/文件夹 .png" alt="" />
+              </a>
+              <div class="home-status__dots">
+                <span class="home-status__dot home-status__dot--blue"></span>
+                <span class="home-status__dot home-status__dot--yellow"></span>
+                <span class="home-status__dot home-status__dot--black"></span>
               </div>
             </div>
           </section>
+
+          <section class="home-works" aria-label="设计作品">
+            <a class="home-work-card" href="./projects/work-myjd.html">
+              <img src="./assets/home-figma/我京黑胶.png" alt="在京东-我京作品" />
+              <strong>在京东-我京作品</strong>
+              <span class="home-work-card__action" aria-hidden="true">
+                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+              </span>
+            </a>
+            <a class="home-work-card" href="./projects/work-jd.html">
+              <img src="./assets/home-figma/首页黑胶.png" alt="在京东-首页作品" />
+              <strong>在京东-首页作品</strong>
+              <span class="home-work-card__action" aria-hidden="true">
+                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+              </span>
+            </a>
+            <a class="home-work-card" href="./projects/work-bytedance.html">
+              <img src="./assets/home-figma/字节黑胶.png" alt="在字节-幸福里作品" />
+              <strong>在字节-幸福里作品</strong>
+              <span class="home-work-card__action" aria-hidden="true">
+                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+              </span>
+            </a>
+            <a class="home-work-card" href="./projects/work-selfmedia.html">
+              <img src="./assets/home-figma/自媒体黑胶.png" alt="自媒体探索" />
+              <strong>自媒体探索</strong>
+              <span class="home-work-card__action" aria-hidden="true">
+                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+              </span>
+            </a>
+          </section>
         </div>
 
-        <figure class="home-profile-card" aria-label="个人头像">
-          <img src="./assets/new-raw/新切图/头像.png" alt="张玉杰头像" />
-          <figcaption>
-            <div class="profile-name">
-              <small>name</small>
-              <strong>张玉杰</strong>
-            </div>
-            <div class="profile-role">
-              <small>UI Design</small>
-              <strong>ui视觉设计师</strong>
-            </div>
-          </figcaption>
-        </figure>
-      </section>
+        <section class="home-more" id="more-works" aria-label="更多作品">
+          <div class="home-more__heading">
+            <img src="./assets/home-figma/问号图标.png" alt="" aria-hidden="true" />
+            <h2>
+              <span>MORE</span>
+              <span>project</span>
+            </h2>
+          </div>
 
-      <section class="home-works" aria-label="设计作品">
-        <a class="vinyl-card" href="./projects/work-myjd.html">
-          <img src="./assets/home-v2/vinyl-myjd.png" alt="在京东-我京作品" />
-          <strong>在京东-我京作品</strong>
-        </a>
-        <a class="vinyl-card" href="./projects/work-jd.html">
-          <img src="./assets/new-raw/新切图/黑胶1.png" alt="在京东-首页作品" />
-          <strong>在京东-首页作品</strong>
-        </a>
-        <a class="vinyl-card" href="./projects/work-bytedance.html">
-          <img src="./assets/new-raw/新切图/黑胶2.png" alt="在字节-幸福里作品" />
-          <strong>在字节-幸福里作品</strong>
-        </a>
-        <a class="vinyl-card" href="./projects/work-selfmedia.html">
-          <img src="./assets/new-raw/新切图/黑胶3.png" alt="自媒体探索" />
-          <strong>自媒体探索</strong>
-        </a>
-      </section>
+          <div class="home-more__grid">
+            <a class="home-more-card home-more-card--bill" href="./projects/more-2020-bill.html">
+              <div class="home-more-card__art">
+                <img src="./assets/home-figma/年度账单.png" alt="京东2021年度账单" />
+              </div>
+              <div class="home-more-card__body">
+                <span class="home-more-card__action" aria-hidden="true">
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+                </span>
+                <div class="home-more-card__copy">
+                  <small>jingdong<br />2021 annual bill</small>
+                  <strong>京东2021年度账单</strong>
+                </div>
+              </div>
+            </a>
 
-      <section class="home-more" id="more-works" aria-label="更多作品">
-        <div class="more-heading">
-          <img src="./assets/home-v2/more-badge-question.png" alt="" aria-hidden="true" />
-          <h2>MORE WORKS</h2>
-        </div>
+            <a class="home-more-card home-more-card--library" href="./projects/more-3d-library.html">
+              <div class="home-more-card__art">
+                <img src="./assets/home-figma/3d素材库.png" alt="3D营销素材库" />
+              </div>
+              <div class="home-more-card__body">
+                <span class="home-more-card__action" aria-hidden="true">
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+                </span>
+                <div class="home-more-card__copy">
+                  <small>3D marketing<br />material library</small>
+                  <strong>3D营销素材库</strong>
+                </div>
+              </div>
+            </a>
 
-        <div class="more-grid">
-          <a class="more-card" href="./projects/more-2020-bill.html">
-            <img src="./assets/new-raw/新切图/1.png" alt="2020 京东年度账单" />
-          </a>
-          <a class="more-card" href="./projects/more-3d-library.html">
-            <img src="./assets/new-raw/新切图/3.png" alt="3D 组件库" />
-          </a>
-          <a class="more-card" href="./projects/more-app-13.html">
-            <img src="./assets/new-raw/新切图/2.png" alt="APP 13.0" />
-          </a>
-          <a class="more-card" href="./projects/more-widgets.html">
-            <img src="./assets/new-raw/新切图/4.png" alt="Widgets" />
-          </a>
-        </div>
-      </section>
+            <a class="home-more-card home-more-card--app" href="./projects/more-app-13.html">
+              <div class="home-more-card__art">
+                <img src="./assets/home-figma/app13.0.png" alt="京东APP13.0" />
+              </div>
+              <div class="home-more-card__body">
+                <span class="home-more-card__action" aria-hidden="true">
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+                </span>
+                <div class="home-more-card__copy">
+                  <small>jingdong<br />APP13.0 project</small>
+                  <strong>京东APP13.0</strong>
+                </div>
+              </div>
+            </a>
 
-      <footer class="home-footer" aria-label="底部信息">
-        <img src="./assets/new-raw/新切图/底部切图2.png" alt="Designed In Figma And Built With Codex" />
-      </footer>
+            <a class="home-more-card home-more-card--widgets" href="./projects/more-widgets.html">
+              <div class="home-more-card__art">
+                <img src="./assets/home-figma/小组件.png" alt="小组件/表盘设计" />
+              </div>
+              <div class="home-more-card__body">
+                <span class="home-more-card__action" aria-hidden="true">
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
+                </span>
+                <div class="home-more-card__copy">
+                  <small>Widget/Dial<br />Design</small>
+                  <strong>小组件/表盘设计</strong>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <footer class="home-footer" aria-label="底部信息">
+          <p><span>🎨</span><span>Designed in Figma</span></p>
+          <p><span>🕹️</span><span>Built with Codex</span></p>
+        </footer>
+      </div>
     </main>
 
     <div class="toast" role="status" aria-live="polite"></div>
+    <div class="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-action="close-modal"></div>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-label="Contact Me">
+        <img class="modal-sheet" src="./assets/home/contact-modal.png" alt="Contact Me 弹窗内容" />
+        <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">
+          <img src="./assets/home/modal-close.png" alt="" />
+        </button>
+      </section>
+    </div>
     <script src="./assets/js/script.js?v=20260623-home-redesign"></script>
   </body>
 </html>

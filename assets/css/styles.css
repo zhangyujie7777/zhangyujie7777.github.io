@@ -9,6 +9,15 @@
 @font-face {
   font-family: "Bitcount Prop Single";
   font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/bitcount-prop-single/static/BitcountPropSingle-Light.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Bitcount Prop Single";
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url("../fonts/bitcount-prop-single/static/BitcountPropSingle-Regular.ttf")
@@ -42,6 +51,38 @@
     format("truetype");
 }
 
+@font-face {
+  font-family: "Bitcount Grid Single";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/bitcount-grid-single/BitcountGridSingle-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bitcount Grid Single";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/bitcount-grid-single/BitcountGridSingle-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bitcount Single";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/bitcount-single/BitcountSingle-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Exile";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/exile/Exile-Regular.ttf") format("truetype");
+}
+
 :root {
   font-synthesis: none;
   --ink: #202020;
@@ -52,9 +93,9 @@
   --pink: #ffe6f6;
   --rose: #ffe1e1;
   --yellow: #ffe5a4;
-  --page-max: 1200px;
-  --detail-page-max: 1200px;
-  --chrome-visual-max: 1200px;
+  --page-max: 1080px;
+  --detail-page-max: 1080px;
+  --chrome-visual-max: 1080px;
   --page-pad: 32px;
   --page-inner: var(--page-max);
   --grid-gap: 32px;
@@ -93,7 +134,7 @@ body {
 
 body.home-body {
   --paper: #f6f6f6;
-  --page-max: 1200px;
+  --page-max: 1080px;
   --body-font:
     "PingFang SC", "Microsoft YaHei", Inter, "Helvetica Neue", Arial,
     sans-serif;
@@ -107,12 +148,12 @@ body.home-body {
 
 @media (min-width: 600px) {
   html {
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   body {
-    min-width: 1200px;
-    overflow-x: visible;
+    min-width: 320px;
+    overflow-x: hidden;
   }
 }
 
@@ -168,14 +209,14 @@ img {
 .brand-stage {
   --brand-scale: min(
     1,
-    calc(min(100vw - (var(--page-pad) * 2), var(--page-max)) / 1200px)
+    calc(min(100%, var(--page-max)) / 1080px)
   );
   --welcome-font-size: 42px;
   --welcome-line-height: 42px;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1200px;
+  width: 1080px;
   height: 138px;
   flex: 0 0 auto;
   transform: translate(-50%, -50%) scale(var(--brand-scale));
@@ -627,7 +668,7 @@ body.is-toast-showing .icon-button::after,
   left: 50%;
   bottom: 34px;
   z-index: 420;
-  max-width: calc(100vw - 48px);
+  max-width: calc(100% - 48px);
   padding: 12px 18px;
   border: 0;
   border-radius: 12px;
@@ -673,7 +714,7 @@ body.is-toast-showing .icon-button::after,
   display: grid;
   justify-items: center;
   gap: 18px;
-  width: min(560px, calc(100vw - 48px));
+  width: min(560px, calc(100% - 48px));
   background: transparent;
 }
 
@@ -1316,7 +1357,7 @@ body.is-toast-showing .icon-button::after,
   }
 
   .brand-stage {
-    --brand-scale: min(0.797, calc((100vw - (var(--page-pad) * 2)) / 1200));
+    --brand-scale: min(0.797, calc((100% - (var(--page-pad) * 2)) / 1080));
   }
 
   .location-chip {
@@ -1462,7 +1503,7 @@ body.is-toast-showing .icon-button::after,
   }
 
   .brand-stage {
-    --brand-scale: min(0.623, calc((100vw - 48px) / 1200));
+    --brand-scale: min(0.623, calc((100% - 48px) / 1080));
   }
 
   .location-chip {
@@ -3796,10 +3837,10 @@ body.myjd-case-body .myjd-redo-copy p {
 }
 
 body.home-body {
-  --paper: #f7f7f4;
+  --paper: #f6f6f6;
   --ink: #111111;
   --muted: #545454;
-  --home-max: 1080px;
+  --home-max: var(--page-max);
   --body-font:
     "Bitcount Prop Single", "Bitcount Prop Single Roman", "PingFang SC",
     "Microsoft YaHei", Arial, sans-serif;
@@ -3807,10 +3848,9 @@ body.home-body {
     "Bitcount Prop Single", "Bitcount Prop Single Roman", "Bitcount Prop Single Cursive",
     "PortfolioPixel", monospace;
   background:
-    radial-gradient(circle at 12px 12px, rgba(25, 25, 25, 0.045) 1px, transparent 1.6px),
-    radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.25) 0 0),
+    radial-gradient(circle, var(--dot) 2px, transparent 2.1px),
     var(--paper);
-  background-size: 16px 16px, 100% 100%, auto;
+  background-size: 15px 15px;
 }
 
 body.home-body .toast {
@@ -3818,599 +3858,729 @@ body.home-body .toast {
   bottom: 28px;
 }
 
+body.home-body {
+  min-width: 320px;
+}
+
 .home-page {
   position: relative;
   width: 100%;
-  padding-bottom: 48px;
-  overflow-x: clip;
+  max-width: none;
+  min-height: 2006px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background: transparent;
+}
+
+.home-page__dots {
+  display: none;
+}
+
+.home-banner,
+.home-stripe {
+  position: relative;
+  z-index: 1;
 }
 
 .home-banner {
   position: relative;
-  left: 50%;
-  width: 100vw;
-  margin-left: -50vw;
+  width: 100%;
+  height: 80px;
   background: #000;
-  margin-bottom: 22px;
 }
 
-.home-banner img {
+.home-banner__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.home-banner__brand img {
+  display: block;
+  width: 184.8px;
+  height: 80px;
+  max-width: none;
+  image-rendering: pixelated;
+}
+
+.home-stripe {
+  position: relative;
   display: block;
   width: 100%;
-  height: auto;
+  height: 6px;
+  overflow: hidden;
+}
+
+.home-stripe::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #090d0c 0 12px,
+    #ffcc00 12px 24px
+  );
+}
+
+.home-stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 66px;
+  padding-bottom: 147px;
+}
+
+.home-stage__primary {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
 
 .home-hero {
   position: relative;
-  width: min(var(--home-max), calc(100% - 48px));
-  min-height: 648px;
-  margin-inline: auto;
-  padding-top: 8px;
+  width: 100%;
+  max-width: 1080px;
+  height: 672px;
 }
 
-.home-band {
+.home-badge-row {
   position: absolute;
-  left: 50%;
-  top: 346px;
-  z-index: 0;
-  width: max(100vw, 1320px);
-  transform: translateX(-50%) rotate(-14deg);
-  pointer-events: none;
-}
-
-.home-band-track {
+  left: 0;
+  top: 0;
   display: flex;
+  gap: 4px;
   align-items: center;
-  width: max-content;
-  min-width: 100%;
-  background: linear-gradient(90deg, #111 0, #111 58%, #254d84 58%, #254d84 100%);
-  box-shadow:
-    0 14px 28px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  width: 182px;
+  height: 36px;
 }
 
-.home-band-track span {
+.home-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 60px;
-  height: 24px;
-  padding-inline: 8px;
-  color: #cfd8e6;
-  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", monospace;
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  border-right: 1px solid rgba(255, 255, 255, 0.09);
+  flex: 0 0 auto;
+  color: #fff;
+  font-family: "Bitcount Grid Single", "Bitcount Prop Single", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-transform: capitalize;
+  background: #000;
 }
 
-.home-band-track span:nth-child(2n) {
-  color: #98bdf0;
+.home-badge--rect,
+.home-badge--pill {
+  padding: 8px;
 }
 
-.home-left-copy {
-  position: absolute;
-  left: 30px;
-  top: 10px;
-  z-index: 2;
-  width: 178px;
-}
-
-.badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 14px;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 28px;
-  padding: 0 12px;
-  color: #111;
-  font-family: var(--pixel-font);
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: 0.01em;
+.home-badge--rect {
+  width: 74px;
+  height: 32px;
+  margin-top: 2px;
   border-radius: 4px;
 }
 
-.badge--blue {
-  min-width: 58px;
-  background: #bfeef0;
+.home-badge--circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 120px;
 }
 
-.badge--pink {
-  width: 34px;
-  height: 34px;
-  padding: 0;
-  border-radius: 999px;
-  background: #f6dce9;
+.home-badge--pill {
+  width: 64px;
+  height: 32px;
+  margin-top: 2px;
+  border-radius: 32px;
 }
 
-.badge--lilac {
-  min-width: 104px;
-  padding-inline: 16px;
-  border-radius: 999px;
-  background: #ecdff5;
-}
-
-.lede {
-  width: 100%;
-  margin: 0 0 18px;
-  color: #6a6a6a;
-  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
-  font-size: 10px;
-  line-height: 1.55;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
-}
-
-.home-disc-stack {
-  position: relative;
-  z-index: 2;
-  width: 540px;
-  height: 560px;
-  margin: 0 auto;
-}
-
-.home-disc-shadow {
+.home-about-card {
   position: absolute;
-  left: 50%;
-  bottom: 12px;
-  z-index: 0;
-  width: 414px;
-  transform: translateX(-50%);
-  opacity: 0.78;
+  left: 0;
+  top: 72px;
+  width: 261px;
+  height: 600px;
+  margin: 0;
+  border-radius: 24px;
+  background: #000;
 }
 
-.home-disc-backplate {
+.home-about-card__title {
   position: absolute;
-  left: 50%;
-  top: 14px;
-  z-index: 1;
-  width: 488px;
-  transform: translateX(-50%);
-}
-
-.home-disc-art {
-  position: absolute;
-  left: 50%;
-  top: 52px;
-  z-index: 2;
-  width: 456px;
-  transform: translateX(-50%);
-}
-
-.home-disc-center {
-  position: absolute;
-  left: 50%;
-  top: 252px;
-  z-index: 4;
-  width: 56px;
-  transform: translateX(-50%);
-}
-
-.home-disc-copy {
-  display: none;
-}
-
-.home-hand {
-  position: absolute;
-  right: 48px;
-  bottom: 108px;
-  z-index: 5;
-  width: 58px;
-  image-rendering: pixelated;
-}
-
-.home-right-meta {
-  position: absolute;
-  right: 24px;
-  top: 8px;
-  z-index: 2;
-  width: 212px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 18px;
-}
-
-.meta-column h3 {
-  margin: 0 0 12px;
-  color: #111;
-  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
-  font-size: 10px;
-  line-height: 1;
-  letter-spacing: 0.04em;
-}
-
-.meta-item {
-  display: grid;
-  grid-template-columns: 8px minmax(0, 1fr);
-  gap: 8px;
-  align-items: start;
-  margin-bottom: 12px;
-}
-
-.meta-square {
-  width: 7px;
-  height: 7px;
-  margin-top: 3px;
-  background: #111;
-}
-
-.meta-item small,
-.meta-item strong {
-  display: block;
-  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
-  text-transform: uppercase;
-}
-
-.meta-item small {
-  margin-bottom: 4px;
-  color: #717171;
-  font-size: 7px;
-  letter-spacing: 0.06em;
-}
-
-.meta-item strong {
-  color: #111;
-  font-size: 10px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-}
-
-.home-profile-card {
-  position: absolute;
-  left: 18px;
-  top: 274px;
-  z-index: 2;
+  top: 36px;
+  left: 36px;
   display: flex;
-  gap: 12px;
   align-items: flex-start;
+  gap: 59px;
+  width: 189px;
 }
 
-.home-profile-card > img {
-  width: 82px;
-  height: 82px;
-  flex: 0 0 auto;
-  image-rendering: pixelated;
-}
-
-.home-profile-card figcaption {
-  display: grid;
-  gap: 12px;
-  padding-top: 8px;
-}
-
-.profile-name,
-.profile-role {
-  display: grid;
-  gap: 4px;
-}
-
-.profile-name small,
-.profile-role small {
-  color: #111;
+.home-about-card__title h2 {
+  width: 100px;
+  margin: 0;
+  color: #929292;
   font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
-  font-size: 8px;
-  line-height: 1;
-  letter-spacing: 0.06em;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
   text-transform: uppercase;
 }
 
-.profile-name strong,
-.profile-role strong {
-  color: #111;
+.home-about-card__title img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  image-rendering: pixelated;
+}
+
+.home-about-card__ghost {
+  position: absolute;
+  top: 126px;
+  left: 36px;
+  width: 211px;
+  margin: 0;
+  color: #929292;
+  opacity: 0.3;
   font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
-  font-size: 10px;
-  line-height: 1.22;
-  letter-spacing: 0.02em;
+  font-size: 39px;
   font-weight: 400;
+  line-height: 39px;
+  text-transform: uppercase;
+}
+
+.home-about-card__avatar {
+  position: absolute;
+  top: 117px;
+  left: 81px;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 100px;
+  background: #929292;
+}
+
+.home-about-card__avatar img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.home-about-card__meta {
+  position: absolute;
+  top: 250px;
+  left: 36px;
+  display: grid;
+  gap: 32px;
+  width: 189px;
+}
+
+.home-about-card__item {
+  display: grid;
+  gap: 8px;
+}
+
+.home-about-card__item span {
+  width: 8px;
+  height: 8px;
+  background: #929292;
+}
+
+.home-about-card__item strong,
+.home-about-card__item p {
+  margin: 0;
+  color: #929292;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.home-about-card__item strong {
+  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.home-about-card__item p {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.home-about-card__contact {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 189px;
+  height: 56px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 12px;
+  background: #fc0;
+  cursor: pointer;
+}
+
+.home-about-card__contact img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
+.home-about-card__contact span {
+  color: #000;
+  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.home-disc-stage {
+  position: absolute;
+  left: 230px;
+  top: 52px;
+  width: 620px;
+  height: 620px;
+  isolation: isolate;
+}
+
+.home-disc-stage__base,
+.home-disc-stage__art {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 620px;
+  height: 620px;
+}
+
+.home-disc-stage__base {
+  z-index: 0;
+  object-fit: contain;
+}
+
+.home-disc-stage__art {
+  z-index: 1;
+  object-fit: contain;
+  animation: disc-rotate 90s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes disc-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.home-profile-copy {
+  position: absolute;
+  right: 0;
+  top: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-end;
+  width: 197px;
+}
+
+.home-profile-copy h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  margin: 0;
+  color: #000;
+  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 42px;
+  text-transform: capitalize;
+}
+
+.home-profile-copy p {
+  width: 197px;
+  margin: 0;
+  color: #000;
+  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -2px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.home-click {
+  position: absolute;
+  left: 724px;
+  top: 390px;
+  z-index: 5;
+  width: 226.852px;
+  height: 227.796px;
+  pointer-events: none;
+}
+
+.home-click__art {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 164.734px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) rotate(-36.89deg);
+  transform-origin: center;
+}
+
+.home-click__art img {
+  position: absolute;
+  left: -131.583px;
+  top: -185.779px;
+  display: block;
+  width: 420.695px;
+  height: 496.379px;
+  image-rendering: pixelated;
+}
+
+.home-status {
+  position: absolute;
+  right: -0.04px;
+  top: 598px;
+  width: 61.838px;
+  height: 74px;
+}
+
+.home-status__folder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 44.043px;
+  height: 36.703px;
+}
+
+.home-status__folder img {
+  display: block;
+  width: 44.043px;
+  height: 36.703px;
+  image-rendering: pixelated;
+}
+
+.home-status__dots {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 6.918px;
+  align-items: center;
+  width: 61.838px;
+  height: 16px;
+}
+
+.home-status__dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.home-status__dot--blue {
+  background: #38c0f3;
+}
+
+.home-status__dot--yellow {
+  background: #ffcc00;
+}
+
+.home-status__dot--black {
+  background: #090d0c;
 }
 
 .home-works {
-  display: grid;
-  grid-template-columns: repeat(4, 168px);
-  justify-content: center;
-  gap: 34px;
-  width: min(var(--home-max), calc(100% - 48px));
-  margin: -6px auto 0;
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
 }
 
-.vinyl-card {
+.home-work-card {
   display: flex;
   flex-direction: column;
+  gap: 16px;
   align-items: center;
-  gap: 12px;
-  min-width: 0;
+  width: 243px;
   color: inherit;
 }
 
-.vinyl-card img {
-  width: 168px;
-  max-width: none;
+.home-work-card > img {
   display: block;
-  aspect-ratio: 1;
-  image-rendering: auto;
-  transition:
-    transform 0.18s ease,
-    filter 0.18s ease;
+  width: 243px;
+  height: 243px;
 }
 
-.vinyl-card strong {
-  color: #111;
-  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 400;
+.home-work-card strong {
+  width: 243px;
+  color: #000;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
   text-align: center;
-  letter-spacing: 0.01em;
 }
 
-.vinyl-card:hover img,
-.vinyl-card:focus-visible img {
-  transform: translateY(-4px) scale(1.02);
-  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.08));
+.home-work-card__action,
+.home-more-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 58.537px;
+  background: #000;
+}
+
+.home-work-card__action img,
+.home-more-card__action img {
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 
 .home-more {
-  width: min(var(--home-max), calc(100% - 48px));
-  margin: 0 auto;
-  padding-top: 34px;
-}
-
-.more-heading {
   display: flex;
+  flex-direction: column;
+  gap: 36px;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 20px;
+  width: 100%;
+  max-width: 1080px;
 }
 
-.more-heading img {
-  width: 18px;
-  height: 18px;
+.home-more__heading {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 330px;
+  height: 42px;
+}
+
+.home-more__heading img {
+  display: block;
+  width: 36px;
+  height: 36px;
   image-rendering: pixelated;
 }
 
-.more-heading h2 {
+.home-more__heading h2 {
+  display: flex;
+  gap: 16px;
   margin: 0;
-  color: #111;
+  color: #000;
   font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
-  font-size: 17px;
-  line-height: 1;
-  letter-spacing: 0.06em;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: -4.2px;
+  text-transform: uppercase;
 }
 
-.more-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 180px);
-  justify-content: center;
-  gap: 18px;
+.home-more__grid {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1080px;
 }
 
-.more-card {
-  display: block;
-  position: relative;
+.home-more-card {
+  display: flex;
+  flex-direction: column;
+  width: 243px;
   overflow: hidden;
-  transition: transform 0.18s ease;
+  border-radius: 24px;
+  color: inherit;
 }
 
-.more-card img {
+.home-more-card__art {
+  width: 243px;
+  height: 243px;
+  overflow: hidden;
+}
+
+.home-more-card__art img {
   display: block;
-  width: 180px;
-  height: auto;
+  width: 243px;
+  height: 243px;
+}
+
+.home-more-card__body {
+  position: relative;
+  width: 243px;
+  height: 163px;
+}
+
+.home-more-card__copy {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  display: grid;
+  gap: 4px;
+  width: 165px;
+}
+
+.home-more-card__copy small,
+.home-more-card__copy strong {
+  margin: 0;
+  color: #000;
+}
+
+.home-more-card__copy small {
+  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: -1.6px;
+  text-transform: uppercase;
+}
+
+.home-more-card__copy strong {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.home-more-card__body .home-more-card__action {
+  position: absolute;
+  left: 24px;
+  top: 27px;
+}
+
+.home-more-card--bill .home-more-card__action,
+.home-more-card--app .home-more-card__action,
+.home-more-card--widgets .home-more-card__action {
+  left: 24.5px;
+}
+
+.home-more-card--app .home-more-card__copy,
+.home-more-card--widgets .home-more-card__copy {
+  left: 24.5px;
+}
+
+.home-more-card--bill .home-more-card__body {
+  background: #e8e7ff;
+}
+
+.home-more-card--library .home-more-card__body {
+  background: #ffecb9;
+}
+
+.home-more-card--app .home-more-card__body {
+  background: #ffe6e5;
+}
+
+.home-more-card--widgets .home-more-card__body {
+  background: #c8ddff;
 }
 
 .home-footer {
   display: flex;
-  justify-content: center;
+  gap: 43px;
   align-items: center;
-  width: min(var(--home-max), calc(100% - 48px));
-  margin: 0 auto;
-  padding-top: 18px;
+  width: 388px;
+  height: 24px;
 }
 
-.home-footer img {
-  display: block;
-  width: min(402px, 100%);
-  max-width: none;
+.home-footer p {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 0;
+  color: #000;
+  font-family: "Bitcount Prop Single", "Bitcount Prop Single Roman", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  white-space: nowrap;
 }
 
-@media (max-width: 1320px) {
-  .home-band {
-    width: max(100vw, 1220px);
-  }
+.home-footer p span:first-child {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
 }
 
-@media (max-width: 1100px) {
-  .home-hero {
-    display: flex;
-    flex-direction: column;
-    min-height: auto;
-    width: min(var(--home-max), calc(100% - 36px));
-    padding-top: 10px;
-  }
-
-  .home-left-copy,
-  .home-right-meta,
-  .home-profile-card {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    width: min(420px, 100%);
-    margin-inline: auto;
-  }
-
-  .home-left-copy {
-    margin-bottom: 10px;
-  }
-
-  .home-right-meta {
-    gap: 16px 18px;
-    margin-top: 6px;
-  }
-
-  .home-profile-card {
-    align-self: center;
-    margin-top: 14px;
-  }
-
-  .home-disc-stack {
-    width: min(540px, 100%);
-    height: 560px;
-  }
-
-  .home-band {
-    top: 398px;
-    width: max(100vw, 1180px);
-  }
-
-  .home-works {
-    grid-template-columns: repeat(2, 168px);
-    gap: 26px 42px;
-    width: min(var(--home-max), calc(100% - 36px));
-    margin-top: 12px;
-  }
-
-  .home-more,
-  .home-footer {
-    width: min(var(--home-max), calc(100% - 36px));
-  }
-
-  .more-grid {
-    grid-template-columns: repeat(2, 180px);
-  }
+/* Outer frame (.home-page) is unbounded so the banner can bleed
+   full-width; only .home-stage caps content at 1080px. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-@media (max-width: 720px) {
-  body.home-body {
-    overflow-x: clip;
-  }
-
-  .home-hero,
-  .home-works,
-  .home-more,
-  .home-footer {
-    width: calc(100% - 24px);
-  }
-
-  .badge {
-    height: 30px;
-    font-size: 13px;
-  }
-
-  .badge--pink {
-    width: 38px;
-    height: 38px;
-  }
-
-  .badge--lilac {
-    min-width: 126px;
-  }
-
-  .lede {
-    max-width: 220px;
-    font-size: 11px;
-  }
-
-  .home-disc-stack {
-    width: min(100%, 380px);
-    height: 392px;
-  }
-
-  .home-disc-backplate {
-    width: 360px;
-  }
-
-  .home-disc-art {
-    top: 40px;
-    width: 338px;
-  }
-
-  .home-disc-center {
-    top: 172px;
-    width: 42px;
-  }
-
-  .home-hand {
-    right: 4px;
-    bottom: 78px;
-    width: 42px;
-  }
-
-  .home-disc-shadow {
-    width: 280px;
-    bottom: 8px;
-  }
-
-  .home-band {
-    top: 272px;
-    width: 168vw;
-  }
-
-  .home-right-meta {
-    grid-template-columns: 1fr;
-  }
-
-  .home-works {
-    grid-template-columns: repeat(2, minmax(132px, 1fr));
-    gap: 24px 18px;
-  }
-
-  .vinyl-card img {
-    width: min(148px, 100%);
-  }
-
-  .vinyl-card strong {
-    font-size: 11px;
-  }
-
-  .more-heading h2 {
-    font-size: 18px;
-  }
-
-  .more-grid {
-    grid-template-columns: repeat(2, minmax(140px, 1fr));
-  }
-
-  .more-card img {
-    width: min(180px, 100%);
-    margin-inline: auto;
-  }
-
-  .home-footer {
-    padding-top: 16px;
-  }
-
-  .home-footer img {
-    width: min(340px, 100%);
-  }
+body {
+  min-width: 320px;
 }
 
-@media (max-width: 460px) {
-  .home-hero,
-  .home-works,
-  .home-more,
-  .home-footer {
-    width: calc(100% - 20px);
-  }
+.portfolio-home,
+.detail-page,
+.jd-case-page,
+body.myjd-case-body .jd-case-page.myjd-case-page,
+body.myjd-case-body main.jd-case-page.myjd-case-page.myjd-redo-page {
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
-  .home-works {
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
-    gap: 20px 12px;
-  }
+body.home-body .home-hero,
+body.home-body .home-works,
+body.home-body .home-more,
+body.home-body .home-more__grid,
+body.myjd-case-body .detail-scroll.myjd-detail-scroll,
+body.myjd-case-body .myjd-redo-section,
+body.myjd-case-body .myjd-redo-project,
+body.myjd-case-body .myjd-redo-card-grid,
+body.myjd-case-body .myjd-redo-figure-stack,
+body.myjd-case-body .myjd-redo-figure,
+body.myjd-case-body .project-bottom-nav,
+body.myjd-case-body .transaction-detail-nav {
+  width: 100%;
+  max-width: 100%;
+}
 
-  .more-grid {
-    grid-template-columns: 1fr;
-  }
+body.myjd-case-body .project-page-header.myjd-page-header,
+body.myjd-case-body .project-page-header.myjd-page-header img,
+body.myjd-case-body .myjd-redo-figure img {
+  width: 100%;
+  max-width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+}
 
-  .more-card img {
-    max-width: 220px;
-  }
+body.home-body .home-disc-stage,
+body.home-body .home-disc-stage__base,
+body.home-body .home-disc-stage__art {
+  max-width: 620px;
+  max-height: 620px;
+}
+
+body.home-body .home-work-card,
+body.home-body .home-work-card > img,
+body.home-body .home-more-card,
+body.home-body .home-more-card__art,
+body.home-body .home-more-card__art img,
+body.home-body .home-more-card__body {
+  max-width: 243px;
 }
