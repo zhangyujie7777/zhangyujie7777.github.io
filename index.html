@@ -9,9 +9,63 @@
       content="张玉杰个人设计作品集首页，展示个人介绍、精选作品与更多项目入口。"
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260625-banner-80" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260626-home-return-2" />
+    <script>
+      (() => {
+        try {
+          const referrer = document.referrer
+            ? new URL(document.referrer, window.location.href)
+            : null;
+          const fromProject =
+            referrer?.origin === window.location.origin && referrer.pathname.includes("/projects/");
+          const navigation = performance.getEntriesByType?.("navigation")?.[0];
+          const isHistoryReturn = navigation?.type === "back_forward";
+
+          if (fromProject || isHistoryReturn) {
+            document.documentElement.classList.add("is-home-return");
+            window.__PORTFOLIO_SKIP_PRELOADER__ = true;
+          }
+        } catch (error) {
+          window.__PORTFOLIO_SKIP_PRELOADER__ = false;
+        }
+      })();
+    </script>
   </head>
   <body class="home-body">
+    <div class="site-preloader" data-preloader aria-hidden="true">
+      <div class="site-preloader__grid" data-preloader-grid></div>
+      <div class="site-preloader__loader" data-preloader-loader>
+        <div class="site-preloader__blocks" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p class="site-preloader__label">Loading</p>
+      </div>
+    </div>
+    <script>
+      (() => {
+        if (window.__PORTFOLIO_SKIP_PRELOADER__) {
+          document.querySelector("[data-preloader]")?.remove();
+          return;
+        }
+
+        const grid = document.querySelector("[data-preloader-grid]");
+        if (!grid) return;
+        const columns = window.matchMedia("(max-width: 700px)").matches ? 6 : 9;
+        const rows = 1;
+        grid.style.setProperty("--preloader-columns", columns);
+        grid.style.setProperty("--preloader-rows", rows);
+        grid.replaceChildren(
+          ...Array.from({ length: columns }, (_, index) => {
+            const tile = document.createElement("span");
+            tile.className = "site-preloader__tile loader-bar";
+            tile.dataset.tileIndex = index;
+            return tile;
+          }),
+        );
+      })();
+    </script>
     <header class="home-banner" aria-label="Welcome">
       <div class="home-banner__brand">
         <img src="./assets/home-figma/品牌栏.png" alt="WELCOME" />
@@ -24,14 +78,14 @@
       <div class="home-page__dots" aria-hidden="true"></div>
       <div class="home-stage">
         <div class="home-stage__primary">
-          <section class="home-hero" aria-label="首页头图">
-            <div class="home-badge-row" aria-label="Design By Yujie">
+          <section class="home-hero" aria-label="首页头图" data-hero-reveal data-hero-reveal-group>
+            <div class="home-badge-row" aria-label="Design By Yujie" data-hero-reveal-item>
               <span class="home-badge home-badge--rect">design</span>
               <span class="home-badge home-badge--circle">By</span>
               <span class="home-badge home-badge--pill">yujie</span>
             </div>
 
-            <aside class="home-about-card" aria-label="About Me">
+            <aside class="home-about-card" aria-label="About Me" data-hero-reveal-item>
               <div class="home-about-card__title">
                 <h2>about<br />me</h2>
                 <img src="./assets/home-figma/蘑菇.png" alt="" aria-hidden="true" />
@@ -71,43 +125,180 @@
               </div>
             </aside>
 
-            <div class="home-disc-stage" aria-label="主视觉">
+            <div class="home-disc-stage" aria-label="主视觉" data-hero-reveal-item>
               <img
                 class="home-disc-stage__base"
                 src="./assets/home-figma/disc-base.png"
                 alt=""
                 aria-hidden="true"
               />
-              <img
-                class="home-disc-stage__art"
-                src="./assets/home-figma/光盘 (1).png"
-                alt="首页主视觉光盘"
-              />
+              <div class="home-disc-stage__rotor">
+                <img
+                  class="home-disc-stage__art home-disc-stage__art--rotating"
+                  src="./assets/home-figma/disc-top-rotating.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <span class="home-disc-stage__particle-disc" aria-hidden="true"></span>
+              <span class="home-disc-stage__particle-grid" aria-hidden="true"></span>
+              <div class="home-disc-stage__particle-fallback" aria-hidden="true">
+                <img
+                  class="home-disc-stage__particle-source"
+                  src="./assets/home-figma/disc-top-static-clean.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <canvas
+                class="home-disc-stage__particles"
+                data-disc-particles
+                data-particle-data="./assets/home-figma/disc-particles.json"
+                data-particle-size="360"
+                data-particle-src="./assets/home-figma/disc-top-static-clean.png"
+                aria-label="首页主视觉像素海浪粒子图"
+              ></canvas>
+              <div class="home-disc-stage__particle-overlays" data-disc-overlays aria-hidden="true">
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-person.png"
+                  data-disc-overlay
+                  data-overlay-x="68"
+                  data-overlay-y="112"
+                  data-overlay-w="90.78"
+                  data-overlay-h="90.78"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-flower.png"
+                  data-disc-overlay
+                  data-overlay-x="220"
+                  data-overlay-y="146"
+                  data-overlay-w="24.16"
+                  data-overlay-h="24.16"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="250"
+                  data-overlay-y="202"
+                  data-overlay-w="18.5"
+                  data-overlay-h="17.5"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="265"
+                  data-overlay-y="196"
+                  data-overlay-w="18.5"
+                  data-overlay-h="17.5"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="295"
+                  data-overlay-y="184"
+                  data-overlay-w="18.5"
+                  data-overlay-h="17.5"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="137.01"
+                  data-overlay-y="241.78"
+                  data-overlay-w="23.53"
+                  data-overlay-h="22.73"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="152.14"
+                  data-overlay-y="250.66"
+                  data-overlay-w="23.65"
+                  data-overlay-h="22.89"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="168.97"
+                  data-overlay-y="258.6"
+                  data-overlay-w="22.92"
+                  data-overlay-h="21.93"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="196.84"
+                  data-overlay-y="266.35"
+                  data-overlay-w="22.36"
+                  data-overlay-h="21.24"
+                  alt=""
+                />
+                <img
+                  class="home-disc-stage__particle-overlay"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
+                  data-disc-overlay
+                  data-overlay-x="212"
+                  data-overlay-y="272"
+                  data-overlay-w="22.36"
+                  data-overlay-h="21.24"
+                  alt=""
+                />
+              </div>
+              <span class="home-disc-stage__center-hole" aria-hidden="true"></span>
+              <a
+                class="home-disc-stage__download-link"
+                href="./assets/resume.pdf"
+                download="简历-张玉杰-ui视觉设计师.pdf"
+                data-toast="PDF下载"
+                aria-label="下载PDF简历"
+              >
+                <img
+                  class="home-disc-stage__download"
+                  src="./assets/home-figma/disc-download-icon.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </a>
             </div>
 
-            <div class="home-profile-copy">
+            <div class="home-profile-copy" data-hero-reveal-item>
               <h1>
                 <span>Design</span>
                 <span>Profile</span>
               </h1>
               <p>
                 Focus on product<br />
-                experience,visual<br />
+                experience, visual<br />
                 expression<br />
-                design<br />
-                implementation of<br />
+                design implementation of<br />
                 complex business<br />
                 scenarios.
               </p>
             </div>
 
-            <div class="home-click" aria-hidden="true">
+            <div class="home-click" aria-hidden="true" data-hero-reveal-item>
               <div class="home-click__art">
                 <img src="./assets/home-figma/点击.png" alt="" />
               </div>
             </div>
 
-            <div class="home-status" aria-hidden="true">
+            <div class="home-status" aria-hidden="true" data-hero-reveal-item>
               <a class="home-status__folder" href="./projects/work-vibecoding.html" aria-label="查看 AI 能力详情页">
                 <img src="./assets/home-figma/文件夹 .png" alt="" />
               </a>
@@ -119,29 +310,29 @@
             </div>
           </section>
 
-          <section class="home-works" aria-label="设计作品">
-            <a class="home-work-card" href="./projects/work-myjd.html">
+          <section class="home-works" aria-label="设计作品" data-reveal-group>
+            <a class="home-work-card" href="./projects/work-myjd.html" data-reveal data-reveal-item data-reveal-card>
               <img src="./assets/home-figma/我京黑胶.png" alt="在京东-我京作品" />
               <strong>在京东-我京作品</strong>
               <span class="home-work-card__action" aria-hidden="true">
                 <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
               </span>
             </a>
-            <a class="home-work-card" href="./projects/work-jd.html">
+            <a class="home-work-card" href="./projects/work-jd.html" data-reveal data-reveal-item data-reveal-card>
               <img src="./assets/home-figma/首页黑胶.png" alt="在京东-首页作品" />
               <strong>在京东-首页作品</strong>
               <span class="home-work-card__action" aria-hidden="true">
                 <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
               </span>
             </a>
-            <a class="home-work-card" href="./projects/work-bytedance.html">
+            <a class="home-work-card" href="./projects/work-bytedance.html" data-reveal data-reveal-item data-reveal-card>
               <img src="./assets/home-figma/字节黑胶.png" alt="在字节-幸福里作品" />
               <strong>在字节-幸福里作品</strong>
               <span class="home-work-card__action" aria-hidden="true">
                 <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" />
               </span>
             </a>
-            <a class="home-work-card" href="./projects/work-selfmedia.html">
+            <a class="home-work-card" href="./projects/work-selfmedia.html" data-reveal data-reveal-item data-reveal-card>
               <img src="./assets/home-figma/自媒体黑胶.png" alt="自媒体探索" />
               <strong>自媒体探索</strong>
               <span class="home-work-card__action" aria-hidden="true">
@@ -152,7 +343,7 @@
         </div>
 
         <section class="home-more" id="more-works" aria-label="更多作品">
-          <div class="home-more__heading">
+          <div class="home-more__heading" data-reveal>
             <img src="./assets/home-figma/问号图标.png" alt="" aria-hidden="true" />
             <h2>
               <span>MORE</span>
@@ -160,8 +351,8 @@
             </h2>
           </div>
 
-          <div class="home-more__grid">
-            <a class="home-more-card home-more-card--bill" href="./projects/more-2020-bill.html">
+          <div class="home-more__grid" data-reveal-group>
+            <a class="home-more-card home-more-card--bill" href="./projects/more-2020-bill.html" data-reveal data-reveal-item data-reveal-card>
               <div class="home-more-card__art">
                 <img src="./assets/home-figma/年度账单.png" alt="京东2021年度账单" />
               </div>
@@ -176,7 +367,7 @@
               </div>
             </a>
 
-            <a class="home-more-card home-more-card--library" href="./projects/more-3d-library.html">
+            <a class="home-more-card home-more-card--library" href="./projects/more-3d-library.html" data-reveal data-reveal-item data-reveal-card>
               <div class="home-more-card__art">
                 <img src="./assets/home-figma/3d素材库.png" alt="3D营销素材库" />
               </div>
@@ -191,7 +382,7 @@
               </div>
             </a>
 
-            <a class="home-more-card home-more-card--app" href="./projects/more-app-13.html">
+            <a class="home-more-card home-more-card--app" href="./projects/more-app-13.html" data-reveal data-reveal-item data-reveal-card>
               <div class="home-more-card__art">
                 <img src="./assets/home-figma/app13.0.png" alt="京东APP13.0" />
               </div>
@@ -206,7 +397,7 @@
               </div>
             </a>
 
-            <a class="home-more-card home-more-card--widgets" href="./projects/more-widgets.html">
+            <a class="home-more-card home-more-card--widgets" href="./projects/more-widgets.html" data-reveal data-reveal-item data-reveal-card>
               <div class="home-more-card__art">
                 <img src="./assets/home-figma/小组件.png" alt="小组件/表盘设计" />
               </div>
@@ -223,7 +414,7 @@
           </div>
         </section>
 
-        <footer class="home-footer" aria-label="底部信息">
+        <footer class="home-footer" aria-label="底部信息" data-reveal>
           <p><span>🎨</span><span>Designed in Figma</span></p>
           <p><span>🕹️</span><span>Built with Codex</span></p>
         </footer>
@@ -235,11 +426,18 @@
       <div class="modal-backdrop" data-action="close-modal"></div>
       <section class="modal-panel" role="dialog" aria-modal="true" aria-label="Contact Me">
         <img class="modal-sheet" src="./assets/home/contact-modal.png" alt="Contact Me 弹窗内容" />
+        <div class="modal-contact-copy" aria-label="联系方式">
+          <p>Email: 915079987@qq.com</p>
+          <p>Phone: 185 7867 7301</p>
+        </div>
         <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">
           <img src="./assets/home/modal-close.png" alt="" />
         </button>
       </section>
     </div>
-    <script src="./assets/js/script.js?v=20260623-home-redesign"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="./assets/home-figma/disc-particles-data.js?v=20260626-disc-clean-1"></script>
+    <script src="./assets/js/script.js?v=20260626-home-return-1"></script>
   </body>
 </html>
