@@ -13,6 +13,7 @@
     <script>
       (() => {
         try {
+          const skipIntroFromDetail = window.sessionStorage?.getItem("portfolioSkipHomeIntroOnce") === "1";
           const referrer = document.referrer
             ? new URL(document.referrer, window.location.href)
             : null;
@@ -21,9 +22,12 @@
           const navigation = performance.getEntriesByType?.("navigation")?.[0];
           const isHistoryReturn = navigation?.type === "back_forward";
 
-          if (fromProject || isHistoryReturn) {
+          if (skipIntroFromDetail || fromProject || isHistoryReturn) {
             document.documentElement.classList.add("is-home-return");
             window.__PORTFOLIO_SKIP_PRELOADER__ = true;
+            if (skipIntroFromDetail) {
+              window.sessionStorage?.removeItem("portfolioSkipHomeIntroOnce");
+            }
           }
         } catch (error) {
           window.__PORTFOLIO_SKIP_PRELOADER__ = false;
@@ -171,42 +175,42 @@
                 />
                 <img
                   class="home-disc-stage__particle-overlay"
-                  src="./assets/home-figma/disc-overlays/disc-flower.png"
+                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
                   data-disc-overlay
-                  data-overlay-x="220"
-                  data-overlay-y="146"
-                  data-overlay-w="24.16"
-                  data-overlay-h="24.16"
+                  data-overlay-x="232.35"
+                  data-overlay-y="214.98"
+                  data-overlay-w="16.07"
+                  data-overlay-h="14.53"
                   alt=""
                 />
                 <img
                   class="home-disc-stage__particle-overlay"
                   src="./assets/home-figma/disc-overlays/disc-mushroom.png"
                   data-disc-overlay
-                  data-overlay-x="250"
-                  data-overlay-y="202"
-                  data-overlay-w="18.5"
-                  data-overlay-h="17.5"
+                  data-overlay-x="245.82"
+                  data-overlay-y="209.7"
+                  data-overlay-w="16.07"
+                  data-overlay-h="14.53"
                   alt=""
                 />
                 <img
                   class="home-disc-stage__particle-overlay"
                   src="./assets/home-figma/disc-overlays/disc-mushroom.png"
                   data-disc-overlay
-                  data-overlay-x="265"
-                  data-overlay-y="196"
-                  data-overlay-w="18.5"
-                  data-overlay-h="17.5"
+                  data-overlay-x="259.4"
+                  data-overlay-y="203.3"
+                  data-overlay-w="16.07"
+                  data-overlay-h="14.53"
                   alt=""
                 />
                 <img
                   class="home-disc-stage__particle-overlay"
                   src="./assets/home-figma/disc-overlays/disc-mushroom.png"
                   data-disc-overlay
-                  data-overlay-x="295"
-                  data-overlay-y="184"
-                  data-overlay-w="18.5"
-                  data-overlay-h="17.5"
+                  data-overlay-x="272.75"
+                  data-overlay-y="196.96"
+                  data-overlay-w="16.07"
+                  data-overlay-h="14.53"
                   alt=""
                 />
                 <img
@@ -215,8 +219,8 @@
                   data-disc-overlay
                   data-overlay-x="137.01"
                   data-overlay-y="241.78"
-                  data-overlay-w="23.53"
-                  data-overlay-h="22.73"
+                  data-overlay-w="22.48"
+                  data-overlay-h="21.72"
                   alt=""
                 />
                 <img
@@ -225,8 +229,8 @@
                   data-disc-overlay
                   data-overlay-x="152.14"
                   data-overlay-y="250.66"
-                  data-overlay-w="23.65"
-                  data-overlay-h="22.89"
+                  data-overlay-w="22.59"
+                  data-overlay-h="21.87"
                   alt=""
                 />
                 <img
@@ -235,28 +239,18 @@
                   data-disc-overlay
                   data-overlay-x="168.97"
                   data-overlay-y="258.6"
-                  data-overlay-w="22.92"
-                  data-overlay-h="21.93"
+                  data-overlay-w="21.9"
+                  data-overlay-h="20.96"
                   alt=""
                 />
                 <img
                   class="home-disc-stage__particle-overlay"
                   src="./assets/home-figma/disc-overlays/disc-mushroom.png"
                   data-disc-overlay
-                  data-overlay-x="196.84"
-                  data-overlay-y="266.35"
-                  data-overlay-w="22.36"
-                  data-overlay-h="21.24"
-                  alt=""
-                />
-                <img
-                  class="home-disc-stage__particle-overlay"
-                  src="./assets/home-figma/disc-overlays/disc-mushroom.png"
-                  data-disc-overlay
-                  data-overlay-x="212"
-                  data-overlay-y="272"
-                  data-overlay-w="22.36"
-                  data-overlay-h="21.24"
+                  data-overlay-x="185.06"
+                  data-overlay-y="264.07"
+                  data-overlay-w="21.36"
+                  data-overlay-h="20.29"
                   alt=""
                 />
               </div>
@@ -265,6 +259,7 @@
                 class="home-disc-stage__download-link"
                 href="./assets/resume.pdf"
                 download="简历-张玉杰-ui视觉设计师.pdf"
+                data-action="download-resume"
                 data-toast="PDF下载"
                 aria-label="下载PDF简历"
               >
@@ -425,13 +420,25 @@
     <div class="modal" aria-hidden="true">
       <div class="modal-backdrop" data-action="close-modal"></div>
       <section class="modal-panel" role="dialog" aria-modal="true" aria-label="Contact Me">
-        <img class="modal-sheet" src="./assets/home/contact-modal.png" alt="Contact Me 弹窗内容" />
-        <div class="modal-contact-copy" aria-label="联系方式">
-          <p>Email: 915079987@qq.com</p>
-          <p>Phone: 185 7867 7301</p>
+        <div class="modal-card">
+          <div class="modal-card__header">
+            <img
+              class="modal-card__title-image"
+              src="./assets/home/contact-title-full.png"
+              alt="CONTACT ME"
+            />
+          </div>
+          <p class="modal-card__subtitle">扫码加微信联系</p>
+          <div class="modal-card__qr">
+            <img src="./assets/home/contact-qr-final.png" alt="微信联系二维码" />
+          </div>
+          <div class="modal-contact-copy" aria-label="联系方式">
+            <p><span>Email:</span><a href="mailto:915079987@qq.com">915079987@qq.com</a></p>
+            <p><span>Phone:</span><a href="tel:+8618578677301">185 7867 7301</a></p>
+          </div>
         </div>
         <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">
-          <img src="./assets/home/modal-close.png" alt="" />
+          <span class="modal-close__icon" aria-hidden="true"></span>
         </button>
       </section>
     </div>

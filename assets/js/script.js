@@ -587,6 +587,16 @@ function initHomeMotion() {
     });
   }
 
+  function showHeroImmediately() {
+    [hero, ...heroItems].filter(Boolean).forEach((element) => {
+      element.style.opacity = "";
+      element.style.visibility = "";
+      element.style.transform = "";
+      element.style.filter = "";
+      element.style.willChange = "auto";
+    });
+  }
+
   if (prefersReducedMotion || !canAnimate) {
     markHomePreloaderSeen();
     preloader?.remove();
@@ -599,7 +609,6 @@ function initHomeMotion() {
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  gsap.set(heroItems.length ? heroItems : hero, { autoAlpha: 0, y: 36 });
   revealTargets.forEach((element) => {
     const isCard = element.hasAttribute("data-reveal-card");
     gsap.set(element, {
@@ -607,6 +616,17 @@ function initHomeMotion() {
       y: window.matchMedia("(max-width: 700px)").matches ? 30 : isCard ? 56 : 48,
     });
   });
+
+  if (shouldSkipPreloader) {
+    markHomePreloaderSeen();
+    preloader?.remove();
+    showHeroImmediately();
+    initScrollReveals();
+    window.setTimeout(() => ScrollTrigger?.refresh(), 80);
+    return;
+  }
+
+  gsap.set(heroItems.length ? heroItems : hero, { autoAlpha: 0, y: 36 });
 
   gsap.set(preloaderTiles, {
     yPercent: 0,
@@ -679,15 +699,6 @@ function initHomeMotion() {
         },
       });
     });
-  }
-
-  if (shouldSkipPreloader) {
-    markHomePreloaderSeen();
-    preloader?.remove();
-    revealHero();
-    initScrollReveals();
-    window.setTimeout(() => ScrollTrigger?.refresh(), 80);
-    return;
   }
 
   const startedAt = performance.now();
@@ -913,6 +924,28 @@ function initDetailMotion() {
   });
 }
 
+function initHomeReturnLinks() {
+  const detailPage = document.querySelector("main.jd-case-page, main.detail-page");
+  if (!detailPage || document.body.classList.contains("home-body")) return;
+
+  function markSkipHomeIntroOnce() {
+    try {
+      window.sessionStorage?.setItem("portfolioSkipHomeIntroOnce", "1");
+    } catch (error) {
+      // Storage may be unavailable; homepage still has referrer/history fallbacks.
+    }
+  }
+
+  document.addEventListener("click", (event) => {
+    const anchor = event.target.closest('a[href^="../index.html"]');
+    if (anchor) {
+      markSkipHomeIntroOnce();
+    }
+  });
+
+  window.__PORTFOLIO_MARK_SKIP_HOME_INTRO__ = markSkipHomeIntroOnce;
+}
+
 function updateLikeIcon(button) {
   if (!button) return;
   const icon = button.querySelector("img");
@@ -975,6 +1008,43 @@ async function copyCurrentUrl(anchor) {
   }
 }
 
+async function downloadLinkedFile(anchor) {
+  if (!(anchor instanceof HTMLAnchorElement)) return;
+
+  const href = anchor.getAttribute("href");
+  if (!href) return;
+
+  const filename = anchor.getAttribute("download") || "download";
+  const fileUrl = new URL(href, window.location.href).toString();
+
+  try {
+    const response = await fetch(fileUrl, { credentials: "same-origin" });
+    if (!response.ok) throw new Error(`Download failed: ${response.status}`);
+
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const tempLink = document.createElement("a");
+    tempLink.href = blobUrl;
+    tempLink.download = filename;
+    tempLink.style.display = "none";
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    tempLink.remove();
+
+    window.setTimeout(() => {
+      URL.revokeObjectURL(blobUrl);
+    }, 1000);
+  } catch (error) {
+    const tempLink = document.createElement("a");
+    tempLink.href = fileUrl;
+    tempLink.download = filename;
+    tempLink.style.display = "none";
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    tempLink.remove();
+  }
+}
+
 function openModal() {
   if (!modal) return;
   modal.classList.add("is-open");
@@ -1001,6 +1071,11 @@ document.addEventListener("click", (event) => {
 
   if (action === "share") {
     copyCurrentUrl(actionElement);
+  }
+
+  if (action === "download-resume") {
+    event.preventDefault();
+    downloadLinkedFile(actionElement);
   }
 
   if (action === "like") {
@@ -1274,6 +1349,9 @@ function initProjectNavigation() {
     }
     if (!target.disabled && target.file) {
       button.addEventListener("click", () => {
+        if (target.file.startsWith("../index.html")) {
+          window.__PORTFOLIO_MARK_SKIP_HOME_INTRO__?.();
+        }
         window.location.href = target.file;
       });
     }
@@ -1288,6 +1366,7 @@ function initProjectNavigation() {
   }
 }
 
+initHomeReturnLinks();
 initProjectPageHeader();
 initProjectNavigation();
 initHomeMotion();
