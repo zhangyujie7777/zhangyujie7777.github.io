@@ -1205,6 +1205,7 @@ function initProjectNavigation() {
   const main = document.querySelector("main.detail-page, main.jd-case-page");
   if (!main) return;
   if (main.hasAttribute("data-disable-project-nav")) return;
+  const isVibecodingHomeNav = main.hasAttribute("data-vibecoding-home-nav");
   const navHost = main.querySelector(".detail-scroll") || main;
 
   const currentFile = window.location.pathname.split("/").pop();
@@ -1299,7 +1300,7 @@ function initProjectNavigation() {
       <span class="transaction-detail-nav-copy project-nav-copy"><small>上一个项目</small><strong></strong></span>
     </button>
     <button class="transaction-detail-nav-button transaction-detail-nav-button--next project-nav-button project-nav-next" type="button" data-project-nav="next">
-      <span class="transaction-detail-nav-copy project-nav-copy"><small>Next:</small><strong></strong></span>
+      <span class="transaction-detail-nav-copy project-nav-copy"><small hidden></small><strong></strong></span>
       <span class="transaction-detail-nav-icon project-nav-icon" aria-hidden="true">
         <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/jd-case/nav-next.png" alt="" />
         <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/jd-case/nav-next-hover.png" alt="" />
@@ -1314,6 +1315,11 @@ function initProjectNavigation() {
   function setButtonContent(button, label, hidden = false) {
     button.hidden = hidden;
     button.disabled = hidden;
+    const small = button.querySelector("small");
+    if (small && button.dataset.projectNav === "next") {
+      small.textContent = "";
+      small.hidden = true;
+    }
     const labelElement = button.querySelector("strong");
     labelElement.textContent = button.dataset.projectNav === "prev" ? "" : label || "";
     labelElement.hidden = button.dataset.projectNav === "prev" || !label;
@@ -1357,6 +1363,29 @@ function initProjectNavigation() {
     }
   }
 
+  if (isVibecodingHomeNav) {
+    const previousSmall = previousButton.querySelector("small");
+    const previousStrong = previousButton.querySelector("strong");
+    if (previousSmall) {
+      previousSmall.textContent = "";
+      previousSmall.hidden = true;
+    }
+    if (previousStrong) {
+      previousStrong.textContent = "返回首页";
+      previousStrong.hidden = false;
+    }
+    previousButton.disabled = false;
+    previousButton.hidden = false;
+    previousButton.classList.remove("is-disabled");
+    previousButton.addEventListener("click", () => {
+      window.__PORTFOLIO_MARK_SKIP_HOME_INTRO__?.();
+      window.location.href = "../index.html";
+    });
+    nextButton.hidden = true;
+    nextButton.disabled = true;
+    return;
+  }
+
   bindProjectButton(previousButton, navigationState.previous, true);
 
   if (navigationState.next?.disabled) {
@@ -1366,9 +1395,97 @@ function initProjectNavigation() {
   }
 }
 
+function initMyjdProgressNav() {
+  const main = document.querySelector("main.jd-case-page.myjd-redo-page");
+  const progressNav = main?.querySelector(".myjd-progress-nav");
+  const items = Array.from(main?.querySelectorAll("[data-myjd-progress]") || []);
+  const sections = Array.from(main?.querySelectorAll("#jd-myjd > .myjd-redo-project") || []);
+  let lockedIndex = -1;
+  let releaseLockTimer = 0;
+
+  if (!main || !progressNav || items.length === 0 || sections.length === 0) return;
+
+  function getSectionTop(section) {
+    const rect = section.getBoundingClientRect();
+    return window.scrollY + rect.top;
+  }
+
+  function scrollToSection(index) {
+    const section = sections[index];
+    if (!section) return;
+    lockedIndex = index;
+    window.clearTimeout(releaseLockTimer);
+    setActive(index);
+    window.scrollTo({
+      top: getSectionTop(section),
+      behavior: "smooth",
+    });
+    releaseLockTimer = window.setTimeout(() => {
+      lockedIndex = -1;
+      updateActiveFromScroll();
+    }, 520);
+  }
+
+  function setActive(index) {
+    items.forEach((item) => {
+      const isActive = Number(item.dataset.myjdProgress) === index;
+      item.classList.toggle("is-active", isActive);
+      item.setAttribute("aria-pressed", String(isActive));
+    });
+  }
+
+  function updateActiveFromScroll() {
+    if (lockedIndex >= 0) {
+      setActive(lockedIndex);
+      return;
+    }
+
+    const viewportAnchor = window.scrollY + window.innerHeight * 0.5;
+    const activeIndex = sections.reduce((bestIndex, section, index) => {
+      const sectionTop = getSectionTop(section);
+      const bestTop = bestIndex === -1 ? -Infinity : getSectionTop(sections[bestIndex]);
+
+      if (viewportAnchor >= sectionTop) {
+        return sectionTop >= bestTop ? index : bestIndex;
+      }
+
+      if (bestIndex !== -1) {
+        return bestIndex;
+      }
+
+      return index === 0 ? 0 : bestIndex;
+    }, -1);
+
+    if (activeIndex >= 0) {
+      setActive(activeIndex);
+    }
+  }
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      scrollToSection(Number(item.dataset.myjdProgress));
+    });
+  });
+
+  let ticking = false;
+  function handleScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      updateActiveFromScroll();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("resize", updateActiveFromScroll);
+  updateActiveFromScroll();
+}
+
 initHomeReturnLinks();
 initProjectPageHeader();
 initProjectNavigation();
+initMyjdProgressNav();
 initHomeMotion();
 initDetailMotion();
 initDiscParticles();
