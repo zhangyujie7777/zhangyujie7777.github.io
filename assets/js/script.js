@@ -1196,7 +1196,7 @@ function initProjectPageHeader() {
   headerLink.href = "../index.html";
   headerLink.setAttribute("aria-label", "返回首页");
   headerLink.innerHTML =
-    '<img src="../assets/jd-case/project-header.png" alt="DETAILS PAGE 统一版头" />';
+    '<img src="../assets/jd-case/project-header.webp" alt="DETAILS PAGE 统一版头" />';
 
   headerHost.prepend(headerLink);
 }

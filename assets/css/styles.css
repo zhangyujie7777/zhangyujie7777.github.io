@@ -67,22 +67,6 @@
   src: url("../fonts/bitcount-grid-single/BitcountGridSingle-Medium.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "Bitcount Single";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../fonts/bitcount-single/BitcountSingle-Medium.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Exile";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/exile/Exile-Regular.ttf") format("truetype");
-}
-
 :root {
   font-synthesis: none;
   --ink: #202020;
