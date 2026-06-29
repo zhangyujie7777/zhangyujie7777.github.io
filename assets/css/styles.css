@@ -4418,7 +4418,7 @@ html.is-home-return .site-preloader {
   align-items: center;
   justify-content: center;
   min-height: 29px;
-  padding: 8px;
+  padding: 4px;
   border: 1px solid #bebebe;
   color: #3b3b3b;
   font-family: "Bitcount Grid Single", "Bitcount Prop Single", monospace;
@@ -4900,7 +4900,6 @@ html.is-home-return .site-preloader {
 .home-click__art {
   width: 100%;
   height: 100%;
-  animation: home-click-wiggle 3s ease-in-out infinite;
   transform-origin: 50% 50%;
 }
 

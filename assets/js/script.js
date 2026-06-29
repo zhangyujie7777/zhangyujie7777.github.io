@@ -1294,16 +1294,16 @@ function initProjectNavigation() {
   bottomNav.innerHTML = `
     <button class="transaction-detail-nav-button transaction-detail-nav-button--prev project-nav-button project-nav-prev" type="button" data-project-nav="prev">
       <span class="transaction-detail-nav-icon transaction-detail-nav-icon--prev project-nav-icon project-nav-icon--prev" aria-hidden="true">
-        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/jd-case/nav-prev.png" alt="" />
-        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/jd-case/nav-next-hover.png" alt="" />
+        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/jd-case/nav-prev.png" alt="" loading="lazy" decoding="async" />
+        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/jd-case/nav-next-hover.png" alt="" loading="lazy" decoding="async" />
       </span>
       <span class="transaction-detail-nav-copy project-nav-copy"><small>上一个项目</small><strong></strong></span>
     </button>
     <button class="transaction-detail-nav-button transaction-detail-nav-button--next project-nav-button project-nav-next" type="button" data-project-nav="next">
       <span class="transaction-detail-nav-copy project-nav-copy"><small hidden></small><strong></strong></span>
       <span class="transaction-detail-nav-icon project-nav-icon" aria-hidden="true">
-        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/jd-case/nav-next.png" alt="" />
-        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/jd-case/nav-next-hover.png" alt="" />
+        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/jd-case/nav-next.png" alt="" loading="lazy" decoding="async" />
+        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/jd-case/nav-next-hover.png" alt="" loading="lazy" decoding="async" />
       </span>
     </button>
   `;

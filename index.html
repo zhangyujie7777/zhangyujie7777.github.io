@@ -9,6 +9,7 @@
       content="张玉杰个人设计作品集首页，展示个人介绍、精选作品与更多项目入口。"
     />
     <link rel="icon" href="data:," />
+    <link rel="preload" as="image" href="./assets/home-figma/disc-base.webp" />
     <link rel="stylesheet" href="./assets/css/styles.css?v=20260629-click-wiggle-1" />
     <script>
       (() => {
@@ -288,7 +289,6 @@
               <canvas
                 class="home-disc-stage__particles"
                 data-disc-particles
-                data-particle-data="./assets/home-figma/disc-particles.json"
                 data-particle-size="360"
                 data-particle-src="./assets/home-figma/disc-top-static-clean.webp"
                 aria-label="首页主视觉像素海浪粒子图"
@@ -573,9 +573,9 @@
         </button>
       </section>
     </div>
-    <script src="./assets/vendor/gsap.min.js"></script>
-    <script src="./assets/vendor/ScrollTrigger.min.js"></script>
-    <script src="./assets/home-figma/disc-particles-data.js?v=20260626-disc-clean-1"></script>
-    <script src="./assets/js/script.js?v=20260626-home-return-1"></script>
+    <script src="./assets/vendor/gsap.min.js" defer></script>
+    <script src="./assets/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="./assets/home-figma/disc-particles-data.js?v=20260626-disc-clean-1" defer></script>
+    <script src="./assets/js/script.js?v=20260626-home-return-1" defer></script>
   </body>
 </html>
