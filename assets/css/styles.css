@@ -4418,7 +4418,7 @@ html.is-home-return .site-preloader {
   align-items: center;
   justify-content: center;
   min-height: 29px;
-  padding: 4px;
+  padding: 4px 8px;
   border: 1px solid #bebebe;
   color: #3b3b3b;
   font-family: "Bitcount Grid Single", "Bitcount Prop Single", monospace;
