@@ -1514,6 +1514,32 @@ body.is-toast-showing .icon-button::after,
   }
 }
 
+@keyframes home-marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes home-click-wiggle {
+  0%,
+  22%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  5% {
+    transform: rotate(-12deg);
+  }
+
+  11% {
+    transform: rotate(12deg);
+  }
+
+  17% {
+    transform: rotate(-7deg);
+  }
+}
+
 @media (max-width: 600px) {
   :root {
     --grid-gap: 24px;
@@ -3801,6 +3827,7 @@ body.myjd-case-body .myjd-redo-row-title {
 body.myjd-case-body .myjd-redo-card-grid {
   display: grid;
   gap: 28px;
+  align-items: stretch;
 }
 
 body.myjd-case-body .myjd-redo-card-grid--three {
@@ -3823,6 +3850,15 @@ body.myjd-case-body #myjd-project-03-work .myjd-redo-card-grid--work {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+body.myjd-case-body #myjd-project-01-work .myjd-redo-card-grid--work,
+body.myjd-case-body #myjd-project-02-work .myjd-redo-card-grid--work {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.myjd-case-body #work-jd-work .myjd-redo-card-grid--work {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 body.myjd-case-body #work-selfmedia .myjd-redo-card-grid--work {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -3832,19 +3868,15 @@ body.myjd-case-body #more-widgets .myjd-redo-card-grid--work {
 }
 
 body.myjd-case-body #work-vibecoding .myjd-redo-row > .myjd-redo-figure {
-  margin-top: 36px;
+  margin-top: 4px;
+}
+
+body.myjd-case-body #work-vibecoding .myjd-redo-section {
+  gap: 32px;
 }
 
 body.myjd-case-body #work-vibecoding .myjd-redo-project + .myjd-redo-project {
-  margin-top: 40px;
-}
-
-body.myjd-case-body #work-vibecoding [aria-labelledby="work-vibecoding-overview"] .myjd-redo-card,
-body.myjd-case-body #work-vibecoding [aria-labelledby="work-vibecoding-work"] .myjd-redo-card,
-body.myjd-case-body #work-vibecoding [aria-labelledby="work-vibecoding-result"] .myjd-redo-card,
-body.myjd-case-body #work-vibecoding [aria-labelledby="work-vibecoding-ai-overview"] .myjd-redo-card {
-  min-height: auto;
-  padding: 36px;
+  margin-top: 0;
 }
 
 body.myjd-case-body #work-selfmedia [aria-labelledby="work-selfmedia-result"] {
@@ -3865,17 +3897,17 @@ body.myjd-case-body .myjd-redo-card {
   min-width: 0;
   flex-direction: column;
   gap: 18px;
-  padding: 28px;
+  padding: 36px;
   border-radius: 24px;
   background: #ffffff;
 }
 
 body.myjd-case-body .myjd-redo-card--overview {
-  min-height: 210px;
+  min-height: auto;
 }
 
 body.myjd-case-body .myjd-redo-card--tint-yellow {
-  min-height: 246px;
+  min-height: auto;
   background: #fff6d2;
 }
 
@@ -3884,16 +3916,16 @@ body.myjd-case-body .myjd-redo-card--tint-yellow .myjd-redo-copy {
 }
 
 body.myjd-case-body .myjd-redo-card--tint-green {
-  min-height: 246px;
+  min-height: auto;
   background: #e7f8e1;
 }
 
 body.myjd-case-body .myjd-redo-card--work-left {
-  min-height: 244px;
+  min-height: auto;
 }
 
 body.myjd-case-body .myjd-redo-card--work-right {
-  min-height: 244px;
+  min-height: auto;
 }
 
 body.myjd-case-body .myjd-redo-card-title-wrap {
@@ -3932,7 +3964,7 @@ body.myjd-case-body .myjd-redo-copy p {
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;
-  letter-spacing: 0;
+  letter-spacing: -0.015em;
 }
 
 body.myjd-case-body .myjd-redo-copy strong {
@@ -4312,6 +4344,7 @@ html.is-home-return .site-preloader {
   width: auto;
   height: 80px;
   max-width: none;
+  margin: auto 0;
   image-rendering: pixelated;
 }
 
@@ -4335,6 +4368,95 @@ html.is-home-return .site-preloader {
   );
 }
 
+.home-marquee {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 35px;
+  margin-top: 24px;
+  overflow: hidden;
+  color: #3b3b3b;
+}
+
+.home-marquee__viewport {
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+}
+
+.home-marquee__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 35px;
+  animation: home-marquee-scroll 58s linear infinite;
+  animation-delay: -8s;
+  will-change: transform;
+}
+
+.home-marquee__set {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 32px;
+  align-items: center;
+  height: 35px;
+  padding-right: 32px;
+}
+
+.home-marquee__item {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  align-items: center;
+  height: 35px;
+  white-space: nowrap;
+}
+
+.home-marquee__emoji {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  color: #3b3b3b;
+  font-family: "Bitcount Grid Single", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: capitalize;
+  transform: translateY(1.5px);
+}
+
+.home-marquee__word {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 29px;
+  padding: 8px;
+  border: 1px solid #bebebe;
+  color: #3b3b3b;
+  font-family: "Bitcount Grid Single", "Bitcount Prop Single", monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.home-marquee__word--corner {
+  border-radius: 4px;
+}
+
+.home-marquee__word--pill {
+  border-radius: 24px;
+}
+
+.home-marquee__word--round {
+  border-radius: 32px;
+}
+
 .home-stage {
   position: relative;
   z-index: 1;
@@ -4345,7 +4467,7 @@ html.is-home-return .site-preloader {
   max-width: 1080px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 74px;
+  padding-top: 18px;
   padding-bottom: 147px;
 }
 
@@ -4360,6 +4482,7 @@ html.is-home-return .site-preloader {
   width: 100%;
   max-width: 1080px;
   height: 500px;
+  margin-top: 6px;
 }
 
 .home-badge-row {
@@ -4793,6 +4916,7 @@ html.is-home-return .site-preloader {
 .home-click__art {
   width: 100%;
   height: 100%;
+  animation: home-click-wiggle 3s ease-in-out infinite;
   transform-origin: 50% 50%;
 }
 
@@ -5122,6 +5246,15 @@ html.is-home-return .site-preloader {
   .home-more-card__action {
     transition: none;
   }
+
+  .home-marquee__track {
+    animation: none;
+    transform: translateX(0);
+  }
+
+  .home-click__art {
+    animation: none;
+  }
 }
 
 .home-footer {
@@ -5146,10 +5279,20 @@ html.is-home-return .site-preloader {
 }
 
 .home-footer p span:first-child {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 24px;
   font-weight: 600;
   line-height: 24px;
+}
+
+.home-footer__icon img {
+  display: block;
+  width: auto;
+  height: 24px;
 }
 
 /* Outer frame (.home-page) is unbounded so the banner can bleed
