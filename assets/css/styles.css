@@ -5901,13 +5901,13 @@ body.home-body .home-hero {
   justify-content: flex-start;
   width: 1080px;
   max-width: 1080px;
-  height: 384px;
+  height: 404px;
   margin-top: 0;
 }
 
 body.home-body .home-profile-panel {
   width: 339px;
-  height: 384px;
+  height: 404px;
   padding-top: 0;
 }
 
@@ -5967,7 +5967,7 @@ body.home-body .home-profile-title__avatar {
 body.home-body .home-profile-panel__summary {
   position: absolute;
   left: 0;
-  top: 164.758px;
+  top: 188.38px;
   display: grid;
   gap: 8px;
   width: 323px;
@@ -6000,7 +6000,7 @@ body.home-body .home-profile-panel__summary p {
 body.home-body .home-profile-panel__about {
   position: absolute;
   left: 0;
-  top: 312px;
+  top: 332px;
   width: 239px;
   margin-top: 0;
 }
