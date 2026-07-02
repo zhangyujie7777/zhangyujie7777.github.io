@@ -9,9 +9,10 @@
       content="张玉杰个人设计作品集首页，展示个人介绍、精选作品与更多项目入口。"
     />
     <link rel="icon" href="data:," />
-    <link rel="preload" as="image" href="./assets/b-home-figma/品牌栏.png" />
-    <link rel="preload" as="image" href="./assets/b-home-figma/profile-avatar-mushroom.png" />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260702-site-b-clean-1" />
+    <link rel="preload" as="image" href="./assets/b-home-figma/品牌栏.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/b-home-figma/profile-avatar-mushroom.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/b-home-figma/home-vinyl-20260702-600.avif" type="image/avif" fetchpriority="high" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260702-home-cache-1" />
     <script>
       (() => {
         try {
@@ -74,7 +75,15 @@
     </script>
     <header class="home-banner" aria-label="Welcome">
       <div class="home-banner__brand">
-        <img src="./assets/b-home-figma/品牌栏.png" alt="WELCOME" />
+        <img
+          src="./assets/b-home-figma/品牌栏.png"
+          alt="WELCOME"
+          width="315"
+          height="140"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
       </div>
     </header>
 
@@ -112,6 +121,11 @@
                 src="./assets/b-home-figma/profile-avatar-mushroom.png"
                 alt=""
                 aria-hidden="true"
+                width="162"
+                height="213"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
               />
             </div>
 
@@ -126,48 +140,68 @@
               download="张玉杰-作品集简历.pdf"
               aria-label="下载作品集简历 PDF"
             >
-              <img src="./assets/b-home-figma/联系按钮.png" alt="ABOUT ME" />
+              <img
+                src="./assets/b-home-figma/联系按钮.png"
+                alt="ABOUT ME"
+                width="478"
+                height="144"
+                loading="eager"
+                decoding="async"
+              />
             </a>
           </div>
 
           <div class="home-showcase" aria-label="精选作品" data-hero-reveal-item>
             <a class="home-showcase-card home-showcase-card--home" href="./projects/work-jd.html">
               <span class="home-showcase-card__media">
-                <img
-                  class="home-showcase-card__disc"
-                  src="./assets/b-home-figma/home-vinyl-20260702.png"
-                  alt="在京东-首页作品"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <source srcset="./assets/b-home-figma/home-vinyl-20260702-600.avif" type="image/avif" />
+                  <img
+                    class="home-showcase-card__disc"
+                    src="./assets/b-home-figma/home-vinyl-20260702.png"
+                    alt="在京东-首页作品"
+                    width="900"
+                    height="900"
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                  />
+                </picture>
               </span>
               <img
                 class="home-showcase-card__click"
                 src="./assets/b-home-figma/click-hand-20260702.png"
                 alt=""
                 aria-hidden="true"
-                loading="lazy"
+                width="511"
+                height="513"
+                loading="eager"
                 decoding="async"
               />
               <strong>在京东-首页作品</strong>
               <span class="home-showcase-card__action" aria-hidden="true">
-                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" loading="lazy" decoding="async" />
+                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="eager" decoding="async" />
               </span>
             </a>
 
             <a class="home-showcase-card home-showcase-card--myjd" href="./projects/work-myjd.html">
               <span class="home-showcase-card__media">
-                <img
-                  class="home-showcase-card__disc"
-                  src="./assets/b-home-figma/myjd-vinyl-20260702.png"
-                  alt="在京东-我京作品"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <source srcset="./assets/b-home-figma/myjd-vinyl-20260702-600.avif" type="image/avif" />
+                  <img
+                    class="home-showcase-card__disc"
+                    src="./assets/b-home-figma/myjd-vinyl-20260702.png"
+                    alt="在京东-我京作品"
+                    width="900"
+                    height="900"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
               </span>
               <strong>在京东-我京作品</strong>
               <span class="home-showcase-card__action" aria-hidden="true">
-                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" loading="lazy" decoding="async" />
+                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="eager" decoding="async" />
               </span>
             </a>
           </div>
@@ -175,7 +209,7 @@
 
         <section class="home-more" id="more-works" aria-label="更多作品">
           <div class="home-more__heading" data-reveal>
-            <img src="./assets/home-figma/问号图标.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <img src="./assets/home-figma/问号图标.png" alt="" aria-hidden="true" width="109" height="108" loading="lazy" decoding="async" />
             <h2>
               <span>MORE</span>
               <span>projects</span>
@@ -192,11 +226,11 @@
               aria-label="查看 京东2021年度账单详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/年度账单.webp" alt="京东2021年度账单" loading="lazy" decoding="async" />
+                <img src="./assets/home-figma/年度账单.webp" alt="京东2021年度账单" width="486" height="486" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" loading="lazy" decoding="async" />
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
                   <small>jingdong<br />2021 annual bill</small>
@@ -214,11 +248,11 @@
               aria-label="查看 3D营销素材库详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/3d素材库.webp" alt="3D营销素材库" loading="lazy" decoding="async" />
+                <img src="./assets/home-figma/3d素材库.webp" alt="3D营销素材库" width="486" height="486" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" loading="lazy" decoding="async" />
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
                   <small>3D marketing<br />material library</small>
@@ -236,11 +270,11 @@
               aria-label="查看 京东APP13.0详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/app13.0.png" alt="京东APP13.0" loading="lazy" decoding="async" />
+                <img src="./assets/home-figma/app13.0.png" alt="京东APP13.0" width="729" height="729" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" loading="lazy" decoding="async" />
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
                   <small>jingdong<br />APP13.0 project</small>
@@ -258,11 +292,11 @@
               aria-label="查看 小组件设计与自媒体详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/小组件.png" alt="小组件设计/自媒体" loading="lazy" decoding="async" />
+                <img src="./assets/home-figma/小组件.png" alt="小组件设计/自媒体" width="729" height="729" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" loading="lazy" decoding="async" />
+                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
                   <small>Widget/Dial<br />Design</small>
@@ -276,11 +310,11 @@
         <div class="home-footer-shell">
           <footer class="home-footer" aria-label="底部信息">
             <p><span>🎨</span><span>Designed in Figma</span></p>
-            <p><span class="home-footer__icon"><img src="./assets/home/footer-codex.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></span><span>Built with Codex</span></p>
+            <p><span class="home-footer__icon"><img src="./assets/home/footer-codex.png" alt="" aria-hidden="true" width="200" height="73" loading="lazy" decoding="async" /></span><span>Built with Codex</span></p>
           </footer>
 
           <span class="home-ai-link" aria-hidden="true">
-            <img src="./assets/home-figma/文件夹 .png" alt="AI" loading="lazy" decoding="async" />
+            <img src="./assets/home-figma/文件夹 .png" alt="AI" width="133" height="111" loading="lazy" decoding="async" />
           </span>
         </div>
       </div>
@@ -296,11 +330,13 @@
               class="modal-card__title-image"
               src="./assets/home/contact-title-full.png"
               alt="CONTACT ME"
+              width="516"
+              height="72"
             loading="lazy" decoding="async" />
           </div>
           <p class="modal-card__subtitle">扫码加微信联系</p>
           <div class="modal-card__qr">
-            <img src="./assets/home/contact-qr-final.webp" alt="微信联系二维码" loading="lazy" decoding="async" />
+            <img src="./assets/home/contact-qr-final.webp" alt="微信联系二维码" width="434" height="434" loading="lazy" decoding="async" />
           </div>
           <div class="modal-contact-copy" aria-label="联系方式">
             <p><span>Email:</span><a href="mailto:915079987@qq.com">915079987@qq.com</a></p>
@@ -315,6 +351,6 @@
     <script src="./assets/vendor/gsap.min.js" defer></script>
     <script src="./assets/vendor/ScrollTrigger.min.js" defer></script>
     <script src="./assets/home-figma/disc-particles-data.js?v=20260702-site-b-home-2" defer></script>
-    <script src="./assets/js/script.js?v=20260702-site-b-home-2" defer></script>
+    <script src="./assets/js/script.js?v=20260702-home-cache-1" defer></script>
   </body>
 </html>

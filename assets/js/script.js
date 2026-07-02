@@ -587,6 +587,20 @@ function initHomeMotion() {
     });
   }
 
+  function showRevealTargetsImmediately() {
+    [hero, ...heroItems, ...revealTargets].filter(Boolean).forEach((element) => {
+      if (hasGsap) {
+        window.gsap.killTweensOf(element);
+        window.gsap.set(element, { clearProps: "all" });
+      }
+      element.style.opacity = "";
+      element.style.visibility = "";
+      element.style.transform = "";
+      element.style.filter = "";
+      element.style.willChange = "auto";
+    });
+  }
+
   function showHeroImmediately() {
     [hero, ...heroItems].filter(Boolean).forEach((element) => {
       element.style.opacity = "";
@@ -620,8 +634,7 @@ function initHomeMotion() {
   if (shouldSkipPreloader) {
     markHomePreloaderSeen();
     preloader?.remove();
-    showHeroImmediately();
-    initScrollReveals();
+    showRevealTargetsImmediately();
     window.setTimeout(() => ScrollTrigger?.refresh(), 80);
     return;
   }
