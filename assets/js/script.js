@@ -1265,7 +1265,7 @@ function initProjectNavigation() {
   };
   const navigationState = projectNavigation[currentFile];
 
-  if (!navigationState) return;
+  if (!navigationState && !isVibecodingHomeNav) return;
 
   const bottomNav = document.createElement("nav");
   bottomNav.className = "transaction-detail-nav project-bottom-nav";
