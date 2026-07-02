@@ -1211,34 +1211,13 @@ function initProjectNavigation() {
   const currentFile = window.location.pathname.split("/").pop();
   const projectNavigation = {
     "work-myjd.html": {
-      next: { file: "work-jd.html", title: "在京东-首页作品" },
+      previous: { file: "work-jd.html", title: "在京东-首页作品" },
+      next: { file: "../index.html#more-works", title: "去看看 More Project", hidePrefix: true },
     },
     "work-jd.html": {
-      previous: { file: "work-myjd.html", title: "在京东-我京作品" },
-      next: { file: "work-bytedance.html", title: "在字节-幸福里作品" },
-    },
-    "work-bytedance.html": {
-      previous: { file: "work-jd.html", title: "在京东-首页作品" },
-      next: { file: "work-selfmedia.html", title: "自媒体探索" },
-    },
-    "work-selfmedia.html": {
-      previous: { file: "work-bytedance.html", title: "在字节-幸福里作品" },
-      next: { file: "../index.html#more-works", title: "去看看 More Works", hidePrefix: true },
-    },
-    "work-vibecoding.html": {
-      previous: { file: "work-selfmedia.html", title: "自媒体探索" },
-      next: { file: "work-widgets.html", title: "轻量桌面组件" },
-    },
-    "work-widgets.html": {
-      previous: { file: "work-vibecoding.html", title: "Vibecoding 探索" },
-      next: { title: "No More Projects", disabled: true },
-    },
-    "work-c4d.html": {
-      previous: { file: "work-widgets.html", title: "轻量桌面组件" },
-      next: { file: "../index.html#more-works", title: "去看看 More Works" },
+      next: { file: "work-myjd.html", title: "在京东-我京作品" },
     },
     "more-2020-bill.html": {
-      previous: { title: "", disabled: true },
       next: { file: "more-3d-library.html", title: "3D素材库" },
     },
     "more-3d-library.html": {
@@ -1247,11 +1226,11 @@ function initProjectNavigation() {
     },
     "more-app-13.html": {
       previous: { file: "more-3d-library.html", title: "3D素材库" },
-      next: { file: "more-widgets.html", title: "小组件/表盘设计" },
+      next: { file: "b-personal-creative.html", title: "小组件设计/自媒体" },
     },
-    "more-widgets.html": {
+    "b-personal-creative.html": {
       previous: { file: "more-app-13.html", title: "京东APP13.0" },
-      next: { file: "../index.html#more-works", title: "回到 More Works", hidePrefix: true },
+      next: { file: "../index.html", title: "回首页", hidePrefix: true },
     },
     "project-01.html": {
       next: { file: "project-02.html", title: "设计系统搭建" },
@@ -1387,6 +1366,9 @@ function initProjectNavigation() {
   }
 
   bindProjectButton(previousButton, navigationState.previous, true);
+  if (!navigationState.previous && previousButton) {
+    previousButton.remove();
+  }
 
   if (navigationState.next?.disabled) {
     bindProjectButton(nextButton, { title: "No More Projects", disabled: true }, false);
@@ -1399,7 +1381,11 @@ function initMyjdProgressNav() {
   const main = document.querySelector("main.jd-case-page.myjd-redo-page");
   const progressNav = main?.querySelector(".myjd-progress-nav");
   const items = Array.from(main?.querySelectorAll("[data-myjd-progress]") || []);
-  const sections = Array.from(main?.querySelectorAll("#jd-myjd > .myjd-redo-project") || []);
+  const sectionRoot =
+    main?.querySelector("[data-progress-root]") || main?.querySelector("#jd-myjd");
+  const sections = Array.from(sectionRoot?.children || []).filter((element) =>
+    element.classList.contains("myjd-redo-project"),
+  );
   let lockedIndex = -1;
   let releaseLockTimer = 0;
 
