@@ -6308,31 +6308,48 @@ body.home-body .home-ai-link img {
 }
 
 @media (max-width: 600px) {
+  html {
+    background: #000;
+  }
+
+  body.home-body {
+    padding-top: env(safe-area-inset-top, 0);
+    background:
+      linear-gradient(#000 0 68px, transparent 68px),
+      radial-gradient(circle, var(--dot) 2px, transparent 2.1px),
+      var(--paper);
+    background-size:
+      100% 100%,
+      15px 15px,
+      auto;
+  }
+
   body.home-body .home-banner {
-    height: 68px;
+    height: 64px;
   }
 
   body.home-body .home-banner__brand {
     align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: 0;
     box-sizing: border-box;
   }
 
   body.home-body .home-banner__brand img {
-    height: 30px;
+    height: 38px;
     margin: 0;
   }
 
   body.home-body .home-marquee {
-    height: 24px;
-    margin-top: 6px;
+    height: 22px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
   body.home-body .home-marquee__viewport,
   body.home-body .home-marquee__track,
   body.home-body .home-marquee__set,
   body.home-body .home-marquee__item {
-    height: 24px;
+    height: 22px;
   }
 
   body.home-body .home-marquee__track {
@@ -6341,22 +6358,26 @@ body.home-body .home-ai-link img {
   }
 
   body.home-body .home-marquee__set {
-    gap: 28px;
-    padding-right: 28px;
+    gap: 42px;
+    padding-right: 42px;
   }
 
   body.home-body .home-marquee__item {
-    gap: 6px;
+    gap: 7px;
   }
 
-  body.home-body .home-marquee__emoji,
+  body.home-body .home-marquee__emoji {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
   body.home-body .home-marquee__text {
-    font-size: 12px;
-    line-height: 12px;
+    font-size: 15px;
+    line-height: 16px;
   }
 
   body.home-body .home-stage {
-    gap: 28px;
+    gap: 24px;
     padding: 0 18px 40px;
   }
 
@@ -6370,7 +6391,7 @@ body.home-body .home-ai-link img {
   }
 
   body.home-body .home-hero {
-    gap: 22px;
+    gap: 24px;
   }
 
   body.home-body .home-profile-panel {
@@ -6386,7 +6407,7 @@ body.home-body .home-ai-link img {
     width: 100%;
     height: auto;
     min-height: 108px;
-    margin-top: 4px;
+    margin-top: 0;
     text-align: center;
   }
 
@@ -6410,8 +6431,8 @@ body.home-body .home-ai-link img {
   }
 
   body.home-body .home-profile-title__avatar {
-    left: 50%;
-    top: 21px;
+    left: calc(50% + 3px);
+    top: 25px;
     width: 42px;
     height: 56px;
     transform: translateX(-50%);
@@ -6424,7 +6445,7 @@ body.home-body .home-ai-link img {
   body.home-body .home-profile-panel__about {
     position: static;
     width: 162px;
-    margin-top: 2px;
+    margin-top: 8px;
   }
 
   body.home-body .home-showcase {
@@ -6463,12 +6484,12 @@ body.home-body .home-ai-link img {
   }
 
   body.home-body .home-showcase-card__action img {
-    width: 8px;
-    height: 8px;
+    width: 18px;
+    height: 18px;
   }
 
   body.home-body .home-more {
-    gap: 14px;
+    gap: 12px;
   }
 
   body.home-body .home-more__heading {
@@ -6536,8 +6557,8 @@ body.home-body .home-ai-link img {
   }
 
   body.home-body .home-more-card__copy small {
-    font-size: 7px;
-    line-height: 10px;
+    font-size: 9px;
+    line-height: 11px;
   }
 
   body.home-body .home-more-card__copy strong {
@@ -6554,12 +6575,12 @@ body.home-body .home-ai-link img {
   }
 
   body.home-body .home-more-card__action img {
-    width: 8px;
-    height: 8px;
+    width: 18px;
+    height: 18px;
   }
 
   body.home-body .home-footer-shell {
-    margin-top: 2px;
+    margin-top: -10px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -6584,7 +6605,9 @@ body.home-body .home-ai-link img {
   body.myjd-case-body .jd-case-page.myjd-case-page,
   body.myjd-case-body main.jd-case-page.myjd-case-page.myjd-redo-page {
     width: 100%;
-    max-width: 390px;
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   body.myjd-case-body .detail-scroll.myjd-detail-scroll {
@@ -6595,9 +6618,15 @@ body.home-body .home-ai-link img {
 
   body.myjd-case-body .project-page-header.myjd-page-header {
     width: 100%;
-    max-width: 342px;
+    max-width: 100%;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  body.myjd-case-body .project-page-header.myjd-page-header img {
+    content: url("../jd-case/project-header-mobile.png");
+    width: 100%;
+    height: auto;
   }
 
   body.myjd-case-body .myjd-redo-page {
@@ -6624,8 +6653,8 @@ body.home-body .home-ai-link img {
 
   body.myjd-case-body .myjd-project-badge,
   body.myjd-case-body .myjd-redo-project-badge {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 
   body.myjd-case-body .myjd-redo-project-title {
@@ -6638,10 +6667,10 @@ body.home-body .home-ai-link img {
   }
 
   body.myjd-case-body .myjd-redo-row-index {
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 18px;
+    line-height: 18px;
     letter-spacing: 0;
-    transform: translateY(1px);
+    transform: translateY(3px);
   }
 
   body.myjd-case-body .myjd-redo-row-title {
@@ -6684,18 +6713,35 @@ body.home-body .home-ai-link img {
   }
 
   body.myjd-case-body .myjd-progress-nav {
-    right: 8px;
-    gap: 6px;
+    display: none;
   }
 
-  body.myjd-case-body .myjd-progress-nav__item {
-    width: 28px;
-    height: 28px;
+  body.myjd-case-body .project-bottom-nav,
+  body.myjd-case-body .transaction-detail-nav {
+    padding-right: 0;
+    padding-left: 0;
   }
 
-  body.myjd-case-body .myjd-progress-nav__item span {
+  body.myjd-case-body .project-nav-button,
+  body.myjd-case-body .transaction-detail-nav-button {
+    max-width: none;
+    min-width: 0;
+  }
+
+  body.myjd-case-body .project-nav-copy strong,
+  body.myjd-case-body .transaction-detail-nav-copy strong {
+    overflow: visible;
+    max-width: none;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+
+  body.myjd-case-body .project-nav-copy small,
+  body.myjd-case-body .project-nav-copy strong,
+  body.myjd-case-body .transaction-detail-nav-copy small,
+  body.myjd-case-body .transaction-detail-nav-copy strong {
     font-size: 14px;
-    line-height: 14px;
+    line-height: 16px;
   }
 }
 
@@ -6721,8 +6767,8 @@ body.home-body .home-ai-link img {
   }
 
   body.home-body .home-profile-title__avatar {
-    left: 50%;
-    top: 20px;
+    left: calc(50% + 3px);
+    top: 24px;
     width: 40px;
     height: 53px;
   }
