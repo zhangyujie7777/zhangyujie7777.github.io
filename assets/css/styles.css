@@ -5967,7 +5967,7 @@ body.home-body .home-profile-title__avatar {
 body.home-body .home-profile-panel__summary {
   position: absolute;
   left: 0;
-  top: 188.38px;
+  top: 178px;
   display: grid;
   gap: 8px;
   width: 323px;
@@ -6000,7 +6000,7 @@ body.home-body .home-profile-panel__summary p {
 body.home-body .home-profile-panel__about {
   position: absolute;
   left: 0;
-  top: 332px;
+  top: 312px;
   width: 239px;
   margin-top: 0;
 }
