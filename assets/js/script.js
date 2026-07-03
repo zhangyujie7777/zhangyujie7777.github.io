@@ -959,6 +959,72 @@ function initHomeReturnLinks() {
   window.__PORTFOLIO_MARK_SKIP_HOME_INTRO__ = markSkipHomeIntroOnce;
 }
 
+function initHomeImageCache() {
+  if (!("serviceWorker" in navigator)) return;
+
+  const homeImagePaths = [
+    "/assets/b-home-figma/品牌栏.png",
+    "/assets/b-home-figma/profile-avatar-mushroom.png",
+    "/assets/b-home-figma/联系按钮.png",
+    "/assets/b-home-figma/home-vinyl-20260702-600.avif",
+    "/assets/b-home-figma/home-vinyl-20260702.png",
+    "/assets/b-home-figma/click-hand-20260702.png",
+    "/assets/b-home-figma/myjd-vinyl-20260702-600.avif",
+    "/assets/b-home-figma/myjd-vinyl-20260702.png",
+    "/assets/new-raw/新切图/Frame 2085666221.png",
+    "/assets/home-figma/问号图标.png",
+    "/assets/home-figma/年度账单.webp",
+    "/assets/home-figma/3d素材库.webp",
+    "/assets/home-figma/app13.0.png",
+    "/assets/home-figma/小组件.png",
+    "/assets/home/footer-codex.png",
+    "/assets/home-figma/文件夹 .png",
+    "/assets/home/contact-title-full.png",
+    "/assets/home/contact-qr-final.webp",
+  ];
+
+  const toAbsoluteUrl = (path) => new URL(path, window.location.origin).href;
+
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then(() => {
+      if (!document.body.classList.contains("home-body") || !("caches" in window)) return;
+
+      const warmHomeImageCache = async () => {
+        const cache = await window.caches.open("portfolio-home-images-v1");
+        await Promise.allSettled(
+          homeImagePaths.map(async (path) => {
+            const request = new Request(toAbsoluteUrl(path), { cache: "force-cache" });
+            const cached = await cache.match(request, { ignoreSearch: true });
+            if (cached) return;
+
+            const response = await fetch(request);
+            if (response.ok) {
+              await cache.put(request, response.clone());
+            }
+          }),
+        );
+      };
+
+      const scheduleWarmup = () => {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(() => warmHomeImageCache(), { timeout: 2500 });
+        } else {
+          window.setTimeout(warmHomeImageCache, 1200);
+        }
+      };
+
+      if (document.readyState === "complete") {
+        scheduleWarmup();
+      } else {
+        window.addEventListener("load", scheduleWarmup, { once: true });
+      }
+    })
+    .catch(() => {
+      // Browser cache still works when Service Worker registration is unavailable.
+    });
+}
+
 function updateLikeIcon(button) {
   if (!button) return;
   const icon = button.querySelector("img");
@@ -1482,6 +1548,7 @@ function initMyjdProgressNav() {
 }
 
 initHomeReturnLinks();
+initHomeImageCache();
 initProjectPageHeader();
 initProjectNavigation();
 initMyjdProgressNav();
