@@ -966,11 +966,11 @@ function initHomeImageCache() {
     "/assets/b-home-figma/品牌栏.png",
     "/assets/b-home-figma/profile-avatar-mushroom.png",
     "/assets/b-home-figma/联系按钮.png",
-    "/assets/b-home-figma/home-vinyl-20260702-600.avif",
-    "/assets/b-home-figma/home-vinyl-20260702.png",
+    "/assets/b-home-figma/home-vinyl-20260707-560.avif",
+    "/assets/b-home-figma/home-vinyl-20260707.png",
     "/assets/b-home-figma/click-hand-20260702.png",
-    "/assets/b-home-figma/myjd-vinyl-20260702-600.avif",
-    "/assets/b-home-figma/myjd-vinyl-20260702.png",
+    "/assets/b-home-figma/myjd-vinyl-20260707-560.avif",
+    "/assets/b-home-figma/myjd-vinyl-20260707.png",
     "/assets/new-raw/新切图/Frame 2085666221.png",
     "/assets/home-figma/问号图标.png",
     "/assets/home-figma/年度账单.webp",
@@ -991,7 +991,7 @@ function initHomeImageCache() {
       if (!document.body.classList.contains("home-body") || !("caches" in window)) return;
 
       const warmHomeImageCache = async () => {
-        const cache = await window.caches.open("portfolio-home-images-v1");
+        const cache = await window.caches.open("portfolio-home-images-v2");
         await Promise.allSettled(
           homeImagePaths.map(async (path) => {
             const request = new Request(toAbsoluteUrl(path), { cache: "force-cache" });
