@@ -1290,11 +1290,11 @@ function initProjectNavigation() {
   const currentFile = window.location.pathname.split("/").pop();
   const projectNavigation = {
     "work-myjd.html": {
-      previous: { file: "work-jd.html", title: "在京东-首页作品" },
-      next: { file: "../index.html#more-works", title: "去看看 More Project", hidePrefix: true },
+      next: { file: "work-jd.html", title: "在京东-首页作品" },
     },
     "work-jd.html": {
-      next: { file: "work-myjd.html", title: "在京东-我京作品" },
+      previous: { file: "work-myjd.html", title: "在京东-我京作品" },
+      next: { file: "../index.html#more-works", title: "去看看 More Project", hidePrefix: true },
     },
     "more-2020-bill.html": {
       next: { file: "more-3d-library.html", title: "3D素材库" },
