@@ -11,7 +11,7 @@
     <link rel="icon" href="data:," />
     <link rel="preload" as="image" href="./assets/b-home-figma/品牌栏.png" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/b-home-figma/profile-avatar-mushroom.png" fetchpriority="high" />
-    <link rel="preload" as="image" href="./assets/b-home-figma/home-vinyl-20260707-560.avif" type="image/avif" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/b-home-figma/myjd-vinyl-20260707-v2-560.avif" type="image/avif" fetchpriority="high" />
     <link rel="stylesheet" href="./assets/css/styles.css?v=20260703-mobile-polish-6" />
     <script>
       (() => {
@@ -176,6 +176,28 @@
           </div>
 
           <div class="home-showcase" aria-label="精选作品" data-hero-reveal-item>
+            <a class="home-showcase-card home-showcase-card--myjd" href="./projects/work-myjd.html">
+              <span class="home-showcase-card__media">
+                <picture>
+                  <source srcset="./assets/b-home-figma/myjd-vinyl-20260707-v2-560.avif" type="image/avif" />
+                  <img
+                    class="home-showcase-card__disc"
+                    src="./assets/b-home-figma/myjd-vinyl-20260707-v2.png"
+                    alt="在京东-我京作品"
+                    width="560"
+                    height="560"
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                  />
+                </picture>
+              </span>
+              <strong>在京东-我京作品</strong>
+              <span class="home-showcase-card__action" aria-hidden="true">
+                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="eager" decoding="async" />
+              </span>
+            </a>
+
             <a class="home-showcase-card home-showcase-card--home" href="./projects/work-jd.html">
               <span class="home-showcase-card__media">
                 <picture>
@@ -188,7 +210,6 @@
                     height="560"
                     loading="eager"
                     decoding="async"
-                    fetchpriority="high"
                   />
                 </picture>
               </span>
@@ -203,27 +224,6 @@
                 decoding="async"
               />
               <strong>在京东-首页作品</strong>
-              <span class="home-showcase-card__action" aria-hidden="true">
-                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="eager" decoding="async" />
-              </span>
-            </a>
-
-            <a class="home-showcase-card home-showcase-card--myjd" href="./projects/work-myjd.html">
-              <span class="home-showcase-card__media">
-                <picture>
-                  <source srcset="./assets/b-home-figma/myjd-vinyl-20260707-560.avif" type="image/avif" />
-                  <img
-                    class="home-showcase-card__disc"
-                    src="./assets/b-home-figma/myjd-vinyl-20260707.png"
-                    alt="在京东-我京作品"
-                    width="560"
-                    height="560"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </picture>
-              </span>
-              <strong>在京东-我京作品</strong>
               <span class="home-showcase-card__action" aria-hidden="true">
                 <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="eager" decoding="async" />
               </span>
@@ -375,6 +375,6 @@
     <script src="./assets/vendor/gsap.min.js" defer></script>
     <script src="./assets/vendor/ScrollTrigger.min.js" defer></script>
     <script src="./assets/home-figma/disc-particles-data.js?v=20260702-site-b-home-2" defer></script>
-    <script src="./assets/js/script.js?v=20260707-home-vinyl-ai-link" defer></script>
+    <script src="./assets/js/script.js?v=20260707-myjd-vinyl-v2" defer></script>
   </body>
 </html>

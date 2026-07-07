@@ -1,4 +1,4 @@
-const HOME_IMAGE_CACHE = "portfolio-home-images-v2";
+const HOME_IMAGE_CACHE = "portfolio-home-images-v3";
 
 const HOME_IMAGE_PATHS = new Set([
   "/assets/b-home-figma/品牌栏.png",
@@ -7,8 +7,8 @@ const HOME_IMAGE_PATHS = new Set([
   "/assets/b-home-figma/home-vinyl-20260707-560.avif",
   "/assets/b-home-figma/home-vinyl-20260707.png",
   "/assets/b-home-figma/click-hand-20260702.png",
-  "/assets/b-home-figma/myjd-vinyl-20260707-560.avif",
-  "/assets/b-home-figma/myjd-vinyl-20260707.png",
+  "/assets/b-home-figma/myjd-vinyl-20260707-v2-560.avif",
+  "/assets/b-home-figma/myjd-vinyl-20260707-v2.png",
   "/assets/new-raw/新切图/Frame 2085666221.png",
   "/assets/home-figma/问号图标.png",
   "/assets/home-figma/年度账单.webp",

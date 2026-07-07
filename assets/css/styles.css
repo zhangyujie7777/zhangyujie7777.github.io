@@ -6071,11 +6071,6 @@ body.home-body .home-showcase-card:focus-visible img.home-showcase-card__click {
   transform: scale(1.04);
 }
 
-body.home-body .home-showcase-card:hover img.home-showcase-card__disc,
-body.home-body .home-showcase-card:focus-visible img.home-showcase-card__disc {
-  animation: vinyl-spin 18s linear infinite;
-}
-
 body.home-body .home-showcase-card strong {
   width: 339px;
   margin-top: 16px;
