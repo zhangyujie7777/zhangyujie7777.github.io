@@ -966,6 +966,7 @@ function initHomeImageCache() {
     "/assets/b-home-figma/品牌栏.png",
     "/assets/b-home-figma/profile-avatar-mushroom.png",
     "/assets/b-home-figma/联系按钮.png",
+    "/assets/b-home-figma/download-icon-original.png",
     "/assets/b-home-figma/home-vinyl-20260707-v3-560.avif",
     "/assets/b-home-figma/home-vinyl-20260707-v3.png",
     "/assets/b-home-figma/click-hand-20260702.png",
