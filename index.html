@@ -9,10 +9,9 @@
       content="张玉杰个人设计作品集首页，展示个人介绍、精选作品与更多项目入口。"
     />
     <link rel="icon" href="data:," />
-    <link rel="preload" as="image" href="./assets/b-home-figma/品牌栏.png" fetchpriority="high" />
-    <link rel="preload" as="image" href="./assets/b-home-figma/profile-avatar-mushroom.png" fetchpriority="high" />
-    <link rel="preload" as="image" href="./assets/b-home-figma/myjd-vinyl-20260707-v3-560.avif" type="image/avif" fetchpriority="high" />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260708-download-cn-original-icon" />
+    <link rel="preload" as="image" href="./assets/c-home-v2/角色.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/c-home-v2/我京入口.png?v=20260713-2" fetchpriority="high" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260713-profile-flow-sync" />
     <script>
       (() => {
         try {
@@ -73,175 +72,127 @@
         );
       })();
     </script>
-    <header class="home-banner" aria-label="Welcome">
-      <div class="home-banner__brand">
-        <img
-          src="./assets/b-home-figma/品牌栏.png"
-          alt="WELCOME"
-          width="315"
-          height="140"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
+    <header class="c-home-banner" aria-label="网站工具栏">
+      <div class="c-home-brand">
+        <button class="c-home-brand__avatar" type="button" data-action="refresh-home" aria-label="刷新首页">
+          <img src="./assets/c-home-v2/品牌栏小人.png" alt="" width="40" height="40" aria-hidden="true" />
+        </button>
+        <nav class="c-home-brand__actions" aria-label="快捷操作">
+          <button type="button" data-action="share">SHARE</button>
+          <span aria-hidden="true"></span>
+          <button type="button" data-action="contact">CONTACT</button>
+        </nav>
       </div>
     </header>
 
-    <section class="home-marquee" aria-label="Design keywords">
-      <div class="home-marquee__viewport">
-        <div class="home-marquee__track">
-          <div class="home-marquee__set">
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🎨</span><span class="home-marquee__text">Pixel Perfect Thinking</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🚀</span><span class="home-marquee__text">Product Driven Design</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">👀</span><span class="home-marquee__text">Visual Story Maker</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">✨</span><span class="home-marquee__text">Motion Detail Hunter</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🧊</span><span class="home-marquee__text">C4D Visual Explorer</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🛠️</span><span class="home-marquee__text">Interface Problem Solver</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🧩</span><span class="home-marquee__text">Design System Builder</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🤖</span><span class="home-marquee__text">AI Powered Designer</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">💡</span><span class="home-marquee__text">Business Minded Creativity</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">❤️</span><span class="home-marquee__text">User Value First</span></span>
-          </div>
-          <div class="home-marquee__set" aria-hidden="true">
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🎨</span><span class="home-marquee__text">Pixel Perfect Thinking</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🚀</span><span class="home-marquee__text">Product Driven Design</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">👀</span><span class="home-marquee__text">Visual Story Maker</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">✨</span><span class="home-marquee__text">Motion Detail Hunter</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🧊</span><span class="home-marquee__text">C4D Visual Explorer</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🛠️</span><span class="home-marquee__text">Interface Problem Solver</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🧩</span><span class="home-marquee__text">Design System Builder</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🤖</span><span class="home-marquee__text">AI Powered Designer</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">💡</span><span class="home-marquee__text">Business Minded Creativity</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">❤️</span><span class="home-marquee__text">User Value First</span></span>
-          </div>
-          <div class="home-marquee__set" aria-hidden="true">
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🎨</span><span class="home-marquee__text">Pixel Perfect Thinking</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🚀</span><span class="home-marquee__text">Product Driven Design</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">👀</span><span class="home-marquee__text">Visual Story Maker</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">✨</span><span class="home-marquee__text">Motion Detail Hunter</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🧊</span><span class="home-marquee__text">C4D Visual Explorer</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🛠️</span><span class="home-marquee__text">Interface Problem Solver</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🧩</span><span class="home-marquee__text">Design System Builder</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">🤖</span><span class="home-marquee__text">AI Powered Designer</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">💡</span><span class="home-marquee__text">Business Minded Creativity</span></span>
-            <span class="home-marquee__item"><span class="home-marquee__emoji">❤️</span><span class="home-marquee__text">User Value First</span></span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <main class="home-page">
-      <div class="home-page__dots" aria-hidden="true"></div>
-      <div class="home-stage">
-        <section class="home-hero" aria-label="首页头图" data-hero-reveal data-hero-reveal-group>
-          <div class="home-profile-panel" data-hero-reveal-item>
-            <div class="home-profile-title" aria-label="Design Profile">
-              <h1 class="home-profile-title__text">
-                <span class="home-profile-title__line home-profile-title__line--design">Design</span>
-                <span class="home-profile-title__line home-profile-title__line--profile">Profile</span>
-              </h1>
-              <img
-                class="home-profile-title__avatar"
-                src="./assets/b-home-figma/profile-avatar-mushroom.png"
-                alt=""
-                aria-hidden="true"
-                width="162"
-                height="213"
-                loading="eager"
-                decoding="async"
-                fetchpriority="high"
-              />
-            </div>
-
-            <div class="home-profile-panel__summary">
-              <strong>张玉杰-UI设计师/视觉设计师</strong>
-              <p>融合视觉表达、产品理解与 AI 工具探索，持续构建设计的落地能力与创新表达。</p>
-            </div>
-
-            <a
-              class="home-profile-panel__about"
-              href="./assets/resume.pdf"
-              download="张玉杰-作品集简历.pdf"
-              aria-label="下载作品集简历 PDF"
-            >
-              <span class="home-profile-panel__about-inner">
-                <img
-                  class="home-profile-panel__about-icon"
-                  src="./assets/b-home-figma/download-icon-original.png"
-                  alt=""
-                  aria-hidden="true"
-                  width="48"
-                  height="48"
-                  loading="eager"
-                  decoding="async"
-                />
-                <span class="home-profile-panel__about-text">下载简历</span>
+    <main class="c-home-page">
+      <div class="c-home-stage">
+        <section class="c-home-hero" aria-label="首页头图" data-hero-reveal data-hero-reveal-group>
+          <div class="c-home-profile" data-hero-reveal-item>
+            <h1 class="c-home-profile-mark" aria-label="DESIGN PROFILE">
+              <span class="c-home-profile-mark__design" aria-hidden="true"><img src="./assets/c-home-v2/c-title-design.svg" alt="" /></span>
+              <span class="c-home-profile-mark__profile" aria-hidden="true">PROFILE
+                <img src="./assets/c-home-v2/c-title-p7.svg" alt="" />
+                <img src="./assets/c-home-v2/c-title-p6.svg" alt="" />
+                <img src="./assets/c-home-v2/c-title-p5.svg" alt="" />
+                <img src="./assets/c-home-v2/c-title-p4.svg" alt="" />
+                <img src="./assets/c-home-v2/c-title-p3.svg" alt="" />
+                <img src="./assets/c-home-v2/c-title-p2.svg" alt="" />
+                <img src="./assets/c-home-v2/c-title-p1.svg" alt="" />
               </span>
+            </h1>
+            <div class="c-home-profile__summary">
+              <strong>张玉杰</strong>
+              <strong>UI视觉设计师</strong>
+              <p>擅长视觉、产品设计与AI工具</p>
+            </div>
+            <a class="c-home-resume" href="./assets/resume.pdf" download="张玉杰-作品集简历.pdf" aria-label="下载作品集简历 PDF">
+              <img src="./assets/c-home-v2/下载icon.png" alt="" width="20" height="20" aria-hidden="true" />
+              <span>下载简历</span>
             </a>
           </div>
+          <div class="c-home-portrait" aria-hidden="true" data-hero-reveal-item>
+            <img class="c-home-portrait__shape" src="./assets/c-home-v2/hero-yellow-triple.png" alt="" width="841" height="468" aria-hidden="true" />
+            <img class="c-home-portrait__person" src="./assets/c-home-v2/角色.png" alt="" width="496" height="496" fetchpriority="high" />
+            <div class="c-home-eye-strip">
+              <span>Figma</span><span>ChatGPT</span><span>Codex</span><span>After Effects</span><span>Photoshop</span><span>CapCut</span><span>Dreamina</span><span>Cinema 4D</span>
+            </div>
+            <img class="c-home-portrait__cursor" src="./assets/c-home-v2/箭头.png" alt="" width="79" height="79" />
+            <img class="c-home-portrait__folder" src="./assets/c-home-v2/文件夹.png" alt="" width="71" height="65" />
+          </div>
+        </section>
 
-          <div class="home-showcase" aria-label="精选作品" data-hero-reveal-item>
-            <a class="home-showcase-card home-showcase-card--myjd" href="./projects/work-myjd.html">
+        <div class="c-home-divider" aria-hidden="true"></div>
+
+        <section class="c-home-key" aria-label="重点项目">
+          <div class="c-home-key__background" data-reveal aria-hidden="true"></div>
+          <div class="c-home-key__intro" data-reveal>
+            <h2><span>KEY</span><span>WORKS</span></h2>
+            <div class="c-home-key__cn">
+              <span>聚焦京东首页与“我京”核心场景，</span>
+              <span>完成从体验策略、视觉升级到设计</span>
+              <span>系统落地。</span>
+            </div>
+            <p class="c-home-key__en" lang="en">Focusing on the JD homepage and “My JD,” we explored experience strategy, visual upgrades, and design system implementation.</p>
+          </div>
+          <div class="home-showcase" aria-label="精选作品" data-reveal-group>
+            <a class="home-showcase-card home-showcase-card--myjd" href="./projects/work-myjd.html" data-reveal data-reveal-item data-reveal-card>
               <span class="home-showcase-card__media">
                 <picture>
-                  <source srcset="./assets/b-home-figma/myjd-vinyl-20260707-v3-560.avif" type="image/avif" />
                   <img
                     class="home-showcase-card__disc"
-                    src="./assets/b-home-figma/myjd-vinyl-20260707-v3.png"
-                    alt="在京东-我京作品"
-                    width="560"
-                    height="560"
+                    src="./assets/c-home-v2/我京入口.png?v=20260713-2"
+                    alt="京东APP-我的京东"
+                    width="660"
+                    height="660"
                     loading="eager"
                     decoding="async"
                     fetchpriority="high"
                   />
                 </picture>
               </span>
-              <strong>在京东-我京作品</strong>
+              <strong>京东APP-我的京东</strong>
               <span class="home-showcase-card__action" aria-hidden="true">
-                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="eager" decoding="async" />
+                <img src="./assets/c-home-v2/通用箭头.png" alt="" width="24" height="24" loading="eager" decoding="async" />
               </span>
             </a>
 
-            <a class="home-showcase-card home-showcase-card--home" href="./projects/work-jd.html">
+            <a class="home-showcase-card home-showcase-card--home" href="./projects/work-jd.html" data-reveal data-reveal-item data-reveal-card>
               <span class="home-showcase-card__media">
                 <picture>
-                  <source srcset="./assets/b-home-figma/home-vinyl-20260707-v3-560.avif" type="image/avif" />
                   <img
                     class="home-showcase-card__disc"
-                    src="./assets/b-home-figma/home-vinyl-20260707-v3.png"
-                    alt="在京东-首页作品"
-                    width="560"
-                    height="560"
+                    src="./assets/c-home-v2/首页入口.png"
+                    alt="京东APP-首页"
+                    width="729"
+                    height="729"
                     loading="eager"
                     decoding="async"
                   />
                 </picture>
               </span>
-              <img
-                class="home-showcase-card__click"
-                src="./assets/b-home-figma/click-hand-20260702.png"
-                alt=""
-                aria-hidden="true"
-                width="511"
-                height="513"
-                loading="eager"
-                decoding="async"
-              />
-              <strong>在京东-首页作品</strong>
+              <strong>京东APP-首页</strong>
               <span class="home-showcase-card__action" aria-hidden="true">
-                <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="eager" decoding="async" />
+                <img src="./assets/c-home-v2/通用箭头.png" alt="" width="24" height="24" loading="eager" decoding="async" />
               </span>
+            </a>
+            <a class="home-showcase-card home-showcase-card--ai" href="./projects/work-vibecoding.html" data-reveal data-reveal-item data-reveal-card>
+              <span class="home-showcase-card__media">
+                <img class="home-showcase-card__disc" src="./assets/c-home-v2/ai入口-user-latest.png" alt="AI学习与使用" width="660" height="660" loading="eager" decoding="async" />
+              </span>
+              <strong>AI学习与使用</strong>
+              <span class="home-showcase-card__action" aria-hidden="true"><img src="./assets/c-home-v2/通用箭头.png" alt="" width="24" height="24" loading="eager" decoding="async" /></span>
             </a>
           </div>
         </section>
 
-        <section class="home-more" id="more-works" aria-label="更多作品">
+        <div class="c-home-divider" aria-hidden="true"></div>
+
+        <section class="home-more c-home-more" id="more-works" aria-label="更多作品">
           <div class="home-more__heading" data-reveal>
-            <img src="./assets/home-figma/问号图标.png" alt="" aria-hidden="true" width="109" height="108" loading="lazy" decoding="async" />
             <h2>
               <span>MORE</span>
-              <span>projects</span>
+              <span>PROJECTS</span>
             </h2>
           </div>
 
@@ -255,14 +206,14 @@
               aria-label="查看 京东2021年度账单详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/年度账单.webp" alt="京东2021年度账单" width="486" height="486" loading="lazy" decoding="async" />
+                <img src="./assets/c-home-v2/年度账单.png" alt="京东2021年度账单" width="729" height="729" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
+                  <img src="./assets/c-home-v2/通用箭头.png" alt="" width="24" height="24" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
-                  <small>jingdong<br />2021 annual bill</small>
+                  <small>ingdong<br />2021 annual bill</small>
                   <strong>京东2021年度账单</strong>
                 </div>
               </div>
@@ -277,11 +228,11 @@
               aria-label="查看 3D营销素材库详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/3d素材库.webp" alt="3D营销素材库" width="486" height="486" loading="lazy" decoding="async" />
+                <img src="./assets/c-home-v2/3d素材库.png" alt="3D营销素材库" width="729" height="729" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
+                  <img src="./assets/c-home-v2/通用箭头.png" alt="" width="24" height="24" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
                   <small>3D marketing<br />material library</small>
@@ -299,11 +250,11 @@
               aria-label="查看 京东APP13.0详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/app13.0.png" alt="京东APP13.0" width="729" height="729" loading="lazy" decoding="async" />
+                <img src="./assets/c-home-v2/app13.0.png" alt="京东APP13.0" width="729" height="729" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
+                  <img src="./assets/c-home-v2/通用箭头.png" alt="" width="24" height="24" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
                   <small>jingdong<br />APP13.0 project</small>
@@ -321,11 +272,11 @@
               aria-label="查看 小组件设计与自媒体详情"
             >
               <div class="home-more-card__art">
-                <img src="./assets/home-figma/小组件.png" alt="小组件设计/自媒体" width="729" height="729" loading="lazy" decoding="async" />
+                <img src="./assets/c-home-v2/小组件.png" alt="小组件设计/自媒体" width="729" height="729" loading="lazy" decoding="async" />
               </div>
               <div class="home-more-card__body">
                 <span class="home-more-card__action" aria-hidden="true">
-                  <img src="./assets/new-raw/新切图/Frame 2085666221.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
+                  <img src="./assets/c-home-v2/通用箭头.png" alt="" width="24" height="24" loading="lazy" decoding="async" />
                 </span>
                 <div class="home-more-card__copy">
                   <small>Widget/Dial<br />Design</small>
@@ -336,50 +287,51 @@
           </div>
         </section>
 
-        <div class="home-footer-shell">
-          <footer class="home-footer" aria-label="底部信息">
-            <p><span>🎨</span><span>Designed in Figma</span></p>
-            <p><span class="home-footer__icon"><img src="./assets/home/footer-codex.png" alt="" aria-hidden="true" width="200" height="73" loading="lazy" decoding="async" /></span><span>Built with Codex</span></p>
-          </footer>
+        <footer class="c-home-ending" aria-label="The end">
+          <div class="c-home-ending__emojis" aria-hidden="true">
+            <span data-ending-emoji>🖥</span><span data-ending-emoji>☘️</span><span data-ending-emoji>🔮</span>
+          </div>
+          <strong>THE END</strong>
+          <div class="c-home-ending__emojis" aria-hidden="true">
+            <span data-ending-emoji>💊</span><span data-ending-emoji>🔥</span><span data-ending-emoji>❄️</span>
+          </div>
+        </footer>
 
-          <a class="home-ai-link" href="./projects/work-vibecoding.html" aria-label="查看 AI 辅助创作详情">
-            <img src="./assets/home-figma/文件夹 .png" alt="AI" width="133" height="111" loading="lazy" decoding="async" />
-          </a>
-        </div>
       </div>
     </main>
+
+    <section class="home-marquee c-home-marquee" aria-label="Design keywords" hidden>
+      <div class="home-marquee__viewport"><div class="home-marquee__track">
+        <div class="home-marquee__set">
+          <span class="home-marquee__item"><span class="home-marquee__emoji">🎨</span><span class="home-marquee__text">Pixel Perfect Thinking</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🚀</span><span class="home-marquee__text">Product Driven Design</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">👀</span><span class="home-marquee__text">Visual Story Maker</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">✨</span><span class="home-marquee__text">Motion Detail Hunter</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🧊</span><span class="home-marquee__text">C4D Visual Explorer</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🛠️</span><span class="home-marquee__text">Interface Problem Solver</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🧩</span><span class="home-marquee__text">Design System Builder</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🤖</span><span class="home-marquee__text">AI Powered Designer</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">💡</span><span class="home-marquee__text">Business Minded Creativity</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">❤️</span><span class="home-marquee__text">User Value First</span></span>
+        </div>
+        <div class="home-marquee__set" aria-hidden="true">
+          <span class="home-marquee__item"><span class="home-marquee__emoji">🎨</span><span class="home-marquee__text">Pixel Perfect Thinking</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🚀</span><span class="home-marquee__text">Product Driven Design</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">👀</span><span class="home-marquee__text">Visual Story Maker</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">✨</span><span class="home-marquee__text">Motion Detail Hunter</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🧊</span><span class="home-marquee__text">C4D Visual Explorer</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🛠️</span><span class="home-marquee__text">Interface Problem Solver</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🧩</span><span class="home-marquee__text">Design System Builder</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">🤖</span><span class="home-marquee__text">AI Powered Designer</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">💡</span><span class="home-marquee__text">Business Minded Creativity</span></span><span class="home-marquee__item"><span class="home-marquee__emoji">❤️</span><span class="home-marquee__text">User Value First</span></span>
+        </div>
+      </div></div>
+    </section>
 
     <div class="toast" role="status" aria-live="polite"></div>
     <div class="modal" aria-hidden="true">
       <div class="modal-backdrop" data-action="close-modal"></div>
       <section class="modal-panel" role="dialog" aria-modal="true" aria-label="Contact Me">
         <div class="modal-card">
-          <div class="modal-card__header">
-            <img
-              class="modal-card__title-image"
-              src="./assets/home/contact-title-full.png"
-              alt="CONTACT ME"
-              width="516"
-              height="72"
-            loading="lazy" decoding="async" />
+          <div class="modal-card__title">
+            <img src="./assets/home/contact-character-figma.png" alt="" width="32" height="32" aria-hidden="true" />
+            <strong>扫码加微信联系</strong>
           </div>
-          <p class="modal-card__subtitle">扫码加微信联系</p>
           <div class="modal-card__qr">
-            <img src="./assets/home/contact-qr-final.webp" alt="微信联系二维码" width="434" height="434" loading="lazy" decoding="async" />
-          </div>
-          <div class="modal-contact-copy" aria-label="联系方式">
-            <p><span>Email:</span><a href="mailto:915079987@qq.com">915079987@qq.com</a></p>
-            <p><span>Phone:</span><a href="tel:+8618578677301">185 7867 7301</a></p>
+            <img src="./assets/home/contact-qr-figma.png" alt="微信联系二维码" width="200" height="200" loading="lazy" decoding="async" />
           </div>
         </div>
         <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">
-          <span class="modal-close__icon" aria-hidden="true"></span>
+          <img src="./assets/home/contact-close-figma.png" alt="" width="36" height="36" aria-hidden="true" />
         </button>
       </section>
     </div>
     <script src="./assets/vendor/gsap.min.js" defer></script>
     <script src="./assets/vendor/ScrollTrigger.min.js" defer></script>
     <script src="./assets/home-figma/disc-particles-data.js?v=20260702-site-b-home-2" defer></script>
-    <script src="./assets/js/script.js?v=20260707-home-vinyl-v3" defer></script>
+    <script src="./assets/js/script.js?v=20260712-home-light-cursor-disc" defer></script>
   </body>
 </html>

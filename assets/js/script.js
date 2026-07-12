@@ -1,5 +1,5 @@
-const toast = document.querySelector(".toast");
-const modal = document.querySelector(".modal");
+let toast = document.querySelector(".toast");
+let modal = document.querySelector(".modal");
 let typewriter = document.querySelector("[data-typewriter]");
 let toastTimer;
 let toastAnchor;
@@ -625,9 +625,12 @@ function initHomeMotion() {
 
   revealTargets.forEach((element) => {
     const isCard = element.hasAttribute("data-reveal-card");
+    const isBackground = element.classList.contains("c-home-key__background");
     gsap.set(element, {
       autoAlpha: 0,
-      y: window.matchMedia("(max-width: 700px)").matches ? 30 : isCard ? 56 : 48,
+      y: isBackground ? 0 : window.matchMedia("(max-width: 700px)").matches ? 30 : isCard ? 56 : 48,
+      scaleY: isBackground ? 0 : 1,
+      transformOrigin: isBackground ? "top center" : "center center",
     });
   });
 
@@ -639,7 +642,7 @@ function initHomeMotion() {
     return;
   }
 
-  gsap.set(heroItems.length ? heroItems : hero, { autoAlpha: 0, y: 36 });
+  showHeroImmediately();
 
   gsap.set(preloaderTiles, {
     yPercent: 0,
@@ -648,15 +651,7 @@ function initHomeMotion() {
   });
 
   function revealHero() {
-    if (!hero) return;
-    gsap.to(heroItems.length ? heroItems : hero, {
-      autoAlpha: 1,
-      y: 0,
-      duration: window.matchMedia("(max-width: 700px)").matches ? 0.72 : 0.9,
-      stagger: heroItems.length ? 0.08 : 0,
-      ease: "power3.out",
-      clearProps: "willChange,transform,opacity,visibility",
-    });
+    showHeroImmediately();
   }
 
   function initScrollReveals() {
@@ -675,43 +670,62 @@ function initHomeMotion() {
     }
 
     const isMobile = window.matchMedia("(max-width: 700px)").matches;
+    const isAlreadyInViewport = (element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    };
 
     revealGroups.forEach((group) => {
       const items = Array.from(group.querySelectorAll("[data-reveal-item]"));
       if (!items.length) return;
 
-      gsap.to(items, {
+      const groupAnimation = {
         autoAlpha: 1,
         y: 0,
         duration: isMobile ? 0.7 : 0.95,
         stagger: isMobile ? 0.06 : 0.1,
         ease: "power3.out",
         clearProps: "willChange,transform,opacity,visibility",
-        scrollTrigger: {
+      };
+
+      if (!isAlreadyInViewport(group)) {
+        groupAnimation.scrollTrigger = {
           trigger: group,
           start: "top 84%",
           once: true,
           toggleActions: "play none none none",
-        },
-      });
+        };
+      }
+
+      gsap.to(items, groupAnimation);
     });
 
     standaloneRevealElements.forEach((element) => {
       const isCard = element.hasAttribute("data-reveal-card");
-      gsap.to(element, {
+      const isBackground = element.classList.contains("c-home-key__background");
+      const elementAnimation = {
         autoAlpha: 1,
         y: 0,
-        duration: isMobile ? 0.7 : isCard ? 0.95 : 0.85,
+        scaleY: 1,
+        duration: isMobile ? 0.7 : isBackground ? 0.8 : isCard ? 0.95 : 0.85,
         ease: "power3.out",
-        clearProps: "willChange,transform,opacity,visibility",
-        scrollTrigger: {
+        clearProps: "willChange,transform,transformOrigin,opacity,visibility",
+      };
+
+      if (!isAlreadyInViewport(element)) {
+        elementAnimation.scrollTrigger = {
           trigger: element,
           start: isCard ? "top 84%" : "top 86%",
           once: true,
           toggleActions: "play none none none",
-        },
-      });
+        };
+      }
+
+      gsap.to(element, elementAnimation);
     });
+
+    ScrollTrigger.refresh();
+    ScrollTrigger.update();
   }
 
   const startedAt = performance.now();
@@ -963,15 +977,9 @@ function initHomeImageCache() {
   if (!("serviceWorker" in navigator)) return;
 
   const homeImagePaths = [
-    "/assets/b-home-figma/品牌栏.png",
-    "/assets/b-home-figma/profile-avatar-mushroom.png",
-    "/assets/b-home-figma/联系按钮.png",
-    "/assets/b-home-figma/download-icon-original.png",
-    "/assets/b-home-figma/home-vinyl-20260707-v3-560.avif",
-    "/assets/b-home-figma/home-vinyl-20260707-v3.png",
-    "/assets/b-home-figma/click-hand-20260702.png",
-    "/assets/b-home-figma/myjd-vinyl-20260707-v3-560.avif",
-    "/assets/b-home-figma/myjd-vinyl-20260707-v3.png",
+    "/assets/c-home/welcome-character.png",
+    "/assets/c-home/hero-character.png",
+    "/assets/fonts/bbh-bartle/BBHBartle-Regular.woff2",
     "/assets/new-raw/新切图/Frame 2085666221.png",
     "/assets/home-figma/问号图标.png",
     "/assets/home-figma/年度账单.webp",
@@ -1053,10 +1061,12 @@ function showToast(message, anchor) {
 
   if (anchor) {
     const rect = anchor.getBoundingClientRect();
+    toast.classList.add("is-anchored");
     toast.style.left = `${rect.left + rect.width / 2}px`;
-    toast.style.top = `${rect.top - 14}px`;
+    toast.style.top = `${rect.bottom + 12}px`;
     toast.style.bottom = "auto";
   } else {
+    toast.classList.remove("is-anchored");
     toast.style.left = "50%";
     toast.style.top = "auto";
     toast.style.bottom = "34px";
@@ -1065,6 +1075,7 @@ function showToast(message, anchor) {
   toast.classList.add("is-visible");
   toastTimer = window.setTimeout(() => {
     toast.classList.remove("is-visible");
+    toast.classList.remove("is-anchored");
     document.body.classList.remove("is-toast-showing");
     toastAnchor?.classList.remove("is-toast-suppressed");
     toastAnchor = null;
@@ -1151,6 +1162,10 @@ document.addEventListener("click", (event) => {
 
   if (action === "share") {
     copyCurrentUrl(actionElement);
+  }
+
+  if (action === "refresh-home") {
+    window.location.reload();
   }
 
   if (action === "download-resume") {
@@ -1268,17 +1283,56 @@ function initProjectPageHeader() {
   const main = document.querySelector("main.detail-page, main.jd-case-page");
   if (!main) return;
 
-  const headerHost = main.querySelector(".detail-scroll") || main;
-  if (!headerHost || headerHost.querySelector(".project-page-header")) return;
+  if (!document.querySelector(".toast")) {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      '<div class="toast" role="status" aria-live="polite"></div>',
+    );
+  }
 
-  const headerLink = document.createElement("a");
-  headerLink.className = "project-page-header myjd-page-header";
-  headerLink.href = "../index.html";
-  headerLink.setAttribute("aria-label", "返回首页");
-  headerLink.innerHTML =
-    '<img src="../assets/jd-case/project-header.webp" alt="DETAILS PAGE 统一版头" />';
+  if (!document.querySelector(".modal")) {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      `<div class="modal c-detail-modal" aria-hidden="true">
+        <div class="modal-backdrop" data-action="close-modal"></div>
+        <section class="modal-panel" role="dialog" aria-modal="true" aria-label="Contact Me">
+          <div class="modal-card">
+            <div class="modal-card__title">
+              <img src="../assets/home/contact-character-figma.png" alt="" width="32" height="32" aria-hidden="true" />
+              <strong>扫码加微信联系</strong>
+            </div>
+            <div class="modal-card__qr">
+              <img src="../assets/home/contact-qr-figma.png" alt="微信联系二维码" width="200" height="200" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <button class="modal-close" type="button" data-action="close-modal" aria-label="关闭弹窗">
+            <img src="../assets/home/contact-close-figma.png" alt="" width="36" height="36" aria-hidden="true" />
+          </button>
+        </section>
+      </div>`,
+    );
+  }
 
-  headerHost.prepend(headerLink);
+  toast = document.querySelector(".toast");
+  modal = document.querySelector(".modal");
+  main.querySelectorAll(".project-page-header").forEach((header) => header.remove());
+  if (document.querySelector(".c-detail-banner")) return;
+
+  const header = document.createElement("header");
+  header.className = "c-home-banner c-detail-banner";
+  header.setAttribute("aria-label", "网站工具栏");
+  header.innerHTML = `
+    <div class="c-home-brand">
+      <a class="c-home-brand__avatar" href="../index.html" aria-label="返回首页">
+        <img src="../assets/c-home-v2/品牌栏小人.png" alt="" width="40" height="40" aria-hidden="true" />
+      </a>
+      <nav class="c-home-brand__actions" aria-label="快捷操作">
+        <button type="button" data-action="share">SHARE</button>
+        <span aria-hidden="true"></span>
+        <button type="button" data-action="contact">CONTACT</button>
+      </nav>
+    </div>`;
+  document.body.insertBefore(header, main);
 }
 
 function initProjectNavigation() {
@@ -1291,13 +1345,18 @@ function initProjectNavigation() {
   const currentFile = window.location.pathname.split("/").pop();
   const projectNavigation = {
     "work-myjd.html": {
-      next: { file: "work-jd.html", title: "在京东-首页作品" },
+      next: { file: "work-jd.html", title: "京东APP-首页" },
     },
     "work-jd.html": {
-      previous: { file: "work-myjd.html", title: "在京东-我京作品" },
+      previous: { file: "work-myjd.html", title: "京东APP-我的京东" },
+      next: { file: "work-vibecoding.html", title: "AI学习与使用" },
+    },
+    "work-vibecoding.html": {
+      previous: { file: "work-jd.html", title: "京东APP-首页" },
       next: { file: "../index.html#more-works", title: "去看看 More Project", hidePrefix: true },
     },
     "more-2020-bill.html": {
+      previous: { file: "../index.html", title: "返回首页", hidePrefix: true },
       next: { file: "more-3d-library.html", title: "3D素材库" },
     },
     "more-3d-library.html": {
@@ -1353,16 +1412,16 @@ function initProjectNavigation() {
   bottomNav.innerHTML = `
     <button class="transaction-detail-nav-button transaction-detail-nav-button--prev project-nav-button project-nav-prev" type="button" data-project-nav="prev">
       <span class="transaction-detail-nav-icon transaction-detail-nav-icon--prev project-nav-icon project-nav-icon--prev" aria-hidden="true">
-        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/jd-case/nav-prev.png" alt="" loading="lazy" decoding="async" />
-        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/jd-case/nav-next-hover.png" alt="" loading="lazy" decoding="async" />
+        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/c-home-v2/通用箭头.png" alt="" loading="lazy" decoding="async" />
+        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/c-home-v2/通用箭头.png" alt="" loading="lazy" decoding="async" />
       </span>
       <span class="transaction-detail-nav-copy project-nav-copy"><small>上一个项目</small><strong></strong></span>
     </button>
     <button class="transaction-detail-nav-button transaction-detail-nav-button--next project-nav-button project-nav-next" type="button" data-project-nav="next">
       <span class="transaction-detail-nav-copy project-nav-copy"><small hidden></small><strong></strong></span>
       <span class="transaction-detail-nav-icon project-nav-icon" aria-hidden="true">
-        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/jd-case/nav-next.png" alt="" loading="lazy" decoding="async" />
-        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/jd-case/nav-next-hover.png" alt="" loading="lazy" decoding="async" />
+        <img class="transaction-detail-nav-icon-default project-nav-icon-default" src="../assets/c-home-v2/通用箭头.png" alt="" loading="lazy" decoding="async" />
+        <img class="transaction-detail-nav-icon-hover project-nav-icon-hover" src="../assets/c-home-v2/通用箭头.png" alt="" loading="lazy" decoding="async" />
       </span>
     </button>
   `;
@@ -1380,8 +1439,12 @@ function initProjectNavigation() {
       small.hidden = true;
     }
     const labelElement = button.querySelector("strong");
-    labelElement.textContent = button.dataset.projectNav === "prev" ? "" : label || "";
-    labelElement.hidden = button.dataset.projectNav === "prev" || !label;
+    if (button.dataset.projectNav === "prev" && small) {
+      small.textContent = "";
+      small.hidden = true;
+    }
+    labelElement.textContent = label || "";
+    labelElement.hidden = !label;
   }
 
   function bindProjectButton(button, target, fallbackHidden = false) {
@@ -1390,7 +1453,12 @@ function initProjectNavigation() {
       return;
     }
 
-    setButtonContent(button, target.title, false);
+    const isPreviousProject = button.dataset.projectNav === "prev";
+    const pointsHome = target.file?.startsWith("../index.html");
+    const visibleLabel = isPreviousProject && !pointsHome
+      ? "上一个项目"
+      : target.title;
+    setButtonContent(button, visibleLabel, false);
     if (target.hidePrefix) {
       const small = button.querySelector("small");
       if (small) {
@@ -1463,8 +1531,8 @@ function initMyjdProgressNav() {
   const items = Array.from(main?.querySelectorAll("[data-myjd-progress]") || []);
   const sectionRoot =
     main?.querySelector("[data-progress-root]") || main?.querySelector("#jd-myjd");
-  const sections = Array.from(sectionRoot?.children || []).filter((element) =>
-    element.classList.contains("myjd-redo-project"),
+  const sections = Array.from(sectionRoot?.children || []).filter(
+    (element) => element.classList.contains("myjd-redo-project") && !element.hidden,
   );
   let lockedIndex = -1;
   let releaseLockTimer = 0;
@@ -1548,11 +1616,255 @@ function initMyjdProgressNav() {
   updateActiveFromScroll();
 }
 
+function initSkillStripMotion() {
+  const strip = document.querySelector(".c-home-eye-strip");
+  if (!strip || strip.dataset.motionReady === "true") return;
+
+  const EXPAND_DURATION = 800;
+  const TYPE_INTERVAL = 65;
+  const HOLD_DURATION = 800;
+  const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+  const originalItems = Array.from(strip.children).filter((item) => item.matches("span"));
+  if (originalItems.length !== 8) return;
+
+  const labels = [
+    "Figma",
+    "ChatGPT",
+    "Codex",
+    "After Effects",
+    "Photoshop",
+    "CapCut",
+    "Dreamina",
+    "Cinema 4D",
+  ];
+  const viewport = document.createElement("div");
+  const track = document.createElement("div");
+  viewport.className = "c-home-eye-strip__viewport";
+  track.className = "c-home-eye-strip__track";
+
+  const skills = originalItems.map((item, index) => {
+    item.textContent = labels[index];
+    item.dataset.skill = labels[index];
+    item.dataset.skillIndex = String(index);
+    const styles = window.getComputedStyle(item);
+    return {
+      label: labels[index],
+      color: styles.backgroundColor,
+      item,
+      width: item.getBoundingClientRect().width,
+    };
+  });
+  const insertionOrder = [...skills].reverse();
+
+  originalItems.forEach((item) => track.appendChild(item));
+  viewport.appendChild(track);
+  strip.appendChild(viewport);
+  strip.dataset.motionReady = "true";
+
+  let runId = 0;
+  const timers = new Set();
+
+  function wait(duration, id) {
+    return new Promise((resolve) => {
+      const timer = window.setTimeout(() => {
+        timers.delete(entry);
+        resolve(id === runId);
+      }, duration);
+      const entry = { timer, resolve };
+      timers.add(entry);
+    });
+  }
+
+  function nextFrame() {
+    return new Promise((resolve) => {
+      window.requestAnimationFrame(() => window.requestAnimationFrame(resolve));
+    });
+  }
+
+  function clearTimers() {
+    timers.forEach(({ timer, resolve }) => {
+      window.clearTimeout(timer);
+      resolve(false);
+    });
+    timers.clear();
+  }
+
+  function prepareItem(item, skill, collapsed = false) {
+    item.dataset.skill = skill.label;
+    item.style.backgroundColor = skill.color;
+    item.style.width = collapsed ? "0px" : `${skill.width}px`;
+    item.style.transition = "none";
+    item.style.clipPath = "inset(0)";
+    item.textContent = collapsed ? "" : skill.label;
+  }
+
+  function resetStrip() {
+    track.style.transition = "none";
+    track.style.transform = "translate3d(0, 0, 0)";
+    while (track.firstChild) track.removeChild(track.firstChild);
+    skills.forEach((skill) => {
+      prepareItem(skill.item, skill);
+      track.appendChild(skill.item);
+    });
+  }
+
+  async function typeLabel(item, skill, id) {
+    for (let index = 1; index <= skill.label.length; index += 1) {
+      if (id !== runId || document.hidden) return false;
+      item.textContent = skill.label.slice(0, index);
+      if (!(await wait(TYPE_INTERVAL, id))) return false;
+    }
+    return true;
+  }
+
+  async function pushInSkill(nextSkill, spareItem, id) {
+    prepareItem(spareItem, nextSkill, true);
+    track.insertBefore(spareItem, track.firstElementChild);
+    strip.dataset.activeSkill = nextSkill.label;
+    strip.dataset.activePosition = "left-and-right";
+    await nextFrame();
+    if (id !== runId || document.hidden) return null;
+
+    spareItem.style.transition = "none";
+    const expandAnimation = typeof spareItem.animate === "function"
+      ? spareItem.animate(
+          [
+            { width: "0px" },
+            { width: `${nextSkill.width}px` },
+          ],
+          {
+            duration: EXPAND_DURATION,
+            easing: EASE,
+            fill: "both",
+          },
+        )
+      : null;
+    if (!expandAnimation) {
+      spareItem.style.transition = `width ${EXPAND_DURATION}ms ${EASE}`;
+      spareItem.style.width = `${nextSkill.width}px`;
+    }
+    if (!(await wait(EXPAND_DURATION, id))) {
+      expandAnimation?.cancel();
+      return null;
+    }
+    spareItem.style.width = `${nextSkill.width}px`;
+    expandAnimation?.cancel();
+
+    const recycledItems = [];
+    let overflow = track.scrollWidth - viewport.clientWidth;
+    let lastItem = track.lastElementChild;
+    while (lastItem && lastItem !== track.firstElementChild) {
+      const lastWidth = lastItem.getBoundingClientRect().width;
+      if (overflow + 0.1 < lastWidth) break;
+      overflow -= lastWidth;
+      recycledItems.push(lastItem);
+      track.removeChild(lastItem);
+      lastItem = track.lastElementChild;
+    }
+    return id === runId ? recycledItems : null;
+  }
+
+  async function run() {
+    const id = ++runId;
+    const recycledPool = [];
+    let sequenceIndex = 0;
+    resetStrip();
+    await nextFrame();
+
+    while (id === runId && !document.hidden && !motionQuery?.matches) {
+      let nextSkill = insertionOrder[sequenceIndex];
+      const currentFirstSkill = track.firstElementChild?.dataset.skill;
+      if (currentFirstSkill === nextSkill.label) {
+        sequenceIndex = (sequenceIndex + 1) % insertionOrder.length;
+        nextSkill = insertionOrder[sequenceIndex];
+      }
+
+      const spareItem = recycledPool.pop() || document.createElement("span");
+      const recycledItems = await pushInSkill(nextSkill, spareItem, id);
+      if (!recycledItems) return;
+      recycledPool.push(...recycledItems);
+      sequenceIndex = (sequenceIndex + 1) % insertionOrder.length;
+
+      const activeItem = track.firstElementChild;
+      if (!activeItem || !(await typeLabel(activeItem, nextSkill, id))) return;
+      if (!(await wait(HOLD_DURATION, id))) return;
+    }
+  }
+
+  function stop() {
+    runId += 1;
+    clearTimers();
+    resetStrip();
+  }
+
+  function syncMotionState() {
+    stop();
+    if (!document.hidden && !motionQuery?.matches) run();
+  }
+
+  document.addEventListener("visibilitychange", syncMotionState);
+  motionQuery?.addEventListener?.("change", syncMotionState);
+  window.addEventListener("pagehide", stop, { once: true });
+
+  if (!motionQuery?.matches) run();
+}
+
+function initEndingEmojiMotion() {
+  const items = Array.from(document.querySelectorAll("[data-ending-emoji]"));
+  if (items.length !== 6) return;
+
+  const pool = ["🖥", "☘️", "🔮", "💊", "🔥", "❄️", "🎨", "🚀", "✨", "🧊", "🛠️", "🧩", "🤖", "💡", "🌈", "🍀", "⚡", "🌙", "🎲", "🎧"];
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+  let timer = 0;
+  let index = 0;
+
+  function stop() {
+    window.clearTimeout(timer);
+    timer = 0;
+    items.forEach((item) => item.classList.remove("is-changing"));
+  }
+
+  function nextEmoji(item) {
+    let candidate = item.textContent;
+    while (candidate === item.textContent) {
+      candidate = pool[Math.floor(Math.random() * pool.length)];
+    }
+    return candidate;
+  }
+
+  function step() {
+    if (document.hidden || motionQuery?.matches) return;
+    const item = items[index];
+    item.classList.remove("is-changing");
+    void item.offsetWidth;
+    item.classList.add("is-changing");
+    window.setTimeout(() => {
+      if (!document.hidden && !motionQuery?.matches) item.textContent = nextEmoji(item);
+    }, 70);
+    window.setTimeout(() => item.classList.remove("is-changing"), 150);
+    index = (index + 1) % items.length;
+    timer = window.setTimeout(step, index === 0 ? 475 : 280);
+  }
+
+  function sync() {
+    stop();
+    if (!document.hidden && !motionQuery?.matches) timer = window.setTimeout(step, 250);
+  }
+
+  document.addEventListener("visibilitychange", sync);
+  motionQuery?.addEventListener?.("change", sync);
+  window.addEventListener("pagehide", stop, { once: true });
+  sync();
+}
+
 initHomeReturnLinks();
 initHomeImageCache();
 initProjectPageHeader();
 initProjectNavigation();
 initMyjdProgressNav();
+initSkillStripMotion();
+initEndingEmojiMotion();
 initHomeMotion();
 initDetailMotion();
 initDiscParticles();

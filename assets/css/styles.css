@@ -6,6 +6,788 @@
   src: url("../fonts/PixelifySans-VariableFont_wght.ttf") format("truetype");
 }
 
+/* C portfolio homepage — Figma frame 419:28222 */
+@font-face {
+  font-family: "BBH Bartle";
+  src: url("../fonts/bbh-bartle/BBHBartle-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+body.home-body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  color: #fff;
+  background: #000;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+body.home-body .home-page__dots,
+body.home-body .home-footer-shell {
+  display: none;
+}
+
+.c-home-banner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 80px;
+  background: #000;
+}
+
+.c-home-brand {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  width: 210.667px;
+  height: 49.778px;
+  transform: translateX(-56%);
+}
+
+.c-home-brand__bar {
+  position: absolute;
+  top: 17.778px;
+  left: 34.667px;
+  display: flex;
+  align-items: center;
+  width: 176px;
+  height: 32px;
+  padding-left: 29.333px;
+  color: #000;
+  background: #fc0;
+  font-family: "BBH Bartle", sans-serif;
+  font-size: 13.811px;
+  line-height: 13.811px;
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+.c-home-brand img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 74.667px;
+  height: 49.778px;
+  object-fit: contain;
+}
+
+.c-home-page {
+  width: 100%;
+  background: #000;
+}
+
+.c-home-stage {
+  width: 1080px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 142px;
+}
+
+.c-home-hero {
+  position: relative;
+  width: 1080px;
+  height: 500px;
+}
+
+.c-home-profile {
+  position: absolute;
+  top: 51.679px;
+  left: 0;
+  z-index: 1;
+  width: 1080px;
+  height: 395px;
+}
+
+.c-home-profile h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 1080px;
+  margin: 0;
+  color: #fdfdfc;
+  font-family: "BBH Bartle", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.c-home-profile h1 span:first-child {
+  height: 57px;
+  font-size: 56.415px;
+  line-height: 56.415px;
+}
+
+.c-home-profile h1 span:last-child {
+  height: 118px;
+  margin-left: -3px;
+  font-size: 117.17px;
+  line-height: 117.17px;
+}
+
+.c-home-profile__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 323px;
+  margin-top: 52px;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.c-home-profile__summary strong {
+  font-weight: 600;
+}
+
+.c-home-profile__summary p {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 400;
+}
+
+.c-home-resume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 200px;
+  height: 64px;
+  margin-top: 52px;
+  color: #000;
+  background: #fc0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+}
+
+.c-home-resume__icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border: 1.4px solid #000;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.c-home-portrait {
+  position: absolute;
+  top: -14px;
+  left: 473px;
+  z-index: 2;
+  width: 652px;
+  height: 500.659px;
+  pointer-events: none;
+}
+
+.c-home-portrait__shape {
+  position: absolute;
+  top: 24.509px;
+  left: 104.349px;
+  width: 427.302px;
+  height: 466.685px;
+  background: #444;
+  clip-path: polygon(55% 0, 76% 7%, 93% 29%, 100% 43%, 100% 69%, 82% 80%, 70% 80%, 66% 100%, 43% 97%, 48% 79%, 28% 74%, 5% 64%, 3% 35%, 24% 29%, 29% 16%);
+}
+
+.c-home-portrait__shape::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  background: #000;
+  clip-path: inherit;
+}
+
+.c-home-portrait__person {
+  position: absolute;
+  top: 0;
+  left: 120px;
+  width: 401px;
+  height: 501px;
+  object-fit: contain;
+}
+
+.c-home-portrait__tag {
+  position: absolute;
+  top: 70px;
+  left: 224px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  min-width: 0;
+  height: auto;
+  padding: 12px;
+  box-sizing: border-box;
+  color: #000;
+  border-radius: 24px;
+  background: linear-gradient(126deg, #fff 14%, #cecece 51%, #fff 98%);
+  font-family: "BBH Bartle", sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  white-space: nowrap;
+  transform: rotate(-10.71deg);
+}
+
+.c-home-portrait__left,
+.c-home-portrait__right {
+  position: absolute;
+  top: 372px;
+  color: #6d6d6d;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.c-home-portrait__left {
+  left: 36px;
+  width: 127px;
+  text-align: right;
+}
+
+.c-home-portrait__right {
+  left: 493px;
+  width: 130px;
+}
+
+.c-home-portrait__flower {
+  position: absolute;
+  top: 432px;
+  left: 412px;
+  width: 41.651px;
+  height: 41.651px;
+  object-fit: contain;
+  transform: rotate(-16.88deg);
+}
+
+.c-home-divider {
+  width: 1080px;
+  height: 1px;
+  margin-top: 80px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(166, 166, 166, 0.5) 0 4px,
+    transparent 4px 8px
+  );
+}
+
+.c-home-key {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 1080px;
+  height: 419px;
+  margin-top: 79px;
+}
+
+.c-home-key__intro {
+  flex: 0 0 339px;
+  width: 339px;
+  text-transform: uppercase;
+}
+
+.c-home-key__intro h2,
+body.home-body .home-more__heading h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  color: #fdfdfc;
+  font-family: "BBH Bartle", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.c-home-key__intro p {
+  width: 339px;
+  margin: 52px 0 0;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.c-home-key__intro .c-home-key__en {
+  margin-top: 44px;
+  color: #6d6d6d;
+  font-size: 12px;
+  line-height: 24px;
+  opacity: 1;
+}
+
+body.home-body .c-home-key .home-showcase {
+  display: flex;
+  flex: 0 0 710px;
+  gap: 32px;
+  width: 710px;
+  height: 419px;
+}
+
+body.home-body .c-home-key .home-showcase-card,
+body.home-body .c-home-key .home-showcase-card--home,
+body.home-body .c-home-key .home-showcase-card--myjd {
+  display: flex;
+  flex: 0 0 339px;
+  flex-direction: column;
+  align-items: center;
+  width: 339px;
+  height: 419px;
+  color: #fff;
+  text-decoration: none;
+}
+
+body.home-body .c-home-key .home-showcase-card__media {
+  display: block;
+  width: 339px;
+  height: 339px;
+  overflow: hidden;
+  border: 1.13px solid #000;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+body.home-body .c-home-key .home-showcase-card__media picture,
+body.home-body .c-home-key .home-showcase-card img.home-showcase-card__disc {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.home-body .c-home-key .home-showcase-card strong {
+  width: 339px;
+  margin-top: 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+}
+
+body.home-body .c-home-key .home-showcase-card__action {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: transparent;
+}
+
+body.home-body .c-home-key .home-showcase-card__action img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+}
+
+body.home-body .c-home-more {
+  width: 1080px;
+  height: 490px;
+  margin-top: 79px;
+}
+
+body.home-body .c-home-more .home-more__heading {
+  position: relative;
+  display: block;
+  width: 1080px;
+  height: 48px;
+  margin: 0;
+}
+
+.c-home-ai-link {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 36px;
+  height: 31px;
+  overflow: hidden;
+  color: transparent;
+  background: transparent;
+  text-decoration: none;
+}
+
+.c-home-ai-link img {
+  display: block;
+  width: 36px;
+  height: 30.316px;
+  object-fit: contain;
+}
+
+body.home-body .c-home-more .home-more__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 252px);
+  gap: 24px;
+  width: 1080px;
+  height: 406px;
+  margin-top: 36px;
+}
+
+body.home-body .c-home-more .home-more-card {
+  display: flex;
+  flex-direction: column;
+  width: 252px;
+  height: 406px;
+  overflow: hidden;
+  color: #fff;
+  background: #272727;
+  text-decoration: none;
+}
+
+body.home-body .c-home-more .home-more-card__art {
+  width: 252px;
+  height: 243px;
+  overflow: hidden;
+}
+
+body.home-body .c-home-more .home-more-card__art img {
+  display: block;
+  width: 252px;
+  height: 243px;
+  object-fit: cover;
+}
+
+body.home-body .c-home-more .home-more-card__body {
+  position: relative;
+  width: 252px;
+  height: 163px;
+  padding: 31px 24px 24px;
+  box-sizing: border-box;
+  background: #272727;
+}
+
+body.home-body .c-home-more .home-more-card__action {
+  position: static;
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 0 16px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: transparent;
+}
+
+body.home-body .c-home-more .home-more-card__action img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+}
+
+body.home-body .c-home-more .home-more-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+body.home-body .c-home-more .home-more-card__copy small {
+  color: #fff;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+body.home-body .c-home-more .home-more-card__copy strong {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+body.home-body .c-home-marquee {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  width: 100%;
+  height: 24px;
+  margin: 0 0 102px;
+  overflow: hidden;
+  background: #000;
+}
+
+body.home-body .c-home-marquee .home-marquee__viewport,
+body.home-body .c-home-marquee .home-marquee__track,
+body.home-body .c-home-marquee .home-marquee__set,
+body.home-body .c-home-marquee .home-marquee__item {
+  height: 24px;
+}
+
+body.home-body .c-home-marquee .home-marquee__set {
+  gap: 21.943px;
+}
+
+body.home-body .c-home-marquee .home-marquee__item {
+  gap: 2.743px;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+body.home-body .c-home-marquee .home-marquee__emoji {
+  color: #a6a6a6;
+  font-family: "Bitcount Grid Single", monospace;
+  font-size: 16.457px;
+  font-weight: 500;
+  line-height: 16.457px;
+}
+
+body.home-body .c-home-marquee .home-marquee__text {
+  padding: 5.486px;
+  color: #a6a6a6;
+  border-radius: 2.743px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  body.home-body .c-home-key .home-showcase-card__media,
+  body.home-body .c-home-more .home-more-card {
+    transition: transform 240ms ease, filter 240ms ease;
+  }
+
+  body.home-body .c-home-key .home-showcase-card:hover .home-showcase-card__media,
+  body.home-body .c-home-more .home-more-card:hover {
+    transform: translateY(-6px);
+    filter: brightness(1.06);
+  }
+}
+
+@media (max-width: 1160px) {
+  .c-home-stage {
+    width: calc(100vw - 64px);
+  }
+
+  .c-home-hero,
+  .c-home-divider,
+  .c-home-key,
+  body.home-body .c-home-more {
+    width: 100%;
+  }
+
+  .c-home-hero {
+    height: calc((100vw - 64px) * 0.463);
+    min-height: 420px;
+  }
+
+  .c-home-profile,
+  .c-home-profile h1 {
+    width: 100%;
+  }
+
+  .c-home-portrait {
+    left: 43.8%;
+    transform-origin: left top;
+    transform: scale(calc((100vw - 64px) / 1080));
+  }
+
+  .c-home-key {
+    height: auto;
+  }
+
+  .c-home-key__intro {
+    flex: 1 1 32%;
+  }
+
+  body.home-body .c-home-key .home-showcase {
+    flex: 1 1 66%;
+    height: auto;
+  }
+
+  body.home-body .c-home-key .home-showcase-card,
+  body.home-body .c-home-key .home-showcase-card--home,
+  body.home-body .c-home-key .home-showcase-card--myjd {
+    flex: 1 1 0;
+    width: auto;
+    height: auto;
+  }
+
+  body.home-body .c-home-key .home-showcase-card__media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  body.home-body .c-home-key .home-showcase-card strong {
+    width: 100%;
+  }
+
+  body.home-body .c-home-more {
+    height: auto;
+  }
+
+  body.home-body .c-home-more .home-more__heading,
+  body.home-body .c-home-more .home-more__grid {
+    width: 100%;
+  }
+
+  body.home-body .c-home-more .home-more__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: auto;
+  }
+
+  body.home-body .c-home-more .home-more-card,
+  body.home-body .c-home-more .home-more-card__art,
+  body.home-body .c-home-more .home-more-card__art img,
+  body.home-body .c-home-more .home-more-card__body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .c-home-stage {
+    width: calc(100vw - 40px);
+    padding-top: 28px;
+    padding-bottom: 80px;
+  }
+
+  .c-home-banner {
+    height: 72px;
+  }
+
+  .c-home-brand {
+    top: 18px;
+    transform: translateX(-56%) scale(0.9);
+  }
+
+  .c-home-hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+  }
+
+  .c-home-profile {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .c-home-profile h1 span:first-child {
+    height: auto;
+    font-size: clamp(34px, 10vw, 56px);
+    line-height: 1;
+  }
+
+  .c-home-profile h1 span:last-child {
+    height: auto;
+    font-size: clamp(58px, 18vw, 110px);
+    line-height: 1;
+  }
+
+  .c-home-profile__summary {
+    width: 100%;
+    margin-top: 36px;
+  }
+
+  .c-home-resume {
+    margin-top: 36px;
+  }
+
+  .c-home-portrait {
+    position: relative;
+    top: auto;
+    left: 50%;
+    width: 652px;
+    height: 501px;
+    margin-top: 36px;
+    transform: translateX(-50%) scale(calc((100vw - 40px) / 652));
+    transform-origin: center top;
+    margin-bottom: calc((501px * ((100vw - 40px) / 652)) - 501px);
+  }
+
+  .c-home-divider {
+    margin-top: 60px;
+  }
+
+  .c-home-key {
+    display: block;
+    margin-top: 59px;
+  }
+
+  .c-home-key__intro,
+  .c-home-key__intro p {
+    width: 100%;
+  }
+
+  .c-home-key__intro .c-home-key__en {
+    margin-top: 28px;
+  }
+
+  body.home-body .c-home-key .home-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 52px;
+  }
+
+  body.home-body .c-home-key .home-showcase-card strong {
+    font-size: 14px;
+  }
+
+  body.home-body .c-home-more {
+    margin-top: 59px;
+  }
+
+  body.home-body .c-home-more .home-more__grid {
+    gap: 20px;
+  }
+
+  body.home-body .c-home-more .home-more-card__art,
+  body.home-body .c-home-more .home-more-card__art img {
+    height: auto;
+    aspect-ratio: 252 / 243;
+  }
+
+  body.home-body .c-home-more .home-more-card__body {
+    height: 163px;
+    padding: 20px;
+  }
+
+  body.home-body .c-home-more .home-more-card__copy small {
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  body.home-body .c-home-more .home-more-card__copy strong {
+    font-size: 16px;
+    line-height: 18px;
+    white-space: normal;
+  }
+
+  body.home-body .c-home-marquee {
+    margin-bottom: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.home-body .c-home-key .home-showcase,
+  body.home-body .c-home-more .home-more__grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.home-body .c-home-key .home-showcase-card,
+  body.home-body .c-home-key .home-showcase-card--home,
+  body.home-body .c-home-key .home-showcase-card--myjd {
+    width: min(100%, 339px);
+    margin-inline: auto;
+  }
+}
+
 @font-face {
   font-family: "Bitcount Prop Single";
   font-style: normal;
@@ -4167,7 +4949,7 @@ body.home-body {
   display: block;
   pointer-events: none;
   overflow: hidden;
-  background: #000;
+  background: #1c1c1c;
 }
 
 html.is-home-return .site-preloader {
@@ -4189,14 +4971,14 @@ html.is-home-return .site-preloader {
   inset: -100vh;
   z-index: -1;
   content: "";
-  background: #000;
+  background: #1c1c1c;
 }
 
 .site-preloader__tile {
   display: block;
   width: calc(100% + 1px);
   height: 100vh;
-  background: #000;
+  background: #1c1c1c;
   transform-origin: top center;
   will-change: transform, opacity;
 }
@@ -6331,6 +7113,564 @@ body.home-body .home-ai-link img {
   }
 }
 
+/* C homepage v2 — Figma 425:11711 */
+body.home-body {
+  --c-content: 1080px;
+  --c-page-pad: max(20px, calc((100vw - var(--c-content)) / 2));
+}
+
+body.home-body .c-home-banner {
+  height: 80px;
+  background: #141414;
+}
+
+body.home-body .c-home-brand {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(var(--c-content), calc(100% - 40px));
+  height: 80px;
+  margin: 0 auto;
+  transform: none;
+}
+
+.c-home-brand__avatar,
+.c-home-brand__actions button {
+  padding: 0;
+  border: 0;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.c-home-brand__avatar {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+}
+
+body.home-body .c-home-brand__avatar img {
+  position: static;
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.c-home-brand__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 16px;
+}
+
+.c-home-brand__actions button {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.c-home-brand__actions > span {
+  width: 1px;
+  height: 16px;
+  background: #6d6d6d;
+}
+
+body.home-body .c-home-stage {
+  width: var(--c-content);
+  padding: 40px 0 80px;
+}
+
+body.home-body .c-home-divider {
+  display: none;
+}
+
+body.home-body .c-home-hero {
+  height: 500px;
+}
+
+body.home-body .c-home-profile {
+  top: 32px;
+  z-index: 3;
+  height: 387px;
+}
+
+body.home-body .c-home-profile h1 {
+  color: #282828;
+}
+
+body.home-body .c-home-profile__summary {
+  gap: 16px;
+  width: 323px;
+  margin-top: 68px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary p {
+  width: 249px;
+  margin: 0;
+}
+
+body.home-body .c-home-resume {
+  width: 187px;
+  height: 68px;
+  margin-top: 36px;
+  border-radius: 12px;
+}
+
+body.home-body .c-home-resume img {
+  width: 20px;
+  height: 20px;
+}
+
+body.home-body .c-home-portrait {
+  top: 0;
+  left: 292px;
+  width: 841px;
+  height: 503px;
+}
+
+body.home-body .c-home-portrait__shape {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 841px;
+  height: 468px;
+  background: transparent;
+  clip-path: none;
+}
+
+body.home-body .c-home-portrait__shape::before { display: none; }
+
+body.home-body .c-home-portrait__shape i {
+  position: absolute;
+  top: 0;
+  width: 482px;
+  height: 468px;
+  border-radius: 50%;
+  border: 42px solid #fc0;
+  box-sizing: border-box;
+  background: transparent;
+  transform: rotate(-35deg) scaleY(.36);
+}
+
+body.home-body .c-home-portrait__shape i:nth-child(1) { left: 78px; }
+body.home-body .c-home-portrait__shape i:nth-child(2) { left: 258px; }
+body.home-body .c-home-portrait__shape i:nth-child(3) { left: 438px; }
+
+body.home-body .c-home-portrait__person {
+  top: 7px;
+  left: 166px;
+  width: 496px;
+  height: 496px;
+  object-fit: contain;
+}
+
+.c-home-eye-strip {
+  position: absolute;
+  top: 217px;
+  left: 173px;
+  z-index: 4;
+  display: flex;
+  width: 539px;
+  height: 28px;
+  outline: 6px solid transparent;
+  white-space: nowrap;
+}
+
+.c-home-eye-strip::before,
+.c-home-eye-strip::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  width: 6px;
+  height: 6px;
+  background: #fdfdfc;
+  box-shadow: 545px 0 #fdfdfc;
+}
+
+.c-home-eye-strip::before { top: -6px; }
+.c-home-eye-strip::after { bottom: -6px; }
+
+.c-home-eye-strip span {
+  display: grid;
+  height: 28px;
+  padding: 0 8px;
+  place-items: center;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+.c-home-eye-strip span:nth-child(4n + 1) { background: #f575ff; }
+.c-home-eye-strip span:nth-child(4n + 2) { background: #4e76ff; }
+.c-home-eye-strip span:nth-child(4n + 3) { background: #99ea7a; }
+.c-home-eye-strip span:nth-child(4n) { background: #ffea00; }
+
+.c-home-portrait__cursor {
+  position: absolute;
+  top: 227px;
+  left: 709px;
+  width: 79px;
+  height: 79px;
+}
+
+.c-home-portrait__folder {
+  position: absolute;
+  top: 355px;
+  left: 624px;
+  width: 71px;
+  height: 65px;
+}
+
+body.home-body .c-home-key {
+  position: relative;
+  display: grid;
+  grid-template-columns: 243px 1fr;
+  gap: 32px;
+  width: 1068px;
+  height: 320px;
+  margin: 0 -6px;
+  padding: 80px 6px;
+  box-sizing: content-box;
+  background: transparent;
+}
+
+body.home-body .c-home-key__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #141414;
+  box-shadow: 0 0 0 100vmax #141414;
+  clip-path: inset(0 -100vmax);
+  pointer-events: none;
+}
+
+body.home-body .c-home-key__intro,
+body.home-body .c-home-key .home-showcase {
+  position: relative;
+  z-index: 1;
+}
+
+body.home-body .c-home-key__intro {
+  width: 243px;
+}
+
+body.home-body .c-home-key__intro h2,
+body.home-body .c-home-more .home-more__heading h2 {
+  gap: 8px;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+body.home-body .c-home-key__intro p {
+  width: 243px;
+  margin-top: 36px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+body.home-body .c-home-key__intro .c-home-key__en {
+  margin-top: 36px;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+body.home-body .c-home-key .home-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 243px);
+  gap: 32px;
+  width: 793px;
+  height: 320px;
+}
+
+body.home-body .c-home-key .home-showcase-card,
+body.home-body .c-home-key .home-showcase-card--home,
+body.home-body .c-home-key .home-showcase-card--myjd,
+body.home-body .c-home-key .home-showcase-card--ai {
+  width: 243px;
+  height: 315px;
+}
+
+body.home-body .c-home-key .home-showcase-card__media {
+  width: 243px;
+  height: 243px;
+  border: 0;
+}
+
+body.home-body .c-home-key .home-showcase-card strong {
+  width: 243px;
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+body.home-body .c-home-key .home-showcase-card__action {
+  width: 24px;
+  height: 24px;
+  margin-top: 16px;
+}
+
+body.home-body .c-home-key .home-showcase-card__action img {
+  width: 24px;
+  height: 24px;
+}
+
+body.home-body .c-home-more {
+  width: 1080px;
+  height: 471px;
+  margin-top: 52px;
+}
+
+body.home-body .c-home-more .home-more__grid {
+  grid-template-columns: repeat(4, 243px);
+  gap: 36px;
+  height: 387px;
+  margin-top: 36px;
+}
+
+body.home-body .c-home-more .home-more-card {
+  width: 243px;
+  height: 387px;
+  border-radius: 12px;
+  background: #202020;
+}
+
+body.home-body .c-home-more .home-more-card__art,
+body.home-body .c-home-more .home-more-card__art img {
+  width: 243px;
+  height: 243px;
+}
+
+body.home-body .c-home-more .home-more-card__body {
+  width: 243px;
+  height: 144px;
+  padding: 24px;
+  background: #202020 !important;
+}
+
+body.home-body .c-home-more .home-more-card__action {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 16px;
+}
+
+body.home-body .c-home-more .home-more-card__action img {
+  width: 24px;
+  height: 24px;
+}
+
+body.home-body .c-home-more .home-more-card__copy {
+  gap: 8px;
+}
+
+body.home-body .c-home-more .home-more-card__copy small {
+  color: #6d6d6d;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* Figma review pass: hero copy, strip geometry and key-project grid. */
+body.home-body .c-home-profile__summary {
+  gap: 16px;
+  width: 323px;
+  margin-top: 68px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+body.home-body .c-home-profile__summary strong:first-child {
+  width: 323px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+body.home-body .c-home-profile__summary strong:nth-child(2),
+body.home-body .c-home-profile__summary p {
+  width: 249px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+body.home-body img.c-home-portrait__shape {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  display: block;
+  width: 841px;
+  height: 468px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.c-home-eye-strip span {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding: 0;
+  text-transform: none;
+}
+
+.c-home-eye-strip span:nth-child(1) { width: 51px; }
+.c-home-eye-strip span:nth-child(2) { width: 62px; }
+.c-home-eye-strip span:nth-child(3) { width: 53px; }
+.c-home-eye-strip span:nth-child(4) { width: 89px; }
+.c-home-eye-strip span:nth-child(5) { width: 78px; }
+.c-home-eye-strip span:nth-child(6) { width: 57px; }
+.c-home-eye-strip span:nth-child(7) { width: 71px; }
+.c-home-eye-strip span:nth-child(8) { width: 78px; }
+
+.c-home-eye-strip::before,
+.c-home-eye-strip::after {
+  left: -6px;
+  box-shadow: 545px 0 #fdfdfc;
+}
+
+body.home-body .c-home-key {
+  grid-template-columns: 243px 801px;
+  gap: 36px;
+  width: 1080px;
+  height: 456px;
+  margin: 0;
+  padding: 80px 0;
+  box-sizing: border-box;
+}
+
+body.home-body .c-home-key__intro {
+  width: 243px;
+  height: 296px;
+  gap: 36px;
+}
+
+body.home-body .c-home-key__intro p {
+  width: 243px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.home-body .c-home-key__intro .c-home-key__en {
+  margin: 0;
+  line-height: 20px;
+  text-align: justify;
+  text-align-last: left;
+}
+
+body.home-body .c-home-key .home-showcase {
+  grid-template-columns: repeat(3, 243px);
+  gap: 36px;
+  width: 801px;
+  height: 292px;
+}
+
+body.home-body .c-home-key .home-showcase-card,
+body.home-body .c-home-key .home-showcase-card--home,
+body.home-body .c-home-key .home-showcase-card--myjd,
+body.home-body .c-home-key .home-showcase-card--ai {
+  width: 243px;
+  height: 292px;
+}
+
+body.home-body .c-home-key .home-showcase-card__media {
+  display: grid;
+  width: 243px;
+  height: 220px;
+  border: 0;
+  place-items: center;
+}
+
+body.home-body .c-home-key .home-showcase-card__media picture {
+  display: block;
+  width: 220px;
+  height: 220px;
+}
+
+body.home-body .c-home-key .home-showcase-card img.home-showcase-card__disc {
+  display: block;
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+}
+
+/* Fixed skill-strip viewport; only the inner track moves. */
+.c-home-eye-strip {
+  display: block;
+  overflow: visible;
+  contain: layout;
+}
+
+.c-home-eye-strip__viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.c-home-eye-strip__track {
+  display: flex;
+  width: max-content;
+  height: 28px;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.c-home-eye-strip__track span {
+  flex: 0 0 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: pre;
+  will-change: width;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-home-eye-strip__track,
+  .c-home-eye-strip__track span {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+body.home-body .c-home-more .home-more-card__copy strong {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+body.home-body .c-home-marquee {
+  margin: 0 0 390px;
+}
+
+@media (max-width: 1120px) {
+  body.home-body .c-home-stage {
+    width: 1080px;
+    margin-left: 50%;
+    transform: translateX(-50%) scale(calc((100vw - 40px) / 1080));
+    transform-origin: top center;
+    margin-bottom: calc(-1 * (2117px - 80px) * (1 - ((100vw - 40px) / 1080)));
+  }
+
+  body.home-body .c-home-brand {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 700px) {
+  body.home-body .c-home-banner { height: 64px; }
+  body.home-body .c-home-brand { height: 64px; }
+  .c-home-brand__actions button { font-size: 13px; }
+  body.home-body .c-home-stage {
+    padding-top: 28px;
+    transform: translateX(-50%) scale(calc((100vw - 24px) / 1080));
+    margin-bottom: calc(-1 * (2117px - 80px) * (1 - ((100vw - 24px) / 1080)));
+  }
+}
+
 @media (max-width: 600px) {
   html {
     background: #000;
@@ -6789,6 +8129,392 @@ body.home-body .home-ai-link img {
   }
 }
 
+/* C homepage final cascade guards */
+html body.home-body {
+  color: #fff;
+  background: #000000;
+  background-image: none;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+body.home-body .c-home-key .home-showcase {
+  padding-top: 0;
+}
+
+body.home-body .c-home-more .home-more-card,
+body.home-body .c-home-more .home-more-card__art,
+body.home-body .c-home-more .home-more-card__art img,
+body.home-body .c-home-more .home-more-card__body {
+  max-width: none;
+}
+
+body.home-body .c-home-more .home-more-card--bill .home-more-card__body,
+body.home-body .c-home-more .home-more-card--library .home-more-card__body,
+body.home-body .c-home-more .home-more-card--app .home-more-card__body,
+body.home-body .c-home-more .home-more-card--widgets .home-more-card__body {
+  background: #272727;
+}
+
+body.home-body .c-home-key .home-showcase-card__action,
+body.home-body .c-home-more .home-more-card__action {
+  background: transparent;
+}
+
+body.home-body .c-home-more .home-more-card__body .home-more-card__action {
+  top: 31px;
+  left: 24px;
+}
+
+body.home-body .c-home-more .home-more-card--app .home-more-card__body .home-more-card__action,
+body.home-body .c-home-more .home-more-card--widgets .home-more-card__body .home-more-card__action {
+  left: 24.5px;
+}
+
+/* C homepage browser-review corrections */
+body.home-body .c-home-profile {
+  z-index: auto;
+}
+
+body.home-body .c-home-profile h1 {
+  position: relative;
+  z-index: 0;
+}
+
+body.home-body .c-home-profile__summary,
+body.home-body .c-home-resume {
+  position: relative;
+  z-index: 4;
+}
+
+body.home-body .c-home-portrait {
+  z-index: 2;
+}
+
+body.home-body .c-home-portrait__shape i {
+  border: 0;
+  background: #fc0;
+}
+
+/* Exact vector title mark from Figma 425:11724. */
+body.home-body .c-home-profile h1.c-home-profile-mark {
+  position: relative;
+  display: block;
+  width: 1080px;
+  height: 141px;
+  margin: 0;
+  overflow: visible;
+  color: transparent;
+  font: 0 / 0 sans-serif;
+  transform-origin: left top;
+}
+
+body.home-body .c-home-profile-mark > span {
+  position: absolute;
+  left: 0;
+  display: block;
+  margin: 0;
+  background-image: linear-gradient(90deg, #282828 0%, #969696 50.96%, #282828 100%);
+  background-position: 0 50%;
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
+  animation: c-profile-mark-flow 6.67s linear infinite;
+  will-change: background-position;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+body.home-body .c-home-profile-mark__design {
+  top: 0;
+  width: 439.572px;
+  height: 41px;
+  -webkit-mask-image: url("../c-home-v2/c-title-design.svg");
+  mask-image: url("../c-home-v2/c-title-design.svg");
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+  -webkit-mask-size: 439.572px 41px;
+  mask-size: 439.572px 41px;
+}
+
+body.home-body .c-home-profile-mark__profile {
+  top: 56.704px;
+  width: 1066.744px;
+  height: 85.768px;
+  -webkit-mask-image:
+    url("../c-home-v2/c-title-p7.svg"), url("../c-home-v2/c-title-p6.svg"),
+    url("../c-home-v2/c-title-p5.svg"), url("../c-home-v2/c-title-p4.svg"),
+    url("../c-home-v2/c-title-p3.svg"), url("../c-home-v2/c-title-p2.svg"),
+    url("../c-home-v2/c-title-p1.svg");
+  mask-image:
+    url("../c-home-v2/c-title-p7.svg"), url("../c-home-v2/c-title-p6.svg"),
+    url("../c-home-v2/c-title-p5.svg"), url("../c-home-v2/c-title-p4.svg"),
+    url("../c-home-v2/c-title-p3.svg"), url("../c-home-v2/c-title-p2.svg"),
+    url("../c-home-v2/c-title-p1.svg");
+  -webkit-mask-position:
+    0 1.579px, 152.527px 1.579px, 303.135px 0,
+    457.809px 1.579px, 610.409px 1.579px, 767.554px 1.579px,
+    921.453px 1.579px;
+  mask-position:
+    0 1.579px, 152.527px 1.579px, 303.135px 0,
+    457.809px 1.579px, 610.409px 1.579px, 767.554px 1.579px,
+    921.453px 1.579px;
+  -webkit-mask-size:
+    144.119px 82.019px, 145.291px 82.019px, 145.291px 85.768px,
+    145.291px 82.019px, 145.291px 82.019px, 145.291px 82.019px,
+    145.291px 82.019px;
+  mask-size:
+    144.119px 82.019px, 145.291px 82.019px, 145.291px 85.768px,
+    145.291px 82.019px, 145.291px 82.019px, 145.291px 82.019px,
+    145.291px 82.019px;
+}
+
+@keyframes c-profile-mark-flow {
+  from {
+    background-position: 200% 50%;
+  }
+  to {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 760px) {
+  body.home-body .c-home-profile h1.c-home-profile-mark {
+    width: 1080px;
+    height: 141px;
+    transform: scale(calc((100vw - 40px) / 1080));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-body .c-home-profile-mark > span {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+body.home-body .c-home-key__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+body.home-body .c-home-key__intro p,
+body.home-body .c-home-key__intro .c-home-key__en {
+  margin-top: 0;
+}
+
+body.home-body .c-home-more {
+  height: 499px;
+  margin-top: 80px;
+}
+
+body.home-body .c-home-more .home-more__heading h2 {
+  display: flex;
+  color: #fdfdfc;
+  font-family: "BBH Bartle", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.home-body .c-home-stage {
+  padding-bottom: 80px;
+}
+
+/* C homepage second browser-review corrections */
+.c-home-eye-strip::before,
+.c-home-eye-strip::after {
+  left: -6px;
+  right: auto;
+  box-shadow: 545px 0 #fdfdfc;
+}
+
+.c-home-eye-strip::before {
+  top: -6px;
+}
+
+.c-home-eye-strip::after {
+  bottom: -6px;
+}
+
+body.home-body .c-home-portrait__shape i {
+  width: 360px;
+  transform: rotate(-35deg) scaleY(.34);
+}
+
+body.home-body .c-home-portrait__shape i:nth-child(1) { left: 84px; }
+body.home-body .c-home-portrait__shape i:nth-child(2) { left: 234px; }
+body.home-body .c-home-portrait__shape i:nth-child(3) { left: 384px; }
+
+body.home-body .c-home-key__intro p {
+  font-size: 12px;
+  line-height: 24px;
+}
+
+body.home-body .c-home-key__intro .c-home-key__en {
+  line-height: 24px;
+  text-align: justify;
+  text-align-last: left;
+}
+
+body.home-body .c-home-more .home-more-card__copy small {
+  color: #6d6d6d;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+body.home-body .c-home-more {
+  gap: 0;
+  height: 479px;
+}
+
+body.home-body .c-home-more .home-more__heading {
+  height: 56px;
+}
+
+body.home-body .c-home-more .home-more__grid {
+  margin-top: 36px;
+}
+
+body.home-body .c-home-more .home-more-card__copy strong {
+  font-weight: 500;
+}
+
+body.home-body .c-home-marquee .home-marquee__text {
+  color: #6d6d6d;
+}
+
+/* Dark detail-page palette mapped from Figma node 429:42755.
+   Content and layout stay intact; artwork areas remain as card placeholders
+   until the updated exports are supplied. */
+body.myjd-case-body {
+  --paper: #000;
+  --ink: #fff;
+  --muted: rgba(255, 255, 255, 0.68);
+  color: #fff;
+  background: #000;
+  background-image: none;
+}
+
+body.myjd-case-body .myjd-case-page,
+body.myjd-case-body .myjd-redo-page,
+body.myjd-case-body .myjd-detail-scroll {
+  color: #fff;
+  background: transparent;
+}
+
+body.myjd-case-body .myjd-project-title,
+body.myjd-case-body .myjd-row-index,
+body.myjd-case-body .myjd-row-title,
+body.myjd-case-body .myjd-copy-block p,
+body.myjd-case-body .myjd-copy-block strong,
+body.myjd-case-body .myjd-redo-project-title,
+body.myjd-case-body .myjd-redo-row-index,
+body.myjd-case-body .myjd-redo-row-title,
+body.myjd-case-body .myjd-redo-card-title,
+body.myjd-case-body .myjd-redo-copy p,
+body.myjd-case-body .myjd-redo-copy strong {
+  color: #fff;
+}
+
+body.myjd-case-body .myjd-redo-card,
+body.myjd-case-body .myjd-redo-card--overview,
+body.myjd-case-body .myjd-redo-card--work-left,
+body.myjd-case-body .myjd-redo-card--work-right {
+  background: #161616;
+}
+
+body.myjd-case-body .myjd-redo-card--tint-yellow {
+  background: #2e0e00;
+}
+
+body.myjd-case-body .myjd-redo-card--tint-green {
+  background: #0b2b00;
+}
+
+body.myjd-case-body .myjd-redo-figure {
+  overflow: hidden;
+  border-radius: 24px;
+  background: #161616;
+}
+
+body.myjd-case-body .myjd-redo-figure img {
+  opacity: 0;
+}
+
+body.myjd-case-body .myjd-progress-nav__item {
+  color: #fff;
+  background: #2f2f2f;
+}
+
+body.myjd-case-body .myjd-progress-nav__item.is-active {
+  color: #000;
+  background: #fc0;
+}
+
+body.myjd-case-body .myjd-progress-nav__item.is-active span {
+  color: #000;
+}
+
+body.myjd-case-body .project-nav-button,
+body.myjd-case-body .transaction-detail-nav-button,
+body.myjd-case-body .project-nav-copy small,
+body.myjd-case-body .project-nav-copy strong,
+body.myjd-case-body .transaction-detail-nav-copy small,
+body.myjd-case-body .transaction-detail-nav-copy strong,
+body.myjd-case-body .project-nav-placeholder {
+  color: #fff;
+}
+
+body.myjd-case-body .project-nav-button.is-disabled .project-nav-copy small,
+body.myjd-case-body .project-nav-button:disabled .project-nav-copy small,
+body.myjd-case-body .transaction-detail-nav-button.is-disabled .transaction-detail-nav-copy small,
+body.myjd-case-body .transaction-detail-nav-button:disabled .transaction-detail-nav-copy small {
+  color: #fff;
+}
+
+body.myjd-case-body .project-nav-icon--prev .project-nav-icon-default,
+body.myjd-case-body .transaction-detail-nav-icon--prev .transaction-detail-nav-icon-default {
+  transform: rotate(180deg);
+}
+
+body.myjd-case-body .project-nav-button:hover .project-nav-icon--prev .project-nav-icon-default,
+body.myjd-case-body .project-nav-button:focus-visible .project-nav-icon--prev .project-nav-icon-default,
+body.myjd-case-body .transaction-detail-nav-button:hover .transaction-detail-nav-icon--prev .transaction-detail-nav-icon-default,
+body.myjd-case-body .transaction-detail-nav-button:focus-visible .transaction-detail-nav-icon--prev .transaction-detail-nav-icon-default {
+  transform: rotate(180deg) scale(1.08);
+}
+
+/* Card hover acts on the complete More Projects card, not its artwork alone. */
+body.home-body .c-home-more .home-more-card:hover,
+body.home-body .c-home-more .home-more-card:focus-visible {
+  transform: translateY(-4px) scale(1.02);
+}
+
+body.home-body .c-home-more .home-more-card:hover .home-more-card__art img,
+body.home-body .c-home-more .home-more-card:focus-visible .home-more-card__art img {
+  filter: none;
+  transform: none;
+}
+
+/* Restore the Figma typography hierarchy on dark detail pages. */
+body.myjd-case-body .myjd-redo-copy p {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 400;
+}
+
+body.myjd-case-body .myjd-redo-copy strong {
+  font-weight: 500;
+}
+
+body.myjd-case-body .myjd-redo-card-title,
+body.myjd-case-body .myjd-redo-row-title,
+body.myjd-case-body .myjd-redo-project-title {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 600;
+}
+
 @media (max-width: 390px) {
   body.home-body .home-stage {
     padding-right: 18px;
@@ -6815,5 +8541,1877 @@ body.home-body .home-ai-link img {
     top: 30px;
     width: 40px;
     height: 53px;
+  }
+}
+
+/* Latest Figma typography and KEY-card export corrections. */
+body.home-body .c-home-profile__summary {
+  gap: 12px;
+}
+
+body.home-body .c-home-key__cn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 249px;
+  height: 36px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+body.home-body .c-home-key__cn span {
+  display: block;
+  height: 12px;
+  white-space: nowrap;
+}
+
+/* Latest annotation: every Chinese label matches the name weight. */
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-resume span,
+body.home-body .c-home-key__cn,
+body.home-body .c-home-key__cn span,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong,
+body.home-body .modal-card__title strong,
+body.home-body .toast {
+  font-weight: 600 !important;
+}
+
+body.home-body .c-home-key__cn {
+  gap: 4px;
+  width: 249px;
+  height: 68px;
+  overflow: visible;
+  line-height: 20px !important;
+}
+
+body.home-body .c-home-key__cn span {
+  width: 249px;
+  height: 20px;
+  overflow: visible;
+  line-height: 20px !important;
+}
+
+body.home-body .c-home-key .home-showcase-card--ai img.home-showcase-card__disc {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+/* Shared header feedback and contact dialog on every detail page. */
+body.myjd-case-body .toast.is-anchored {
+  transform: translate(-50%, -6px);
+}
+
+body.myjd-case-body .toast.is-anchored.is-visible {
+  transform: translate(-50%, 0);
+}
+
+body.myjd-case-body .c-detail-modal .modal-backdrop {
+  background: rgba(0, 0, 0, 0.92);
+}
+
+body.myjd-case-body .c-detail-modal .modal-panel {
+  gap: 24px;
+  width: 304px;
+  max-width: calc(100vw - 32px);
+}
+
+body.myjd-case-body .c-detail-modal .modal-card {
+  gap: 16px;
+  width: 304px;
+  min-height: 0;
+  max-width: 100%;
+  padding: 52px;
+  border-radius: 24px;
+  background: #161616;
+}
+
+body.myjd-case-body .c-detail-modal .modal-card__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  white-space: nowrap;
+}
+
+body.myjd-case-body .c-detail-modal .modal-card__title img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+body.myjd-case-body .c-detail-modal .modal-card__title strong {
+  color: #fff;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+body.myjd-case-body .c-detail-modal .modal-card__qr,
+body.myjd-case-body .c-detail-modal .modal-card__qr img {
+  width: 200px;
+  height: 200px;
+}
+
+body.myjd-case-body .c-detail-modal .modal-card__qr {
+  overflow: hidden;
+  border-radius: 16px;
+  transform: none;
+}
+
+body.myjd-case-body .c-detail-modal .modal-card__qr img {
+  display: block;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+body.myjd-case-body .c-detail-modal .modal-close,
+body.myjd-case-body .c-detail-modal .modal-close:hover,
+body.myjd-case-body .c-detail-modal .modal-close:focus-visible,
+body.myjd-case-body .c-detail-modal .modal-close:active {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+}
+
+body.myjd-case-body .c-detail-modal .modal-close:hover,
+body.myjd-case-body .c-detail-modal .modal-close:focus-visible {
+  outline: none;
+  transform: scale(1.06);
+}
+
+body.myjd-case-body .c-detail-modal .modal-close img {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+/* Figma 425:11711 — cursor sits below the strip's left edge. */
+body.home-body .c-home-portrait__cursor {
+  top: 227px;
+  left: 179px;
+  width: 79px;
+  height: 79px;
+}
+
+body.home-body .c-home-resume {
+  transition:
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+body.home-body .c-home-resume:hover,
+body.home-body .c-home-resume:focus-visible {
+  background: #ffe04d;
+  box-shadow: 0 10px 24px rgba(255, 204, 0, 0.22);
+  outline: none;
+  transform: translateY(-4px);
+}
+
+body.home-body .c-home-resume:active {
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.16);
+  transform: translateY(-1px);
+}
+
+/* Detail section numbers use one lighter weight than the section title. */
+body.myjd-case-body .myjd-redo-row-index {
+  font-weight: 300;
+}
+
+body.home-body .c-home-key__intro .c-home-key__en {
+  margin: 0;
+  line-height: 20px;
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+  overflow-wrap: normal;
+  word-break: normal;
+  word-spacing: 0;
+  letter-spacing: 0;
+}
+
+body.home-body .c-home-key .home-showcase-card--ai img.home-showcase-card__disc {
+  width: 243px;
+  height: 220px;
+  object-fit: contain;
+}
+
+/* Figma 425:11711 — section labels and closing signature. */
+body.home-body .c-home-key__title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  height: 56px;
+}
+
+body.home-body .c-home-section-emoji {
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
+  line-height: 36px;
+}
+
+body.home-body .c-home-key__title h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+body.home-body .c-home-more .home-more__heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 48px;
+}
+
+body.home-body .c-home-more .home-more__heading h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 16px;
+  text-transform: none;
+}
+
+body.home-body .c-home-stage {
+  padding-bottom: 120px;
+}
+
+body.home-body .c-home-ending {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  width: max-content;
+  height: 33.282px;
+  margin: 80px auto 0;
+}
+
+body.home-body .c-home-ending__emojis {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+body.home-body .c-home-ending__emojis span {
+  display: grid;
+  place-items: center;
+  min-width: 24px;
+  height: 33.282px;
+  font-size: 24px;
+  line-height: 24px;
+  transform-origin: center;
+}
+
+body.home-body .c-home-ending strong {
+  width: 199px;
+  color: #fff;
+  font-family: "BBH Bartle", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+body.home-body .c-home-ending__emojis span.is-changing {
+  animation: c-home-ending-emoji-change 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes c-home-ending-emoji-change {
+  0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+  48% { opacity: 0.15; transform: translateY(-4px) scale(0.72); }
+  52% { opacity: 0.15; transform: translateY(4px) scale(0.72); }
+}
+
+body.home-body .c-home-marquee[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-body .c-home-ending__emojis span {
+    animation: none !important;
+  }
+}
+
+/* Detail-page header and My JD export refresh — Figma 429:42755. */
+body.myjd-case-body .c-detail-banner {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: 80px;
+  background: #141414;
+}
+
+body.myjd-case-body .project-page-header.myjd-page-header {
+  display: none !important;
+}
+
+body.myjd-case-body .c-detail-banner .c-home-brand {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1080px, calc(100% - 40px));
+  height: 80px;
+  margin: 0 auto;
+  transform: none;
+}
+
+body.myjd-case-body .c-detail-banner .c-home-brand__avatar {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  text-decoration: none;
+}
+
+body.myjd-case-body .c-detail-banner .c-home-brand__avatar img {
+  position: static;
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+body.myjd-case-body .c-detail-banner .c-home-brand__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 16px;
+}
+
+body.myjd-case-body .c-detail-banner .c-home-brand__actions button {
+  padding: 0;
+  border: 0;
+  color: #fff;
+  background: transparent;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+body.myjd-case-body .c-detail-banner .c-home-brand__actions > span {
+  width: 1px;
+  height: 16px;
+  background: #6d6d6d;
+}
+
+body.myjd-case-body main.myjd-redo-page {
+  padding-top: 80px;
+}
+
+body.myjd-case-body .myjd-redo-project[hidden] {
+  display: none !important;
+}
+
+body.myjd-case-body .myjd-redo-copy p {
+  font-weight: 300;
+}
+
+body.myjd-case-body .myjd-redo-copy strong {
+  font-weight: 400;
+}
+
+body.myjd-case-body .myjd-redo-figure img[src*="/user-exports/"] {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  border-radius: 0;
+}
+
+body.myjd-case-body .myjd-redo-figure:has(img[src*="/user-exports/"]) {
+  overflow: hidden;
+  border-radius: 24px;
+  background: #161616;
+}
+
+body.myjd-case-body .myjd-redo-figure--between-rows {
+  margin: 0;
+}
+
+body.myjd-case-body .project-nav-icon,
+body.myjd-case-body .transaction-detail-nav-icon {
+  width: 46px;
+  height: 46px;
+}
+
+body.myjd-case-body .project-nav-copy small,
+body.myjd-case-body .project-nav-copy strong,
+body.myjd-case-body .transaction-detail-nav-copy small,
+body.myjd-case-body .transaction-detail-nav-copy strong,
+body.myjd-case-body .project-nav-placeholder {
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  body.myjd-case-body .c-detail-banner .c-home-brand {
+    width: calc(100% - 32px);
+  }
+
+  body.myjd-case-body main.myjd-redo-page {
+    padding-top: 48px;
+  }
+}
+
+/* Homepage interaction refinements — Figma 440:11078. */
+body.home-body .toast.is-anchored {
+  transform: translate(-50%, -6px);
+}
+
+body.home-body .toast.is-anchored.is-visible {
+  transform: translate(-50%, 0);
+}
+
+body.home-body .modal-backdrop {
+  background: rgba(0, 0, 0, 0.92);
+}
+
+body.home-body .modal-panel {
+  gap: 24px;
+  width: 304px;
+  max-width: calc(100vw - 32px);
+}
+
+body.home-body .modal-card {
+  gap: 16px;
+  width: 304px;
+  min-height: 0;
+  max-width: 100%;
+  padding: 52px;
+  border-radius: 24px;
+  background: #161616;
+}
+
+body.home-body .modal-card__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  white-space: nowrap;
+}
+
+body.home-body .modal-card__title img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+body.home-body .modal-card__title strong {
+  color: #fff;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+body.home-body .modal-card__qr {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 16px;
+  transform: none;
+}
+
+body.home-body .modal-card__qr img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+body.home-body .modal-close,
+body.home-body .modal-close:hover,
+body.home-body .modal-close:focus-visible,
+body.home-body .modal-close:active {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+}
+
+body.home-body .modal-close:hover,
+body.home-body .modal-close:focus-visible {
+  outline: none;
+  transform: scale(1.06);
+}
+
+body.home-body .modal-close img {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+/* Chinese body copy on the homepage is Light; the name remains emphasized. */
+body.home-body .c-home-profile__summary strong:not(:first-child),
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-resume span,
+body.home-body .c-home-key__cn,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong,
+body.home-body .toast {
+  font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  body.home-body .modal-panel {
+    gap: 24px;
+    width: min(304px, calc(100vw - 32px));
+  }
+
+  body.home-body .modal-card {
+    width: 100%;
+    padding: min(52px, 12vw);
+    border-radius: 24px;
+  }
+
+  body.home-body .modal-card__qr,
+  body.home-body .modal-card__qr img {
+    width: min(200px, calc(100vw - 136px));
+    height: min(200px, calc(100vw - 136px));
+  }
+}
+
+/* Latest homepage type and spacing annotations. */
+body.home-body .c-home-key__intro .c-home-key__en {
+  text-align: left;
+  text-align-last: left;
+  word-spacing: normal;
+}
+
+body.home-body .c-home-ending,
+body.home-body .c-home-ending__emojis {
+  gap: 16px;
+}
+
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-resume span,
+body.home-body .c-home-key__cn,
+body.home-body .c-home-key__cn span,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong,
+body.home-body .modal-card__title strong,
+body.home-body .toast {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+body.home-body .c-home-key__cn {
+  height: auto;
+}
+
+body.home-body .c-home-key__cn span {
+  height: 16px;
+}
+
+/* Final Chinese type lock: 16px Light everywhere, name emphasized only. */
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-resume span,
+body.home-body .c-home-key__cn,
+body.home-body .c-home-key__cn span,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong,
+body.home-body .modal-card__title strong,
+body.home-body .toast {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  line-height: 16px !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.home-body .c-home-profile__summary strong:first-child {
+  font-weight: 600 !important;
+}
+
+/* FINAL CASCADE LOCK — keep this block at EOF. */
+body.home-body .c-home-profile__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 249px;
+  height: 72px;
+  margin-top: 68px;
+  overflow: visible;
+}
+
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary strong:first-child,
+body.home-body .c-home-profile__summary p {
+  display: block;
+  width: 249px !important;
+  height: 16px;
+  margin: 0;
+  color: #fff;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+body.home-body .c-home-resume span {
+  font-weight: 700 !important;
+}
+
+body.home-body .c-home-profile-mark__design,
+body.home-body .c-home-profile-mark__profile {
+  overflow: hidden;
+}
+
+body.home-body .c-home-profile-mark__design::after,
+body.home-body .c-home-profile-mark__profile::after {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  animation: c-profile-title-shine 3.8s ease-in-out infinite;
+}
+
+body.home-body .c-home-profile-mark__design::after {
+  content: "";
+  background: url("../c-home-v2/c-title-design.svg") 0 0 / 439.572px 41px no-repeat;
+  filter: brightness(1.9);
+}
+
+body.home-body .c-home-profile-mark__profile {
+  text-indent: -4px;
+}
+
+body.home-body .c-home-profile-mark__profile::after {
+  content: "PROFILE";
+  color: #8a8a8a;
+  -webkit-text-fill-color: #8a8a8a;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-indent: -4px;
+}
+
+@keyframes c-profile-title-shine {
+  0%, 12% { clip-path: polygon(-18% 0, 0 0, 0 100%, -18% 100%); opacity: 0; }
+  20%, 72% { opacity: 1; }
+  84%, 100% { clip-path: polygon(100% 0, 118% 0, 118% 100%, 100% 100%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-body .c-home-profile-mark__design::after,
+  body.home-body .c-home-profile-mark__profile::after {
+    display: none;
+  }
+}
+
+/* Final homepage review lock — profile copy exactly matches KEY PROJECTS CN copy. */
+body.home-body .c-home-profile__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 249px;
+  height: 72px;
+  margin-top: 68px;
+  overflow: visible;
+}
+
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary strong:first-child,
+body.home-body .c-home-profile__summary p {
+  display: block;
+  width: 249px !important;
+  height: 16px;
+  margin: 0;
+  overflow: visible;
+  color: #fff;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+body.home-body .c-home-resume span {
+  font-weight: 700 !important;
+}
+
+/* Moving highlight band over both title lines; base artwork remains visible as fallback. */
+body.home-body .c-home-profile-mark__design,
+body.home-body .c-home-profile-mark__profile {
+  overflow: hidden;
+}
+
+body.home-body .c-home-profile-mark__design::after,
+body.home-body .c-home-profile-mark__profile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  animation: c-profile-title-shine 3.8s ease-in-out infinite;
+  clip-path: polygon(0 0, 18% 0, 18% 100%, 0 100%);
+}
+
+body.home-body .c-home-profile-mark__design::after {
+  background: url("../c-home-v2/c-title-design.svg") 0 0 / 439.572px 41px no-repeat;
+  filter: brightness(1.9);
+}
+
+body.home-body .c-home-profile-mark__profile {
+  text-indent: -4px;
+}
+
+body.home-body .c-home-profile-mark__profile::after {
+  content: "PROFILE";
+  color: #8a8a8a;
+  -webkit-text-fill-color: #8a8a8a;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-indent: -4px;
+}
+
+@keyframes c-profile-title-shine {
+  0%, 12% { clip-path: polygon(-18% 0, 0 0, 0 100%, -18% 100%); opacity: 0; }
+  20% { opacity: 1; }
+  72% { opacity: 1; }
+  84%, 100% { clip-path: polygon(100% 0, 118% 0, 118% 100%, 100% 100%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-body .c-home-profile-mark__design::after,
+  body.home-body .c-home-profile-mark__profile::after {
+    display: none;
+  }
+}
+
+/* Final hero visibility/type lock. */
+body.home-body .c-home-profile-mark__profile {
+  z-index: 3;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #444 !important;
+  -webkit-text-fill-color: #444 !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  white-space: nowrap;
+}
+
+body.home-body .c-home-profile__summary strong:first-child {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
+}
+
+body.home-body .c-home-resume span {
+  font-weight: 500 !important;
+}
+
+body.home-body .c-home-key__cn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 249px;
+  height: 64px;
+  overflow: hidden;
+}
+
+body.home-body .c-home-key__cn span {
+  display: block;
+  width: 249px;
+  height: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Current homepage overrides. Keep this block last to defeat legacy rules. */
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-resume span,
+body.home-body .c-home-key__cn,
+body.home-body .c-home-key__cn span,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong,
+body.home-body .modal-card__title strong,
+body.home-body .toast {
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  line-height: 20px !important;
+}
+
+body.home-body .c-home-profile__summary strong:first-child {
+  font-weight: 600 !important;
+}
+
+body.home-body .c-home-key__cn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 249px;
+  height: 72px;
+  overflow: visible;
+}
+
+body.home-body .c-home-key__cn span {
+  width: 249px;
+  height: 16px;
+  overflow: visible;
+  line-height: 16px !important;
+  white-space: nowrap;
+}
+
+body.home-body .c-home-profile__summary p {
+  width: 323px !important;
+  max-width: none;
+  white-space: nowrap;
+}
+
+body.home-body .c-home-key .home-showcase-card--ai img.home-showcase-card__disc {
+  width: 218px;
+  height: 218px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+body.home-body .c-home-key .home-showcase-card__media,
+body.home-body .c-home-key .home-showcase-card__media picture {
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+
+body.home-body .c-home-key .home-showcase-card img.home-showcase-card__disc {
+  width: 218px;
+  height: 218px;
+  object-fit: contain;
+}
+
+body.home-body .c-home-portrait__cursor {
+  top: 250px !important;
+  left: 179px !important;
+  width: 79px;
+  height: 79px;
+}
+
+/* Cross-browser finishing pass: avoid composite SVG masks, which disappear in
+   some Chromium/WebKit shells (including some Quark Browser versions). */
+body.home-body .c-home-profile h1.c-home-profile-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 141px;
+  overflow: visible;
+  color: #fdfdfc;
+  font-family: "BBH Bartle", "Arial Black", sans-serif;
+  font-size: initial;
+  line-height: normal;
+}
+
+body.home-body .c-home-profile-mark > span {
+  position: static;
+  display: block;
+  width: max-content;
+  margin: 0;
+  color: #727272;
+  background: linear-gradient(90deg, #282828 0%, #969696 50.96%, #282828 100%);
+  background-position: 0 50%;
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: currentColor;
+  -webkit-mask: none;
+  mask: none;
+  font-weight: 400;
+  animation: c-profile-mark-flow 6.67s linear infinite;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  body.home-body .c-home-profile-mark > span {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+body.home-body .c-home-profile-mark__design {
+  height: 48px;
+  font-size: 56.415px;
+  line-height: 48px;
+}
+
+body.home-body .c-home-profile-mark__profile {
+  height: 89px;
+  font-size: 117.17px;
+  line-height: 89px;
+  letter-spacing: -0.02em;
+}
+
+/* Keep all homepage Chinese copy on one predictable light-weight stack. */
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-resume span,
+body.home-body .c-home-key__cn,
+body.home-body .c-home-key__cn span,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong,
+body.home-body .toast {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif !important;
+  font-weight: 300 !important;
+}
+
+body.home-body .c-home-profile__summary strong:first-child {
+  font-weight: 600 !important;
+}
+
+/* Preserve the source artwork's square aspect ratio for the three key arrows. */
+body.home-body .c-home-key .home-showcase-card__action,
+body.home-body .c-home-key .home-showcase-card__action img {
+  flex: 0 0 32px;
+  width: 32px !important;
+  height: 32px !important;
+  aspect-ratio: 1 / 1;
+}
+
+body.home-body .c-home-key .home-showcase-card__action img {
+  object-fit: contain;
+  transform: none;
+}
+
+/* Detail body copy should share a clean left edge instead of stretched spacing. */
+body.myjd-case-body .myjd-copy-block p,
+body.myjd-case-body .myjd-redo-copy p,
+body.myjd-case-body .case-copy p,
+body.myjd-case-body .case-info-copy p {
+  text-align: left !important;
+  text-align-last: left !important;
+  word-spacing: normal;
+}
+
+/* Contact dialog: 200ms fade/scale, 70% backdrop, bold copy and 46px top inset. */
+.modal {
+  display: grid;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s linear 200ms, opacity 200ms ease;
+}
+
+.modal.is-open {
+  display: grid;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.modal-backdrop,
+body.home-body .modal-backdrop,
+body.myjd-case-body .c-detail-modal .modal-backdrop {
+  background: #000;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.modal.is-open .modal-backdrop,
+body.home-body .modal.is-open .modal-backdrop,
+body.myjd-case-body .c-detail-modal.is-open .modal-backdrop {
+  opacity: 0.7;
+}
+
+.modal-panel {
+  opacity: 0;
+  transform: translateY(10px) scale(0.97);
+  transition: opacity 200ms ease, transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal.is-open .modal-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+body.home-body .modal-card,
+body.myjd-case-body .c-detail-modal .modal-card {
+  padding-top: 46px;
+}
+
+body.home-body .modal-card__title strong,
+body.myjd-case-body .c-detail-modal .modal-card__title strong {
+  font-weight: 700 !important;
+}
+
+body.home-body .c-home-ending__emojis span.is-changing {
+  animation-duration: 150ms;
+}
+
+@media (max-width: 760px) {
+  body.home-body .c-home-profile h1.c-home-profile-mark {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modal-backdrop,
+  .modal-panel {
+    transition: none;
+  }
+}
+
+/* My JD page — synchronized to Figma frame 429:42755 (2026-07-13). */
+body.myjd-case-body main.jd-case-page.myjd-case-page.myjd-redo-page {
+  width: min(1080px, calc(100% - 40px));
+  max-width: 1080px;
+  padding-top: 72px;
+  padding-bottom: 80px;
+}
+
+body.myjd-case-body .myjd-redo-section {
+  gap: 120px;
+}
+
+body.myjd-case-body .myjd-redo-project {
+  gap: 72px;
+}
+
+body.myjd-case-body .myjd-redo-project-head {
+  gap: 12px;
+  min-height: 36px;
+}
+
+body.myjd-case-body .myjd-redo-project-badge {
+  width: 36px;
+  height: 36px;
+}
+
+body.myjd-case-body .myjd-redo-project-title {
+  color: #fff;
+  font-size: 36px;
+  line-height: 36px;
+}
+
+body.myjd-case-body .myjd-redo-row {
+  gap: 36px;
+}
+
+body.myjd-case-body .myjd-redo-row-head {
+  gap: 16px;
+  min-height: 32px;
+}
+
+body.myjd-case-body .myjd-redo-row-index {
+  color: #fff;
+  font-family: "Bitcount Grid Single", "PortfolioPixel", monospace;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 32px;
+  transform: none;
+}
+
+body.myjd-case-body .myjd-redo-row-title {
+  color: #fff;
+  font-size: 28px;
+  line-height: 28px;
+}
+
+body.myjd-case-body .myjd-redo-card-grid {
+  gap: 36px;
+}
+
+body.myjd-case-body .myjd-redo-card-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 336px));
+}
+
+body.myjd-case-body .myjd-redo-card-grid--two,
+body.myjd-case-body .myjd-redo-card-grid--work {
+  grid-template-columns: repeat(2, minmax(0, 522px));
+}
+
+body.myjd-case-body .myjd-redo-card {
+  gap: 24px;
+  padding: 36px;
+  border-radius: 16px;
+  background: #161616;
+  box-sizing: border-box;
+}
+
+body.myjd-case-body .myjd-redo-card--overview {
+  height: 184px;
+}
+
+body.myjd-case-body .myjd-redo-project:first-child [aria-labelledby="p1-direction"] .myjd-redo-card {
+  height: 248px;
+}
+
+body.myjd-case-body .myjd-redo-project:nth-child(2) [aria-labelledby="p2-direction"] .myjd-redo-card,
+body.myjd-case-body .myjd-redo-project:nth-child(2) [aria-labelledby="p2-work"] .myjd-redo-card {
+  height: 217px;
+}
+
+body.myjd-case-body .myjd-redo-project:first-child [aria-labelledby="p1-work"] .myjd-redo-card {
+  height: 246px;
+}
+
+body.myjd-case-body .myjd-redo-card--tint-yellow {
+  background: #2e0e00;
+}
+
+body.myjd-case-body .myjd-redo-card--tint-green {
+  background: #0b2b00;
+}
+
+body.myjd-case-body .myjd-redo-card-title-wrap {
+  gap: 12px;
+}
+
+body.myjd-case-body .myjd-card-emoji {
+  display: grid;
+  flex: 0 0 32px;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  line-height: 32px;
+}
+
+body.myjd-case-body .myjd-redo-card-title {
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+body.myjd-case-body .myjd-redo-copy {
+  gap: 8px;
+}
+
+body.myjd-case-body .myjd-redo-copy p {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+body.myjd-case-body .myjd-redo-copy strong {
+  font-weight: 500;
+}
+
+body.myjd-case-body .myjd-redo-figure-stack {
+  gap: 36px;
+}
+
+body.myjd-case-body .myjd-redo-figure,
+body.myjd-case-body .myjd-redo-figure:has(img[src*="/user-exports/"]) {
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+}
+
+body.myjd-case-body .myjd-redo-figure img,
+body.myjd-case-body .myjd-redo-figure img[src*="/user-exports/"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  opacity: 1;
+}
+
+body.myjd-case-body .myjd-redo-bottom-nav {
+  margin-top: 48px;
+}
+
+@media (max-width: 960px) {
+  body.myjd-case-body main.jd-case-page.myjd-case-page.myjd-redo-page {
+    width: min(100% - 32px, 720px);
+    padding-top: 48px;
+  }
+
+  body.myjd-case-body .myjd-redo-section { gap: 80px; }
+  body.myjd-case-body .myjd-redo-project { gap: 48px; }
+  body.myjd-case-body .myjd-redo-row { gap: 24px; }
+  body.myjd-case-body .myjd-redo-card-grid--three,
+  body.myjd-case-body .myjd-redo-card-grid--two,
+  body.myjd-case-body .myjd-redo-card-grid--work { grid-template-columns: 1fr; }
+  body.myjd-case-body .myjd-redo-card { height: auto !important; min-height: 184px; }
+}
+
+@media (max-width: 600px) {
+  body.myjd-case-body main.jd-case-page.myjd-case-page.myjd-redo-page {
+    width: 100%;
+    padding: 48px 16px 60px;
+    box-sizing: border-box;
+  }
+
+  body.myjd-case-body .myjd-redo-project-title { font-size: 24px; line-height: 28px; }
+  body.myjd-case-body .myjd-redo-row-index { font-size: 22px; line-height: 24px; }
+  body.myjd-case-body .myjd-redo-row-title { font-size: 18px; line-height: 22px; }
+  body.myjd-case-body .myjd-redo-card { gap: 16px; min-height: 0; padding: 24px; }
+  body.myjd-case-body .myjd-redo-copy p { font-size: 14px; line-height: 22px; }
+}
+
+/* Homepage review corrections — synced to Figma 425:11711. */
+body.home-body .c-home-divider,
+body.home-body .c-home-key__background {
+  display: none;
+}
+
+body.home-body .c-home-key {
+  grid-template-columns: 243px 1fr;
+  gap: 36px;
+  width: 1080px;
+  height: 292px;
+  margin: 0;
+  padding: 100px 0;
+  background: transparent;
+  box-sizing: content-box;
+}
+
+body.home-body .c-home-key .home-showcase {
+  grid-template-columns: repeat(3, 243px);
+  gap: 36px;
+  width: 801px;
+  height: 292px;
+}
+
+body.home-body .c-home-key .home-showcase-card,
+body.home-body .c-home-key .home-showcase-card--home,
+body.home-body .c-home-key .home-showcase-card--myjd,
+body.home-body .c-home-key .home-showcase-card--ai {
+  width: 243px;
+  height: 292px;
+}
+
+body.home-body .c-home-key .home-showcase-card__media {
+  width: 243px;
+  height: 220px;
+}
+
+body.home-body .c-home-key .home-showcase-card__media picture,
+body.home-body .c-home-key .home-showcase-card img.home-showcase-card__disc,
+body.home-body .c-home-key .home-showcase-card--ai img.home-showcase-card__disc {
+  width: 220px;
+  height: 220px;
+}
+
+body.home-body .c-home-more {
+  margin-top: 1px;
+}
+
+body.home-body .c-home-ending {
+  margin-top: 99px;
+}
+
+body.home-body .c-home-key__intro .c-home-key__en {
+  width: 243px;
+  margin: 0;
+  color: #4d4d4d;
+  font-size: 12px;
+  line-height: 20px;
+  opacity: 1;
+  text-transform: none;
+}
+
+body.home-body .c-home-more .home-more-card__copy small {
+  color: #4d4d4d;
+  opacity: 1;
+}
+
+/* One-step Chinese type hierarchy: name 20px, all supporting copy 16px. */
+body.home-body .c-home-profile__summary strong:first-child {
+  color: #fff;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
+  opacity: 1;
+}
+
+body.home-body .c-home-profile__summary strong:nth-child(2),
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-key__cn,
+body.home-body .c-home-key__cn span,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong {
+  font-size: 16px !important;
+  line-height: 20px !important;
+  opacity: 1;
+}
+
+body.home-body .c-home-profile__summary strong:nth-child(2),
+body.home-body .c-home-profile__summary p {
+  color: #a6a6a6;
+}
+
+/* Optical left lock for the title and the name below it. */
+body.home-body .c-home-profile h1.c-home-profile-mark,
+body.home-body .c-home-profile-mark > span,
+body.home-body .c-home-profile__summary {
+  left: 0;
+  margin-left: 0;
+  padding-left: 0;
+  text-indent: 0;
+}
+
+/* The supplied 108px PNG is the single arrow source across the site. */
+body.home-body .c-home-key .home-showcase-card__action,
+body.home-body .c-home-key .home-showcase-card__action img,
+body.home-body .c-home-more .home-more-card__action,
+body.home-body .c-home-more .home-more-card__action img {
+  flex: 0 0 24px;
+  width: 24px !important;
+  height: 24px !important;
+  aspect-ratio: 1 / 1;
+}
+
+body.home-body .c-home-key .home-showcase-card__action img,
+body.home-body .c-home-more .home-more-card__action img,
+.project-nav-icon img,
+.transaction-detail-nav-icon img,
+body.myjd-case-body .project-nav-icon img,
+body.myjd-case-body .transaction-detail-nav-icon img {
+  image-rendering: auto;
+  object-fit: contain;
+}
+
+.project-nav-icon-hover,
+.transaction-detail-nav-icon-hover,
+body.myjd-case-body .project-nav-icon-hover,
+body.myjd-case-body .transaction-detail-nav-icon-hover {
+  display: none !important;
+}
+
+.project-nav-button:hover .project-nav-icon-default,
+.project-nav-button:focus-visible .project-nav-icon-default,
+.transaction-detail-nav-button:hover .transaction-detail-nav-icon-default,
+.transaction-detail-nav-button:focus-visible .transaction-detail-nav-icon-default,
+body.myjd-case-body .project-nav-button:hover .project-nav-icon-default,
+body.myjd-case-body .project-nav-button:focus-visible .project-nav-icon-default,
+body.myjd-case-body .transaction-detail-nav-button:hover .transaction-detail-nav-icon-default,
+body.myjd-case-body .transaction-detail-nav-button:focus-visible .transaction-detail-nav-icon-default {
+  opacity: 1;
+}
+
+.project-nav-icon--prev .project-nav-icon-default,
+.transaction-detail-nav-icon--prev .transaction-detail-nav-icon-default,
+body.myjd-case-body .project-nav-icon--prev .project-nav-icon-default,
+body.myjd-case-body .transaction-detail-nav-icon--prev .transaction-detail-nav-icon-default {
+  transform: rotate(180deg);
+}
+
+.project-nav-button:hover .project-nav-icon--prev .project-nav-icon-default,
+.project-nav-button:focus-visible .project-nav-icon--prev .project-nav-icon-default,
+.transaction-detail-nav-button:hover .transaction-detail-nav-icon--prev .transaction-detail-nav-icon-default,
+.transaction-detail-nav-button:focus-visible .transaction-detail-nav-icon--prev .transaction-detail-nav-icon-default,
+body.myjd-case-body .project-nav-button:hover .project-nav-icon--prev .project-nav-icon-default,
+body.myjd-case-body .project-nav-button:focus-visible .project-nav-icon--prev .project-nav-icon-default {
+  transform: rotate(180deg) scale(1.05);
+}
+
+/* Detail-page content rhythm and transparent-export card contract. */
+body.myjd-case-body .myjd-redo-row-index,
+body.myjd-case-body .myjd-row-index {
+  font-weight: 400;
+  transform: translateY(2px);
+}
+
+body.myjd-case-body .myjd-redo-copy,
+body.myjd-case-body .myjd-copy-block {
+  gap: 0;
+}
+
+body.myjd-case-body .myjd-redo-copy p,
+body.myjd-case-body .myjd-copy-block p,
+body.myjd-case-body .case-copy p,
+body.myjd-case-body .case-info-copy p,
+body.myjd-case-body .case-rebuild-copy p {
+  margin: 0;
+  line-height: 32px;
+}
+
+body.myjd-case-body .myjd-redo-card {
+  height: auto !important;
+  min-height: 184px;
+}
+
+body.myjd-case-body .myjd-redo-figure,
+body.myjd-case-body .myjd-redo-figure:has(img[src*="/user-exports/"]) {
+  overflow: hidden;
+  border-radius: 24px;
+  background: #161616;
+}
+
+body.myjd-case-body .myjd-redo-figure img,
+body.myjd-case-body .myjd-redo-figure img[src*="/user-exports/"] {
+  border-radius: 0;
+}
+
+@media (max-width: 600px) {
+  body.myjd-case-body .myjd-redo-copy p,
+  body.myjd-case-body .myjd-copy-block p,
+  body.myjd-case-body .case-copy p,
+  body.myjd-case-body .case-info-copy p,
+  body.myjd-case-body .case-rebuild-copy p {
+    line-height: 26px;
+  }
+
+  body.myjd-case-body .myjd-redo-figure {
+    border-radius: 18px;
+  }
+}
+
+/* Browser-safe vector title: direct SVG images, no font side-bearing or masks. */
+body.home-body .c-home-profile h1.c-home-profile-mark {
+  position: relative;
+  display: block;
+  width: 1080px;
+  height: 141px;
+  font: 0 / 0 sans-serif;
+  transform-origin: left top;
+}
+
+body.home-body .c-home-profile-mark > span {
+  position: absolute;
+  left: 0;
+  display: block;
+  margin: 0;
+  color: transparent;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: initial;
+  animation: none;
+  transform: none;
+}
+
+body.home-body .c-home-profile-mark__design {
+  top: 0;
+  width: 439.572px;
+  height: 41px;
+}
+
+body.home-body .c-home-profile-mark__design > img {
+  display: block;
+  width: 439.572px;
+  height: 41px;
+}
+
+body.home-body .c-home-profile-mark__profile {
+  top: 56.704px;
+  width: 1066.744px;
+  height: 85.768px;
+}
+
+body.home-body .c-home-profile-mark__profile > img {
+  position: absolute;
+  display: block;
+  width: 145.291px;
+  height: 82.019px;
+}
+
+body.home-body .c-home-profile-mark__profile > img:nth-child(1) { left: 0; top: 1.579px; width: 144.119px; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(2) { left: 152.527px; top: 1.579px; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(3) { left: 303.135px; top: 0; height: 85.768px; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(4) { left: 457.809px; top: 1.579px; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(5) { left: 610.409px; top: 1.579px; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(6) { left: 767.554px; top: 1.579px; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(7) { left: 921.453px; top: 1.579px; }
+
+/* Supporting Chinese copy moves one weight tier up from Light to Regular. */
+body.home-body .c-home-profile__summary strong:nth-child(2),
+body.home-body .c-home-profile__summary p {
+  font-weight: 400 !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 760px) {
+  body.home-body .c-home-profile h1.c-home-profile-mark {
+    display: block;
+  }
+}
+
+/* Reliable PROFILE fallback: direct font rendering with optical side-bearing correction. */
+body.home-body .c-home-profile-mark__profile {
+  display: block;
+  overflow: visible;
+  color: #444;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  font-family: "BBH Bartle", "Arial Black", sans-serif;
+  font-size: 117.17px;
+  font-weight: 400;
+  line-height: 85.768px;
+  letter-spacing: -0.02em;
+  text-indent: -3px;
+}
+
+body.home-body .c-home-profile-mark__profile > img {
+  display: none;
+}
+
+/* Equal vertical rhythm for the three profile lines. */
+body.home-body .c-home-profile__summary {
+  display: grid;
+  grid-template-rows: repeat(3, 20px);
+  row-gap: 8px;
+  height: 76px;
+}
+
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary p {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin: 0;
+  line-height: 20px !important;
+}
+
+/* Homepage Chinese copy: only the name is emphasized; everything else is Regular. */
+body.home-body .c-home-profile__summary strong:nth-child(2),
+body.home-body .c-home-profile__summary p,
+body.home-body .c-home-resume span,
+body.home-body .c-home-key__cn,
+body.home-body .c-home-key__cn span,
+body.home-body .home-showcase-card > strong,
+body.home-body .home-more-card__copy strong,
+body.home-body .modal-card__title strong,
+body.home-body .toast {
+  font-weight: 400 !important;
+}
+
+body.home-body .c-home-profile__summary strong:first-child {
+  font-weight: 600 !important;
+}
+
+/* Actual final homepage values. */
+body.home-body .c-home-profile__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 249px;
+  height: 72px;
+  margin-top: 68px;
+}
+
+body.home-body .c-home-profile__summary strong,
+body.home-body .c-home-profile__summary strong:first-child,
+body.home-body .c-home-profile__summary p {
+  display: block;
+  width: 249px !important;
+  height: 16px;
+  margin: 0;
+  color: #fff;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  opacity: 1;
+}
+
+body.home-body .c-home-resume span {
+  font-weight: 700 !important;
+}
+
+body.home-body .c-home-profile-mark__profile,
+body.home-body .c-home-profile-mark__profile::after {
+  text-indent: -4px;
+}
+
+/* Final hero polish: restore the original soft title flow and optical alignment. */
+body.home-body .c-home-profile-mark__profile,
+body.home-body .c-home-profile-mark__profile::after {
+  text-indent: -6px;
+}
+
+body.home-body .c-home-profile__summary > strong,
+body.home-body .c-home-profile__summary > p {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+
+body.home-body .c-home-profile-mark__design::after,
+body.home-body .c-home-profile-mark__profile::after {
+  inset: 0;
+  z-index: 4;
+  opacity: 1;
+  clip-path: none;
+  filter: none;
+  background-color: transparent;
+  background-image: linear-gradient(90deg, #282828 0%, #969696 50.96%, #282828 100%);
+  background-position: 200% 50%;
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
+  animation: c-profile-mark-flow 6.67s linear infinite;
+  will-change: background-position;
+}
+
+body.home-body .c-home-profile-mark__design::after {
+  content: "";
+  -webkit-mask-image: url("../c-home-v2/c-title-design.svg");
+  mask-image: url("../c-home-v2/c-title-design.svg");
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 439.572px 41px;
+  mask-size: 439.572px 41px;
+}
+
+body.home-body .c-home-profile-mark__profile::after {
+  content: "PROFILE";
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Global detail bottom-navigation spacing. */
+body.myjd-case-body main.jd-case-page.myjd-redo-page {
+  padding-bottom: 200px;
+}
+
+body.myjd-case-body .project-bottom-nav,
+body.myjd-case-body .transaction-detail-nav,
+body.myjd-case-body .myjd-redo-bottom-nav {
+  margin-top: 120px;
+}
+
+@media (max-width: 600px) {
+  body.myjd-case-body main.jd-case-page.myjd-redo-page {
+    padding-bottom: 200px;
+  }
+
+  body.myjd-case-body .project-bottom-nav,
+  body.myjd-case-body .transaction-detail-nav,
+  body.myjd-case-body .myjd-redo-bottom-nav {
+    margin-top: 120px;
+  }
+}
+
+/* Final cross-page detail contract: regular body copy with yellow lead-ins. */
+body.myjd-case-body .myjd-redo-copy p,
+body.myjd-case-body .myjd-copy-block p,
+body.myjd-case-body .case-copy p,
+body.myjd-case-body .case-info-copy p,
+body.myjd-case-body .case-rebuild-copy p {
+  font-weight: 400 !important;
+}
+
+body.myjd-case-body .myjd-redo-copy p strong,
+body.myjd-case-body .myjd-copy-block p strong,
+body.myjd-case-body .case-copy p strong,
+body.myjd-case-body .case-info-copy p strong,
+body.myjd-case-body .case-rebuild-copy p strong {
+  color: #ffcc00 !important;
+  -webkit-text-fill-color: #ffcc00 !important;
+  font-weight: 400 !important;
+}
+
+/* Every detail footer keeps 120px from content and 200px to the page edge. */
+body.myjd-case-body main.jd-case-page.myjd-redo-page {
+  padding-bottom: 200px !important;
+}
+
+body.myjd-case-body .project-bottom-nav,
+body.myjd-case-body .transaction-detail-nav,
+body.myjd-case-body .myjd-redo-bottom-nav {
+  margin-top: 120px !important;
+  margin-bottom: 0 !important;
+}
+
+/* PROFILE uses one rendering layer; the former duplicate pseudo-layer caused the offset. */
+body.home-body .c-home-profile-mark__profile {
+  color: #444 !important;
+  -webkit-text-fill-color: #444 !important;
+  background: none;
+  animation: none;
+}
+
+body.home-body .c-home-profile-mark__profile::after {
+  display: none !important;
+  content: none !important;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  body.home-body .c-home-profile-mark__profile {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    background-image: linear-gradient(90deg, #282828 0%, #969696 50.96%, #282828 100%);
+    background-position: 200% 50%;
+    background-size: 200% 100%;
+    background-repeat: repeat-x;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: c-profile-mark-flow 6.67s linear infinite;
+  }
+}
+
+/* Restore the darker backdrop used before the transparency adjustment. */
+.modal.is-open .modal-backdrop,
+body.home-body .modal.is-open .modal-backdrop,
+body.myjd-case-body .c-detail-modal.is-open .modal-backdrop {
+  opacity: 0.92;
+}
+
+/* PROFILE reliability lock: render the seven supplied SVG glyphs directly.
+   No font fallback, mask, pseudo-element or background-clip is involved. */
+body.home-body .c-home-profile-mark__profile {
+  top: 56.704px !important;
+  left: -6px !important;
+  display: block !important;
+  width: 1066.744px !important;
+  height: 85.768px !important;
+  overflow: visible !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  background: none !important;
+  font: 0 / 0 sans-serif !important;
+  text-indent: 0 !important;
+  animation: none !important;
+}
+
+body.home-body .c-home-profile-mark__profile::before,
+body.home-body .c-home-profile-mark__profile::after {
+  display: none !important;
+  content: none !important;
+}
+
+body.home-body .c-home-profile-mark__profile > img {
+  position: absolute !important;
+  top: 1.579px !important;
+  display: block !important;
+  width: 145.291px !important;
+  height: 82.019px !important;
+  max-width: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.home-body .c-home-profile-mark__profile > img:nth-child(1) { left: 0 !important; width: 144.119px !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(2) { left: 152.527px !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(3) { top: 0 !important; left: 303.135px !important; height: 85.768px !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(4) { left: 457.809px !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(5) { left: 610.409px !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(6) { left: 767.554px !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(7) { left: 921.453px !important; }
+
+/* Revert detail lead-ins to white while retaining the unified Regular weight. */
+body.myjd-case-body .myjd-redo-copy p strong,
+body.myjd-case-body .myjd-copy-block p strong,
+body.myjd-case-body .case-copy p strong,
+body.myjd-case-body .case-info-copy p strong,
+body.myjd-case-body .case-rebuild-copy p strong {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  font-weight: 400 !important;
+}
+
+/* Static footers already receive 120px from their section's grid gap.
+   Remove the second 120px margin so the values do not stack to 240px. */
+body.myjd-case-body .myjd-redo-section > .project-bottom-nav,
+body.myjd-case-body .myjd-redo-section > .transaction-detail-nav,
+body.myjd-case-body .myjd-redo-section > .myjd-redo-bottom-nav {
+  margin-top: 0 !important;
+}
+
+/* PROFILE keeps its browser-safe SVG glyphs and receives the same moving
+   highlight used by DESIGN. The overlay reuses the exact glyph artwork, so it
+   cannot create a second offset text silhouette. */
+body.home-body .c-home-profile-mark__profile::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: block !important;
+  pointer-events: none !important;
+  background-image:
+    url("../c-home-v2/c-title-p7.svg"), url("../c-home-v2/c-title-p6.svg"),
+    url("../c-home-v2/c-title-p5.svg"), url("../c-home-v2/c-title-p4.svg"),
+    url("../c-home-v2/c-title-p3.svg"), url("../c-home-v2/c-title-p2.svg"),
+    url("../c-home-v2/c-title-p1.svg") !important;
+  background-position:
+    0 1.579px, 152.527px 1.579px, 303.135px 0,
+    457.809px 1.579px, 610.409px 1.579px, 767.554px 1.579px,
+    921.453px 1.579px !important;
+  background-size:
+    144.119px 82.019px, 145.291px 82.019px, 145.291px 85.768px,
+    145.291px 82.019px, 145.291px 82.019px, 145.291px 82.019px,
+    145.291px 82.019px !important;
+  background-repeat: no-repeat !important;
+  filter: brightness(1.9);
+  clip-path: polygon(-18% 0, 0 0, 0 100%, -18% 100%);
+  animation: c-profile-title-shine 3.8s ease-in-out infinite !important;
+  will-change: clip-path, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-body .c-home-profile-mark__profile::after {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+/* Direct-glyph flow: animate the visible SVG letters themselves so the effect
+   remains active in browsers that do not composite the overlay reliably. */
+body.home-body .c-home-profile-mark__profile {
+  left: -4px !important;
+}
+
+body.home-body .c-home-profile-mark__profile::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
+
+body.home-body .c-home-profile-mark__profile > img {
+  filter: brightness(1);
+  animation: c-profile-glyph-flow 6.67s linear infinite !important;
+  will-change: filter;
+}
+
+body.home-body .c-home-profile-mark__profile > img:nth-child(1) { animation-delay: 0s !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(2) { animation-delay: 0.21s !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(3) { animation-delay: 0.42s !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(4) { animation-delay: 0.63s !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(5) { animation-delay: 0.84s !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(6) { animation-delay: 1.05s !important; }
+body.home-body .c-home-profile-mark__profile > img:nth-child(7) { animation-delay: 1.26s !important; }
+
+@keyframes c-profile-glyph-flow {
+  0%, 18%, 52%, 100% { filter: brightness(1); }
+  34% { filter: brightness(2.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-body .c-home-profile-mark__profile > img {
+    animation: none !important;
+    filter: brightness(1);
   }
 }
