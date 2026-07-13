@@ -1,4 +1,11 @@
 .DS_Store
+.codex-artifacts/
+node_modules/
+.cache/
+coverage/
+.env
+.env.*
+!.env.example
 artifacts/
 exports/
 site-b/

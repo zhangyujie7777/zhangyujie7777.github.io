@@ -1623,7 +1623,7 @@ function initSkillStripMotion() {
   const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
   const originalItems = Array.from(strip.children).filter((item) => item.matches("span"));
-  if (originalItems.length !== 8) return;
+  if (originalItems.length !== 11) return;
 
   const labels = [
     "Figma",
@@ -1633,7 +1633,10 @@ function initSkillStripMotion() {
     "Photoshop",
     "CapCut",
     "Dreamina",
+    "Figma",
     "Cinema 4D",
+    "CapCut",
+    "Dreamina",
   ];
   const viewport = document.createElement("div");
   const track = document.createElement("div");

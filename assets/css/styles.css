@@ -10550,3 +10550,61 @@ body.home-body .c-home-portrait__folder {
   height: 54px;
   object-fit: contain;
 }
+
+/* Figma 425:11723 — hero artwork stack and coordinates. */
+body.home-body .c-home-portrait__shape {
+  z-index: 0;
+}
+
+body.home-body .c-home-portrait__person {
+  top: 17px;
+  left: 219px;
+  z-index: 2;
+}
+
+body.home-body .c-home-eye-strip {
+  top: 287px;
+  left: 49px;
+  z-index: 1;
+  width: 718px;
+}
+
+body.home-body .c-home-eye-strip::before,
+body.home-body .c-home-eye-strip::after {
+  box-shadow: 724px 0 #fdfdfc;
+}
+
+body.home-body .c-home-eye-strip span:nth-child(8) {
+  width: 51px;
+  background: #f575ff;
+}
+
+body.home-body .c-home-eye-strip span:nth-child(9) {
+  width: 78px;
+  background: #ffea00;
+}
+
+body.home-body .c-home-eye-strip span:nth-child(10) {
+  width: 57px;
+}
+
+body.home-body .c-home-eye-strip span:nth-child(11) {
+  width: 71px;
+}
+
+body.home-body .c-home-portrait__cursor {
+  top: 339.657px !important;
+  left: 87.657px !important;
+  z-index: 3;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+body.home-body .c-home-portrait__folder {
+  top: 385.96px;
+  left: 727.467px;
+  z-index: 3;
+  width: 60px;
+  height: 54.432px;
+}
