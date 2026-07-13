@@ -509,7 +509,7 @@ function initDiscParticles() {
     }, 120);
   }
 
-  stage.addEventListener("pointermove", updatePointer);
+  stage.addEventListener("pointermove", updatePointer, { passive: true });
   stage.addEventListener("pointerleave", leavePointer);
   window.addEventListener("resize", scheduleRebuild);
   document.addEventListener("visibilitychange", () => {
@@ -974,37 +974,34 @@ function initHomeReturnLinks() {
 }
 
 function initHomeImageCache() {
-  if (!("serviceWorker" in navigator)) return;
+  if (!("serviceWorker" in navigator) || !document.body.classList.contains("home-body")) return;
 
   const homeImagePaths = [
-    "/assets/c-home/welcome-character.png",
-    "/assets/c-home/hero-character.png",
-    "/assets/fonts/bbh-bartle/BBHBartle-Regular.woff2",
-    "/assets/new-raw/新切图/Frame 2085666221.png",
-    "/assets/home-figma/问号图标.png",
-    "/assets/home-figma/年度账单.webp",
-    "/assets/home-figma/3d素材库.webp",
-    "/assets/home-figma/app13.0.png",
-    "/assets/home-figma/小组件.png",
-    "/assets/home/footer-codex.png",
-    "/assets/home-figma/文件夹 .png",
-    "/assets/home/contact-title-full.png",
-    "/assets/home/contact-qr-final.webp",
+    "/assets/c-home-v2/角色.png",
+    "/assets/c-home-v2/我京入口.png?v=20260713-2",
+    "/assets/c-home-v2/首页入口.png",
+    "/assets/c-home-v2/ai入口-user-latest.png",
+    "/assets/c-home-v2/通用箭头.png",
   ];
+  const cacheName = "portfolio-home-images-v6";
+  const warmupKey = "__PORTFOLIO_HOME_IMAGE_WARMUP__";
 
   const toAbsoluteUrl = (path) => new URL(path, window.location.origin).href;
 
   navigator.serviceWorker
-    .register("/sw.js")
+    .register("/sw.js", { updateViaCache: "none" })
     .then(() => {
-      if (!document.body.classList.contains("home-body") || !("caches" in window)) return;
+      if (!("caches" in window) || window[warmupKey]) {
+        return;
+      }
+      window[warmupKey] = true;
 
       const warmHomeImageCache = async () => {
-        const cache = await window.caches.open("portfolio-home-images-v4");
+        const cache = await window.caches.open(cacheName);
         await Promise.allSettled(
           homeImagePaths.map(async (path) => {
             const request = new Request(toAbsoluteUrl(path), { cache: "force-cache" });
-            const cached = await cache.match(request, { ignoreSearch: true });
+            const cached = await cache.match(request);
             if (cached) return;
 
             const response = await fetch(request);
@@ -1270,7 +1267,7 @@ function initCaseTabs() {
       if (activeSection) {
         setActiveTab(activeSection.id);
       }
-    });
+    }, { passive: true });
   }
 
   moveIndicator(tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0]);

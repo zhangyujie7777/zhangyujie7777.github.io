@@ -1,20 +1,13 @@
-const HOME_IMAGE_CACHE = "portfolio-home-images-v5";
+// Cache each complete request URL so a new image version cannot be replaced
+// with an older query-string variant left by a previous release.
+const HOME_IMAGE_CACHE = "portfolio-home-images-v6";
 
 const HOME_IMAGE_PATHS = new Set([
-  "/assets/c-home/welcome-character.png",
-  "/assets/c-home/hero-character.png",
-  "/assets/c-home/hero-flower.png",
-  "/assets/fonts/bbh-bartle/BBHBartle-Regular.woff2",
-  "/assets/new-raw/新切图/Frame 2085666221.png",
-  "/assets/home-figma/问号图标.png",
-  "/assets/home-figma/年度账单.webp",
-  "/assets/home-figma/3d素材库.webp",
-  "/assets/home-figma/app13.0.png",
-  "/assets/home-figma/小组件.png",
-  "/assets/home/footer-codex.png",
-  "/assets/home-figma/文件夹 .png",
-  "/assets/home/contact-title-full.png",
-  "/assets/home/contact-qr-final.webp",
+  "/assets/c-home-v2/角色.png",
+  "/assets/c-home-v2/我京入口.png",
+  "/assets/c-home-v2/首页入口.png",
+  "/assets/c-home-v2/ai入口-user-latest.png",
+  "/assets/c-home-v2/通用箭头.png",
 ]);
 
 self.addEventListener("install", (event) => {
@@ -47,7 +40,7 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       const cache = await caches.open(HOME_IMAGE_CACHE);
-      const cached = await cache.match(request, { ignoreSearch: true });
+      const cached = await cache.match(request);
       if (cached) return cached;
 
       const response = await fetch(request);

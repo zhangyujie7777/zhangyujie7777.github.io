@@ -10415,3 +10415,138 @@ body.home-body .c-home-profile-mark__profile > img:nth-child(7) { animation-dela
     filter: brightness(1);
   }
 }
+
+/* One continuous highlight traverses both title lines.  It reuses the same
+   browser-safe SVG glyphs as the visible title, so there is no second text
+   layer or font-rendering difference in Quark/WebKit. */
+body.home-body .c-home-profile-mark__design::after,
+body.home-body .c-home-profile-mark__profile::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
+
+body.home-body .c-home-profile-mark__profile {
+  left: -2px !important;
+}
+
+body.home-body .c-home-profile-mark__profile > img {
+  animation: none !important;
+  filter: brightness(1) !important;
+  will-change: auto;
+}
+
+body.home-body .c-home-profile-mark__flow {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+  display: block !important;
+  width: 1080px !important;
+  height: 141px !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+  clip-path: polygon(-18% 0, 0 0, 0 100%, -18% 100%);
+  filter: brightness(1.9);
+  animation: c-profile-title-shine 3.8s ease-in-out infinite !important;
+  will-change: clip-path, opacity;
+}
+
+body.home-body .c-home-profile-mark__flow > img {
+  position: absolute !important;
+  display: block !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+body.home-body .c-home-profile-mark__flow-design {
+  left: 0 !important;
+  top: 0 !important;
+  width: 439.572px !important;
+  height: 41px !important;
+}
+
+body.home-body .c-home-profile-mark__flow > img:nth-child(2) { left: -2px !important; top: 58.283px !important; width: 144.119px !important; height: 82.019px !important; }
+body.home-body .c-home-profile-mark__flow > img:nth-child(3) { left: 150.527px !important; top: 58.283px !important; width: 145.291px !important; height: 82.019px !important; }
+body.home-body .c-home-profile-mark__flow > img:nth-child(4) { left: 301.135px !important; top: 56.704px !important; width: 145.291px !important; height: 85.768px !important; }
+body.home-body .c-home-profile-mark__flow > img:nth-child(5) { left: 455.809px !important; top: 58.283px !important; width: 145.291px !important; height: 82.019px !important; }
+body.home-body .c-home-profile-mark__flow > img:nth-child(6) { left: 608.409px !important; top: 58.283px !important; width: 145.291px !important; height: 82.019px !important; }
+body.home-body .c-home-profile-mark__flow > img:nth-child(7) { left: 765.554px !important; top: 58.283px !important; width: 145.291px !important; height: 82.019px !important; }
+body.home-body .c-home-profile-mark__flow > img:nth-child(8) { left: 919.453px !important; top: 58.283px !important; width: 145.291px !important; height: 82.019px !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-body .c-home-profile-mark__flow {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+/* The 2021 bill overview copy is one line shorter; keep its three cards
+   visually compact while still fitting the two-line overview entries. */
+body.myjd-case-body #more-2020-bill [aria-labelledby="more-2020-bill-overview"] .myjd-redo-card--overview {
+  height: 172px;
+}
+
+/* Share feedback uses the same solid charcoal surface as the contact card. */
+.toast {
+  background: #161616;
+}
+
+/* Keep the shared two-line title sheen soft: the light is feathered by a
+   travelling alpha mask instead of being revealed by a hard clip edge. */
+body.home-body .c-home-profile-mark__flow {
+  clip-path: none;
+  filter: brightness(1.58);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.14) 24%, rgba(255, 255, 255, 0.78) 50%, rgba(255, 255, 255, 0.14) 76%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.14) 24%, rgba(255, 255, 255, 0.78) 50%, rgba(255, 255, 255, 0.14) 76%, transparent 100%);
+  -webkit-mask-size: 44% 100%;
+  mask-size: 44% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  animation: c-profile-title-soft-shine 6.67s linear infinite !important;
+  will-change: -webkit-mask-position, mask-position;
+}
+
+@keyframes c-profile-title-soft-shine {
+  from {
+    -webkit-mask-position: -44% 0;
+    mask-position: -44% 0;
+  }
+  to {
+    -webkit-mask-position: 144% 0;
+    mask-position: 144% 0;
+  }
+}
+
+/* Figma 425:11711 — revised hero artwork.  The portrait is supplied at its
+   final 482 × 455 aspect ratio, so it remains uncropped at every breakpoint. */
+body.home-body .c-home-hero {
+  height: 472px;
+}
+
+body.home-body .c-home-portrait__person {
+  top: 17px;
+  left: 170px;
+  width: 482px;
+  height: 455px;
+  object-fit: contain;
+  clip-path: none;
+}
+
+/* The strip, cursor and folder share the revised hero coordinate system. */
+body.home-body .c-home-eye-strip {
+  top: 321px;
+  left: 173px;
+}
+
+body.home-body .c-home-portrait__cursor {
+  top: 346px !important;
+  left: 162px !important;
+}
+
+body.home-body .c-home-portrait__folder {
+  top: 386px;
+  left: 727px;
+  width: 60px;
+  height: 54px;
+  object-fit: contain;
+}
