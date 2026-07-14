@@ -11,7 +11,15 @@
     <link rel="icon" href="data:," />
     <link rel="preload" as="image" href="./assets/c-home-v2/角色.png" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/c-home-v2/我京入口.png?v=20260713-2" fetchpriority="high" />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260713-hero-revision-7" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260714-mobile-revision-4" />
+    <script>
+      (() => {
+        const previewMode = new URLSearchParams(window.location.search).get("preview");
+        if (previewMode === "mobile" && window.top === window.self) {
+          window.location.replace("./mobile-preview.html");
+        }
+      })();
+    </script>
     <script>
       (() => {
         try {
@@ -117,7 +125,8 @@
               <p>擅长视觉、产品设计与AI工具</p>
             </div>
             <a class="c-home-resume" href="./assets/resume.pdf" download="张玉杰-作品集简历.pdf" aria-label="下载作品集简历 PDF">
-              <img src="./assets/c-home-v2/下载icon.png" alt="" width="20" height="20" aria-hidden="true" />
+              <img class="c-home-resume__icon--desktop" src="./assets/c-home-v2/下载icon.png" alt="" width="20" height="20" aria-hidden="true" />
+              <img class="c-home-resume__icon--mobile" src="./assets/c-home-v2/下载icon-mobile.png" alt="" width="24" height="24" aria-hidden="true" />
               <span>下载简历</span>
             </a>
           </div>
@@ -202,7 +211,7 @@
           <div class="home-more__heading" data-reveal>
             <h2>
               <span>MORE</span>
-              <span>PROJECTS</span>
+              <span>WORKS</span>
             </h2>
           </div>
 
