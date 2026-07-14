@@ -11150,6 +11150,14 @@ body.home-body .c-home-resume__icon--mobile {
   }
 }
 
+/* My JD 12.0 gallery assets are transparent cutouts. The surrounding card is
+   drawn by the page so its radius and background stay responsive. */
+body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
+  overflow: hidden;
+  border-radius: 24px;
+  background: #161616;
+}
+
 /* Detail pages — dedicated mobile composition from Figma 461:16833.
    This final contract replaces the earlier proportional mobile fallback while
    preserving each project's existing content and artwork. */
