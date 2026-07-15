@@ -976,58 +976,21 @@ function initHomeReturnLinks() {
 function initHomeImageCache() {
   if (!("serviceWorker" in navigator) || !document.body.classList.contains("home-body")) return;
 
-  const homeImagePaths = [
-    "/assets/c-home-v2/角色.png",
-    "/assets/c-home-v2/我京入口.png?v=20260713-2",
-    "/assets/c-home-v2/首页入口.png",
-    "/assets/c-home-v2/ai入口-user-latest.png",
-    "/assets/c-home-v2/通用箭头.png",
-  ];
-  const cacheName = "portfolio-home-images-v6";
-  const warmupKey = "__PORTFOLIO_HOME_IMAGE_WARMUP__";
-
-  const toAbsoluteUrl = (path) => new URL(path, window.location.origin).href;
-
   navigator.serviceWorker
     .register("/sw.js", { updateViaCache: "none" })
-    .then(() => {
-      if (!("caches" in window) || window[warmupKey]) {
-        return;
-      }
-      window[warmupKey] = true;
-
-      const warmHomeImageCache = async () => {
-        const cache = await window.caches.open(cacheName);
-        await Promise.allSettled(
-          homeImagePaths.map(async (path) => {
-            const request = new Request(toAbsoluteUrl(path), { cache: "force-cache" });
-            const cached = await cache.match(request);
-            if (cached) return;
-
-            const response = await fetch(request);
-            if (response.ok) {
-              await cache.put(request, response.clone());
-            }
-          }),
-        );
-      };
-
-      const scheduleWarmup = () => {
-        if ("requestIdleCallback" in window) {
-          window.requestIdleCallback(() => warmHomeImageCache(), { timeout: 2500 });
-        } else {
-          window.setTimeout(warmHomeImageCache, 1200);
-        }
-      };
-
-      if (document.readyState === "complete") {
-        scheduleWarmup();
-      } else {
-        window.addEventListener("load", scheduleWarmup, { once: true });
-      }
+    .then((registration) => {
+      registration.update();
+      if (!("caches" in window)) return;
+      return window.caches.keys().then((cacheNames) =>
+        Promise.all(
+          cacheNames
+            .filter((cacheName) => cacheName.startsWith("portfolio-home-images-"))
+            .map((cacheName) => window.caches.delete(cacheName)),
+        ),
+      );
     })
     .catch(() => {
-      // Browser cache still works when Service Worker registration is unavailable.
+      // The site remains usable when Service Worker cleanup is unavailable.
     });
 }
 

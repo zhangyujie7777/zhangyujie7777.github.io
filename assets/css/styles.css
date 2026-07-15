@@ -3948,7 +3948,7 @@ body.myjd-case-body .myjd-project-badge {
   height: clamp(30px, 2.5vw, 42px);
   flex: 0 0 auto;
   border-radius: 0;
-  background: url("../detail-cases/title-question-icon.png") center / contain no-repeat;
+  background: url("../detail-cases/title-question-icon.png?v=20260715-final-1") center / contain no-repeat;
   box-shadow: none;
   image-rendering: pixelated;
 }
@@ -4541,7 +4541,7 @@ body.myjd-case-body .myjd-redo-project-badge {
   width: 32px;
   height: 32px;
   flex: 0 0 auto;
-  background: url("../detail-cases/title-question-icon.png") center / contain no-repeat;
+  background: url("../detail-cases/title-question-icon.png?v=20260715-final-1") center / contain no-repeat;
   image-rendering: pixelated;
 }
 
@@ -8019,7 +8019,7 @@ body.home-body .c-home-marquee {
   }
 
   body.myjd-case-body .project-page-header.myjd-page-header img {
-    content: url("../jd-case/project-header-mobile.png");
+    content: url("../jd-case/project-header-mobile.png?v=20260715-final-1");
     width: 100%;
     height: auto;
   }
