@@ -7600,11 +7600,22 @@ body.home-body .c-home-key .home-showcase-card img.home-showcase-card__disc {
   object-fit: contain;
 }
 
-/* Fixed skill-strip viewport; only the inner track moves. */
+/*
+ * Keep the server-rendered labels horizontal on the first paint. The motion
+ * script replaces those direct children with a viewport/track wrapper; until
+ * that happens, switching this container to block would stack every label.
+ */
 .c-home-eye-strip {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   overflow: visible;
   contain: layout;
+}
+
+/* Fixed skill-strip viewport; only the inner track moves after setup. */
+.c-home-eye-strip[data-motion-ready="true"] {
+  display: block;
 }
 
 .c-home-eye-strip__viewport {
@@ -10844,10 +10855,11 @@ body.home-body .c-home-portrait__folder {
   body.home-body .c-home-key .home-showcase {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: 160px 192px !important;
     column-gap: 12px !important;
     row-gap: 0 !important;
     width: 100% !important;
-    height: auto !important;
+    height: 352px !important;
     margin-top: 12px !important;
   }
 
@@ -10856,14 +10868,14 @@ body.home-body .c-home-portrait__folder {
   body.home-body .c-home-key .home-showcase-card--myjd,
   body.home-body .c-home-key .home-showcase-card--ai {
     width: 100% !important;
-    height: auto !important;
+    height: 192px !important;
     min-width: 0 !important;
   }
 
   body.home-body .c-home-key .home-showcase-card--myjd {
     grid-column: 1 / -1 !important;
     width: calc((100% - 12px) / 2) !important;
-    height: 167px !important;
+    height: 192px !important;
     justify-self: center !important;
   }
 
@@ -10881,9 +10893,9 @@ body.home-body .c-home-portrait__folder {
   body.home-body .c-home-key .home-showcase-card strong {
     width: 100% !important;
     margin-top: 8px !important;
-    font-size: 11px !important;
+    font-size: 12px !important;
     font-weight: 400 !important;
-    line-height: 11px !important;
+    line-height: 12px !important;
   }
 
   body.home-body .c-home-key .home-showcase-card__action,
@@ -10934,7 +10946,7 @@ body.home-body .c-home-portrait__folder {
 
   body.home-body .c-home-more .home-more-card__body {
     width: 100% !important;
-    height: 99px !important;
+    height: 96px !important;
     padding: 12px !important;
   }
 
@@ -10988,8 +11000,8 @@ body.home-body .c-home-portrait__folder {
 
   body.home-body .c-home-ending strong {
     width: auto !important;
-    font-size: 16px !important;
-    line-height: 15px !important;
+    font-size: 12px !important;
+    line-height: 8px !important;
   }
 
   body.home-body .c-home-resume__icon--desktop {
@@ -11069,19 +11081,20 @@ body.home-body .c-home-resume__icon--mobile {
   }
 
   body.home-body .c-home-key__cn {
-    height: 11px !important;
+    height: 12px !important;
     margin-top: 12px !important;
     overflow: hidden !important;
-    font-size: 11px !important;
-    line-height: 11px !important;
+    font-size: 12px !important;
+    line-height: 12px !important;
   }
 
   body.home-body .c-home-key__intro .c-home-key__en {
-    height: 28px !important;
+    height: 45px !important;
     margin-top: 12px !important;
     overflow: hidden !important;
-    font-size: 8px !important;
-    line-height: 14px !important;
+    color: #4d4d4d !important;
+    font-size: 10px !important;
+    line-height: 15px !important;
   }
 
   body.home-body .c-home-key .home-showcase {
@@ -11120,15 +11133,23 @@ body.home-body .c-home-resume__icon--mobile {
   body.home-body .c-home-more .home-more-card__copy small {
     height: 28px !important;
     color: #4d4d4d !important;
-    font-size: 8px !important;
+    font-size: 10px !important;
     line-height: 14px !important;
   }
 
   body.home-body .c-home-more .home-more-card__copy strong {
-    height: 11px !important;
+    height: 12px !important;
     color: #fff !important;
-    font-size: 11px !important;
-    line-height: 11px !important;
+    font-size: 12px !important;
+    line-height: 12px !important;
+  }
+
+  body.home-body .c-home-more .home-more-card:nth-child(n + 3) .home-more-card__action {
+    top: 11px !important;
+  }
+
+  body.home-body .c-home-more .home-more-card:nth-child(n + 3) .home-more-card__copy {
+    top: 35px !important;
   }
 }
 
@@ -11158,9 +11179,9 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
   background: #161616;
 }
 
-/* Detail pages — dedicated mobile composition from Figma 461:16833.
-   This final contract replaces the earlier proportional mobile fallback while
-   preserving each project's existing content and artwork. */
+/* Detail pages — dedicated mobile composition from the latest Figma 461:16833.
+   Typography and spacing are shared by every detail page while each project's
+   existing content, artwork and desktop composition remain unchanged. */
 @media (max-width: 600px) {
   body.myjd-case-body {
     overflow-x: hidden !important;
@@ -11198,21 +11219,21 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
 
   body.myjd-case-body .myjd-redo-project-head {
     gap: 8px !important;
-    min-height: 13px !important;
+    min-height: 16px !important;
   }
 
   body.myjd-case-body .myjd-project-badge,
   body.myjd-case-body .myjd-redo-project-badge {
-    flex: 0 0 13px !important;
-    width: 13px !important;
-    height: 13px !important;
+    flex: 0 0 16px !important;
+    width: 16px !important;
+    height: 16px !important;
   }
 
   body.myjd-case-body .myjd-redo-project-title {
     margin: 0 !important;
-    font-size: 13px !important;
+    font-size: 16px !important;
     font-weight: 500 !important;
-    line-height: 13px !important;
+    line-height: 16px !important;
     letter-spacing: 0 !important;
   }
 
@@ -11222,26 +11243,26 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
   }
 
   body.myjd-case-body .myjd-redo-row-head {
-    gap: 4px !important;
-    min-height: 13px !important;
+    gap: 12px !important;
+    min-height: 16px !important;
   }
 
   body.myjd-case-body .myjd-redo-row-index {
     flex: 0 0 29px !important;
     width: 29px !important;
     height: 13px !important;
-    font-size: 13px !important;
+    font-size: 16px !important;
     font-weight: 400 !important;
-    line-height: 13px !important;
+    line-height: 16px !important;
     letter-spacing: -1px !important;
-    transform: none !important;
+    transform: translateY(-1px) !important;
   }
 
   body.myjd-case-body .myjd-redo-row-title {
     margin: 0 !important;
-    font-size: 11px !important;
-    font-weight: 400 !important;
-    line-height: 11px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    line-height: 12px !important;
     letter-spacing: 0 !important;
   }
 
@@ -11283,30 +11304,38 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
   }
 
   body.myjd-case-body .myjd-redo-card-title-wrap {
-    min-height: 12px !important;
+    min-height: 16px !important;
     gap: 4px !important;
+  }
+
+  body.myjd-case-body .myjd-redo-card-grid--three > .myjd-redo-card:nth-child(-n + 2) .myjd-redo-card-title-wrap {
+    gap: 8px !important;
   }
 
   body.myjd-case-body .myjd-card-emoji,
   body.myjd-case-body .myjd-redo-card-title-wrap img {
-    flex: 0 0 12px !important;
-    width: 12px !important;
-    height: 12px !important;
-    font-size: 12px !important;
-    line-height: 12px !important;
+    flex: 0 0 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 16px !important;
+    line-height: 16px !important;
   }
 
   body.myjd-case-body .myjd-redo-card-title {
     margin: 0 !important;
-    font-size: 10px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
-    line-height: 10px !important;
+    line-height: 12px !important;
     letter-spacing: 0 !important;
   }
 
   body.myjd-case-body .myjd-redo-copy,
   body.myjd-case-body .myjd-redo-copy--meta {
-    gap: 4px !important;
+    gap: 8px !important;
+  }
+
+  body.myjd-case-body .myjd-redo-card--tint-yellow .myjd-redo-copy {
+    padding-bottom: 0 !important;
   }
 
   body.myjd-case-body .myjd-redo-copy p,
@@ -11314,16 +11343,15 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
     margin: 0 !important;
     color: #fff !important;
     -webkit-text-fill-color: #fff !important;
-    font-size: 10px !important;
+    font-size: 12px !important;
     font-weight: 300 !important;
     line-height: 16px !important;
     letter-spacing: 0 !important;
   }
 
-  body.myjd-case-body .myjd-redo-card-grid--three > .myjd-redo-card:nth-child(3) .myjd-redo-copy p,
-  body.myjd-case-body .myjd-redo-card-grid--three > .myjd-redo-card:nth-child(3) .myjd-redo-copy p strong {
-    font-size: 11px !important;
-    line-height: 17px !important;
+  body.myjd-case-body .myjd-redo-card--overview .myjd-redo-copy p,
+  body.myjd-case-body .myjd-redo-card--overview .myjd-redo-copy p strong {
+    line-height: 12px !important;
   }
 
   body.myjd-case-body .myjd-redo-figure-stack {
@@ -11379,7 +11407,7 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
     max-width: calc(50% - 6px) !important;
     min-width: 0 !important;
     height: 16px !important;
-    gap: 6px !important;
+    gap: 8px !important;
     padding: 0 !important;
     color: #fff !important;
     transform: none !important;
@@ -11422,9 +11450,9 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
     overflow: visible !important;
     max-width: none !important;
     color: #fff !important;
-    font-size: 11px !important;
+    font-size: 12px !important;
     font-weight: 400 !important;
-    line-height: 11px !important;
+    line-height: 12px !important;
     letter-spacing: 0 !important;
     text-overflow: clip !important;
     white-space: nowrap !important;
