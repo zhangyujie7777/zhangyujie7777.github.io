@@ -11331,7 +11331,7 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
 
   body.myjd-case-body .myjd-redo-copy,
   body.myjd-case-body .myjd-redo-copy--meta {
-    gap: 8px !important;
+    gap: 0 !important;
   }
 
   body.myjd-case-body .myjd-redo-card--tint-yellow .myjd-redo-copy {
@@ -11345,13 +11345,13 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
     -webkit-text-fill-color: #fff !important;
     font-size: 12px !important;
     font-weight: 300 !important;
-    line-height: 16px !important;
+    line-height: 18px !important;
     letter-spacing: 0 !important;
   }
 
   body.myjd-case-body .myjd-redo-card--overview .myjd-redo-copy p,
   body.myjd-case-body .myjd-redo-card--overview .myjd-redo-copy p strong {
-    line-height: 12px !important;
+    line-height: 18px !important;
   }
 
   body.myjd-case-body .myjd-redo-figure-stack {
