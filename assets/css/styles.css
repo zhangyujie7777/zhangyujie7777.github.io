@@ -11528,3 +11528,22 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
     opacity: 1 !important;
   }
 }
+
+/* Some iPad/Android tablet browsers expose a desktop-sized CSS viewport even
+   though the device is touch-first. Keep those modes on the same complete,
+   centered tablet composition instead of letting the desktop canvas clip. */
+@media (hover: none) and (pointer: coarse) and (min-width: 601px) and (max-width: 1600px) {
+  body.home-body {
+    overflow-x: hidden !important;
+    touch-action: pan-x pan-y pinch-zoom;
+  }
+
+  body.home-body .c-home-stage {
+    width: 1080px !important;
+    margin-left: 50% !important;
+    margin-right: 0 !important;
+    transform: translateX(-50%) scale(clamp(0.6, calc((100vw - 32px) / 1080), 1)) !important;
+    transform-origin: top center !important;
+    margin-bottom: 0 !important;
+  }
+}
