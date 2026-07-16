@@ -11458,3 +11458,40 @@ body.myjd-case-body .myjd-redo-figure.myjd-redo-figure--designed-card {
     white-space: nowrap !important;
   }
 }
+
+/* Final homepage Figma lock: keep these download dimensions after all legacy
+   homepage rules, while leaving the existing mobile composition untouched. */
+@media (min-width: 601px) {
+  body.home-body .c-home-downloads {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-top: 36px !important;
+  }
+
+  body.home-body .c-home-downloads .c-home-resume {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    width: 140px !important;
+    height: 68px !important;
+    margin-top: 0 !important;
+    padding: 24px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    background: #fc0 !important;
+  }
+
+  body.home-body .c-home-downloads .c-home-portfolio {
+    width: 156px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body.home-body .c-home-downloads {
+    display: contents !important;
+  }
+
+  body.home-body .c-home-downloads .c-home-portfolio {
+    display: none !important;
+  }
+}
